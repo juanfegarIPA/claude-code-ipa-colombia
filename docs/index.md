@@ -73,4 +73,4 @@ Revisa lo que te llame la atención, hazte preguntas, y si algo te interesa, pru
 
 ---
 
-*Preparado por Juan Felipe García, Country Director, IPA Colombia | Abril 2026*
+*Preparado por Juan Felipe García, Country Director, IPA Colombia — con apoyo de Claude | Abril 2026*

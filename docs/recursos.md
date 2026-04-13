@@ -31,4 +31,4 @@ Estamos construyendo una comunidad de práctica alrededor de Claude Code. La ide
 
 ---
 
-*IPA Colombia | Abril 2026*
+*Juan Felipe García, con apoyo de Claude · IPA Colombia · Abril 2026*

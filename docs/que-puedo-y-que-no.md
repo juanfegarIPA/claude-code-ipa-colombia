@@ -1,6 +1,6 @@
 # Qué puedo y qué no puedo hacer con Claude — Referencia Rápida
 
-**IPA Colombia | Abril 2026**
+**Juan Felipe García, con apoyo de Claude · IPA Colombia · Abril 2026**
 **Alineado con:** IPA AI Usage Guidelines v1.0 (marzo 2026)
 **Licencia requerida:** Claude Enterprise (asignada por IPA)
 

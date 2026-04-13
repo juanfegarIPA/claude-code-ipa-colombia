@@ -1,0 +1,33 @@
+/* IPA Brand Colors — from IPA-BrandGuide.pdf */
+
+:root,
+[data-md-color-scheme="default"] {
+  --md-primary-fg-color: #155240;         /* Dark Green */
+  --md-primary-fg-color--light: #49ac57;  /* IPA Green */
+  --md-primary-fg-color--dark: #0e3a2d;
+  --md-accent-fg-color: #f26529;          /* Red-Orange */
+  --md-typeset-a-color: #155240;
+}
+
+[data-md-color-scheme="slate"] {
+  --md-primary-fg-color: #49ac57;         /* IPA Green */
+  --md-primary-fg-color--light: #6bc475;
+  --md-primary-fg-color--dark: #155240;
+  --md-accent-fg-color: #f26529;
+}
+
+/* Headings in Georgia per IPA brand */
+.md-typeset h1,
+.md-typeset h2,
+.md-typeset h3 {
+  font-family: Georgia, "Times New Roman", serif;
+}
+
+/* Navigation and header refinements */
+.md-header {
+  background-color: #155240;
+}
+
+.md-tabs {
+  background-color: #155240;
+}

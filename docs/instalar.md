@@ -12,17 +12,31 @@ Tiempo estimado: 10-15 minutos.
 
 ---
 
-## Paso 2: Instala Node.js
+## Paso 2: Elige cómo usar Claude Code
 
-Claude Code necesita Node.js para funcionar. Descárgalo desde [nodejs.org](https://nodejs.org/) y elige la versión **LTS** (Long Term Support).
+Claude Code se puede usar de tres formas. Todas funcionan con tu licencia Enterprise:
 
-Instálalo con las opciones por defecto.
+| Forma | Qué es | Para quién |
+|-------|--------|------------|
+| **Aplicación de escritorio** | App para Windows/Mac. Interfaz visual, sin terminal. | Recomendado para empezar |
+| **Terminal (CLI)** | Línea de comandos. Máxima flexibilidad y poder. | Usuarios avanzados |
+| **Web (claude.ai/code)** | Desde el navegador, sin instalar nada. | Para probar rápido |
 
----
+!!! tip "¿Cuál usar?"
+    La **aplicación de escritorio** es la forma más sencilla de empezar. Tiene la misma capacidad que la terminal pero con una interfaz más amigable. El CD de IPA Colombia usa la terminal porque permite automatizar flujos más complejos, pero no es necesario para aprovechar Claude Code.
 
-## Paso 3: Instala Claude Code
+### Opción A: Aplicación de escritorio (recomendada)
 
-Abre una terminal:
+1. Descárgala desde [claude.ai/download](https://claude.ai/download) (disponible para Windows y Mac)
+2. Instálala con las opciones por defecto
+3. Ábrela e inicia sesión con tu correo @poverty-action.org
+4. Salta al **Paso 3**
+
+### Opción B: Terminal (CLI)
+
+Requiere **Node.js**. Descárgalo desde [nodejs.org](https://nodejs.org/) (versión LTS) e instálalo con las opciones por defecto.
+
+Luego abre una terminal:
 
 === "Windows"
     Busca **Terminal** o **PowerShell** en el menú de inicio
@@ -42,22 +56,32 @@ Verifica que se instaló:
 claude --version
 ```
 
----
+### Opción C: Web
 
-## Paso 4: Crea tu workspace
-
-```bash
-mkdir -p ~/Documents/Claude
-cd ~/Documents/Claude
-```
+Ve a [claude.ai/code](https://claude.ai/code) e inicia sesión con tu correo de IPA. No necesitas instalar nada.
 
 ---
 
-## Paso 5: Crea tu CLAUDE.md
+## Paso 3: Crea tu workspace
+
+Tu workspace es una carpeta en tu computador donde Claude Code guardará contexto y archivos. Puedes crearla donde quieras. Ejemplo:
+
+=== "Desktop app"
+    Al abrir la app, te pedirá elegir una carpeta. Crea una carpeta `Claude` en tus Documentos y selecciónala.
+
+=== "Terminal"
+    ```bash
+    mkdir -p ~/Documents/Claude
+    cd ~/Documents/Claude
+    ```
+
+---
+
+## Paso 4: Crea tu CLAUDE.md
 
 El archivo `CLAUDE.md` es lo que le da contexto a Claude sobre quién eres. Crea un archivo con ese nombre en tu carpeta de workspace.
 
-Puedes usar la plantilla [claude-md-starter.md](plantillas.md) como punto de partida. Lo mínimo es:
+Puedes usar la plantilla [CLAUDE.md starter](plantillas.md) como punto de partida. Lo mínimo es:
 
 ```markdown
 # Mi Workspace — Claude Code
@@ -79,12 +103,16 @@ Puedes usar la plantilla [claude-md-starter.md](plantillas.md) como punto de par
 
 ---
 
-## Paso 6: Tu primera conversación
+## Paso 5: Tu primera conversación
 
-```bash
-cd ~/Documents/Claude
-claude
-```
+=== "Desktop app"
+    Abre la app y asegúrate de que tu workspace esté seleccionado. Claude leerá tu CLAUDE.md automáticamente.
+
+=== "Terminal"
+    ```bash
+    cd ~/Documents/Claude
+    claude
+    ```
 
 La primera vez te pedirá autenticarte con tu cuenta de IPA.
 
@@ -101,8 +129,9 @@ Prueba algo concreto:
 
 | Problema | Solución |
 |----------|----------|
-| `npm: command not found` | Node.js no se instaló correctamente. Reinicia la terminal e intenta de nuevo. |
-| `claude: command not found` | Ejecuta `npm install -g @anthropic-ai/claude-code` de nuevo. |
+| No encuentro la app de escritorio | Descárgala desde [claude.ai/download](https://claude.ai/download) |
+| `npm: command not found` (solo terminal) | Node.js no se instaló correctamente. Reinicia la terminal e intenta de nuevo. |
+| `claude: command not found` (solo terminal) | Ejecuta `npm install -g @anthropic-ai/claude-code` de nuevo. |
 | Error de autenticación | Verifica que estás usando tu correo @poverty-action.org. |
 
 Para problemas técnicos, la documentación oficial está en [docs.anthropic.com](https://docs.anthropic.com/en/docs/claude-code).

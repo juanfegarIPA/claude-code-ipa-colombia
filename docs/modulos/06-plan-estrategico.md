@@ -29,6 +29,12 @@ IPA Colombia tiene un plan estratégico 2026 con 3 pilares, 14 metas, múltiples
 - Cruza lo que encuentra vs. lo que se esperaba → genera diagnóstico por meta
 - Produce reportes en múltiples formatos → cada audiencia recibe lo que necesita
 
+## Ver ejemplo
+
+El sistema genera un HTML ejecutivo navegable con filtros por pilar, semáforo y búsqueda libre. Puedes ver una versión demo (con datos anonimizados) aquí:
+
+[:octicons-arrow-right-24: Ver dashboard de monitoreo (demo)](../ejemplos/monitoreo-demo.html){target="_blank"}
+
 ## La lección
 
 El plan estratégico existía antes de Claude Code. Las carpetas en Box existían. Lo que faltaba era un puente entre los datos dispersos y la acción coordinada. Claude Code no reemplaza el plan ni la gestión humana — automatiza la parte mecánica (escanear, cruzar, formatear) para que el CD se enfoque en lo que importa: interpretar, decidir y comunicar.
