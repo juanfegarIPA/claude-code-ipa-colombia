@@ -1,0 +1,71 @@
+site_name: Claude Code — IPA Colombia
+site_description: Guía práctica para managers de IPA Colombia
+site_url: https://juanfegaripa.github.io/claude-code-ipa-colombia/
+
+theme:
+  name: material
+  language: es
+  palette:
+    - scheme: default
+      primary: teal
+      accent: amber
+      toggle:
+        icon: material/brightness-7
+        name: Cambiar a modo oscuro
+    - scheme: slate
+      primary: teal
+      accent: amber
+      toggle:
+        icon: material/brightness-4
+        name: Cambiar a modo claro
+  font:
+    text: Inter
+    code: Fira Code
+  features:
+    - navigation.instant
+    - navigation.tracking
+    - navigation.sections
+    - navigation.top
+    - navigation.footer
+    - search.suggest
+    - search.highlight
+    - content.tabs.link
+    - toc.integrate
+
+plugins:
+  - search:
+      lang: es
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - tables
+  - attr_list
+  - md_in_html
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+
+nav:
+  - Inicio: index.md
+  - Instalar Claude Code: instalar.md
+  - Qué puedo y qué no: que-puedo-y-que-no.md
+  - Módulos:
+    - Índice: modulos/index.md
+    - Comunicaciones: modulos/01-comunicaciones.md
+    - Gestión de tareas: modulos/02-gestion-de-tareas.md
+    - Knowledge Base: modulos/03-knowledge-base.md
+    - Presentaciones IPA: modulos/04-presentaciones-ipa.md
+    - Revisión semanal: modulos/05-revision-semanal.md
+    - "Ejemplo: Plan estratégico": modulos/06-plan-estrategico.md
+    - "Ejemplo: Análisis CEA": modulos/07-analisis-cea.md
+  - Plantillas: plantillas.md
+  - Recursos: recursos.md
+
+extra:
+  social: []
+
+copyright: IPA Colombia | Abril 2026
