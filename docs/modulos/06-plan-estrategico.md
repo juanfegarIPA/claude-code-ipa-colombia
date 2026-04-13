@@ -15,12 +15,12 @@ IPA Colombia tiene un plan estratégico 2026 con 3 pilares, 14 metas, múltiples
 
 ### Fase 1: Infraestructura (completada)
 - El Excel fuente en Box tiene la versión limpia del plan (14 metas, indicadores, responsables)
-- Claude Code leyó el Excel, generó una configuración de metas (`metas-config.json`), y creó 74 carpetas en Box con estructura estandarizada para seguimiento
+- Claude Code leyó el Excel, generó una configuración de metas, y creó 74 carpetas en Box con estructura estandarizada para seguimiento
 - Se generó una guía de uso en Word para el equipo
 
 ### Fase 2: Monitoreo mensual (operativa)
-- Un skill (`/monitoreo`) escanea las carpetas de Box, lee los documentos que el equipo sube, y detecta señales de avance o estancamiento
-- Genera tres outputs: un snapshot en JSON (datos crudos), un Excel de monitoreo, y un HTML ejecutivo navegable
+- Un comando en Claude Code escanea las carpetas de Box, lee los documentos que el equipo sube, y detecta señales de avance o estancamiento
+- Genera tres productos: un archivo de datos internos, un Excel de monitoreo, y un dashboard HTML navegable (ver ejemplo abajo)
 - El CD revisa el HTML, agrega observaciones cualitativas, y comparte con el equipo
 
 ### Lo que Claude Code hace concretamente
@@ -48,3 +48,10 @@ Si gestionas un proyecto con múltiples componentes, responsables y fuentes de i
 - Mantener la conexión entre el plan y la ejecución
 
 No necesitas 14 metas para que esto tenga valor. Un proyecto con 3 componentes y un Excel de seguimiento ya es suficiente.
+
+## Cómo empezar con algo parecido
+
+1. Piensa en un proyecto que gestiones donde haya un Excel o carpeta de seguimiento
+2. Abre Claude Code y dile: "Lee este archivo [ruta al Excel o carpeta] y dime: qué ha avanzado, qué está pendiente, y qué necesita atención"
+3. Claude te dará un diagnóstico. A partir de ahí puedes pedirle un reporte formateado, un mensaje para el equipo, o un resumen ejecutivo
+4. No necesitas construir un sistema completo. Empieza con una consulta y ve creciendo según te sirva

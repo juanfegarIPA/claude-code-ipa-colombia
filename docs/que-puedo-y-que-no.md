@@ -43,7 +43,7 @@ Antes de poner cualquier información de IPA en Claude, hazte esta pregunta:
 ### Propuestas y fundraising
 
 - **Sí**: desarrollo de narrativa, framing estratégico, investigación de literatura
-- **Sí**: usar Claude Projects de IPA para templates y análisis de RFPs
+- **Sí**: usar templates institucionales como referencia para análisis de RFPs
 - **Cuidado**: no incluir cifras específicas de presupuesto o metodología propietaria sin verificar que el grant lo permita
 - **Cuidado**: si no estás seguro de los términos del grant, consulta con Legal antes
 

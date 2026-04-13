@@ -18,6 +18,8 @@ El resultado: entre más lo usas, mejor escribe como tú.
 
 ## Cómo está construido
 
+El workspace del CD tiene una carpeta dedicada a este módulo:
+
 ```
 msg-writer/
 ├── references/
@@ -28,10 +30,15 @@ msg-writer/
 │   ├── index.json            # Índice buscable de todos los mensajes
 │   └── [150+ archivos .md]   # Mensajes aprobados como referencia
 └── scripts/
-    └── deliver.js            # Convierte markdown → HTML con formato, copia al clipboard
+    └── deliver.js            # Convierte texto → HTML con formato, copia al portapapeles
 ```
 
-Claude lee la referencia de voz y las últimas correcciones antes de cada borrador. Al entregar, el script convierte el markdown a HTML con formato y lo copia al clipboard listo para pegar en Teams o Gmail.
+!!! note "Glosario rápido"
+    - **`.md` (markdown)**: archivos de texto con formato simple. Los puedes crear con cualquier editor de texto (Notepad, TextEdit). Claude Code los lee y escribe nativamente.
+    - **`.json`**: formato de datos estructurado que Claude Code genera y lee automáticamente. No necesitas editarlo a mano.
+    - **script (`.js`)**: un programa pequeño que automatiza una tarea. En este caso, `deliver.js` convierte tu borrador de texto en un mensaje con formato listo para pegar en Teams o Gmail.
+
+Claude lee la referencia de voz y las últimas correcciones antes de cada borrador. Al entregar, el script convierte el texto a HTML con formato y lo copia al portapapeles.
 
 ## Ejemplo real
 

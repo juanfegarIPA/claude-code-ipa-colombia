@@ -79,7 +79,9 @@ Tu workspace es una carpeta en tu computador donde Claude Code guardará context
 
 ## Paso 4: Crea tu CLAUDE.md
 
-El archivo `CLAUDE.md` es lo que le da contexto a Claude sobre quién eres. Crea un archivo con ese nombre en tu carpeta de workspace.
+El archivo `CLAUDE.md` es un archivo de texto que le da contexto a Claude sobre quién eres, qué haces y qué reglas seguir. Piensa en él como una "tarjeta de presentación permanente" que Claude lee cada vez que inicias una conversación. Es lo que hace que Claude te dé respuestas relevantes a tu trabajo en vez de respuestas genéricas.
+
+Para crearlo: abre cualquier editor de texto (Notepad, TextEdit), escribe el contenido, y guárdalo en tu carpeta de workspace con el nombre exacto `CLAUDE.md`.
 
 Puedes usar la plantilla [CLAUDE.md starter](plantillas.md) como punto de partida. Lo mínimo es:
 

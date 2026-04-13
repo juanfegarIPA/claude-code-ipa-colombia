@@ -27,9 +27,7 @@ Contenido actual:
 - **2 verticals**: portafolios temáticos (líneas de crecimiento con varios actores)
 - **Pipeline dashboard** (`_pipeline.md`): estado de oportunidades activas
 
-Se puede navegar de dos formas:
-- Como vault de **Obsidian** (los archivos tienen wikilinks y se puede ver el grafo de conexiones)
-- Con **Claude Code** apuntando a la ruta de Box (Claude lee los archivos y responde preguntas)
+Se puede consultar con **Claude Code**: le dices la ruta de la carpeta en Box y Claude lee los archivos para responder tus preguntas.
 
 ## Cómo consultar el KB con Claude Code
 
@@ -68,7 +66,8 @@ Esta visión no necesita implementarse toda de una vez. Se construye incremental
 
 ## Cómo empezar
 
-1. Verifica que tienes acceso a la carpeta de Box (`CO BD Knowledge Base/`)
-2. Copia la plantilla [`kb-consulta-starter.md`](../plantillas.md) a tu workspace
-3. Abre Claude Code y hazle una pregunta sobre el KB
-4. Si encuentras información desactualizada o faltante, avísale al equipo de BD para actualizar
+1. Verifica que tienes **Box Drive** instalado y sincronizado en tu computador. Si no lo tienes, descárgalo desde [box.com/drive](https://www.box.com/drive) o pídele al helpdesk que te ayude a configurarlo.
+2. Verifica que puedes ver la carpeta `CO BD Knowledge Base/` dentro de Box
+3. Copia la plantilla [`kb-consulta-starter.md`](../plantillas.md) a tu workspace (ajusta la ruta de Box a tu usuario)
+4. Abre Claude Code y hazle una pregunta sobre el KB
+5. Si encuentras información desactualizada o faltante, avísale al equipo de BD para actualizar

@@ -1,15 +1,20 @@
 # Plantillas funcionales
 
-Estos archivos .md son instrucciones operativas que puedes copiar directamente a tu workspace de Claude Code. Claude los lee como contexto y los sigue.
+Estas plantillas son archivos de texto con instrucciones que Claude Code lee automáticamente. Cuando copias una plantilla a tu carpeta de workspace, Claude la usa como contexto para entender quién eres y cómo ayudarte.
 
 ---
 
 ## Cómo usar
 
-1. Descarga o copia el archivo que necesites
-2. Pégalo en tu carpeta de workspace
-3. Edítalo con tu información (nombre, rol, preferencias)
-4. Abre Claude Code en esa carpeta — Claude lo leerá automáticamente
+1. Haz clic en "Ver contenido completo" de la plantilla que te interese
+2. Copia todo el texto que aparece dentro del bloque
+3. Abre un editor de texto (Notepad, TextEdit, o cualquiera) y pega el contenido
+4. Guarda el archivo en tu carpeta de workspace con el nombre indicado (por ejemplo, `CLAUDE.md`)
+5. Edita los campos entre corchetes `[Tu nombre]` con tu información real
+6. Abre Claude Code en esa carpeta y listo: Claude leerá el archivo automáticamente
+
+!!! tip "¿Qué es un archivo .md?"
+    Es un archivo de texto simple (como un .txt) con formato básico. Puedes crearlo con cualquier editor de texto. Lo importante es que el nombre termine en `.md` (por ejemplo, `CLAUDE.md`, no `CLAUDE.md.txt`). En Windows, asegúrate de tener activada la opción "Mostrar extensiones de archivo" en el Explorador.
 
 ---
 
@@ -181,6 +186,136 @@ Ver [Módulo de Knowledge Base](modulos/03-knowledge-base.md) para entender qué
     ### Reglas
     - El KB es un recurso de equipo — no agregar info privada
     - Si la información parece desactualizada, mencionarlo
+    ```
+
+---
+
+### Presentaciones IPA starter
+
+Instrucciones para que Claude Code genere presentaciones .pptx con la marca de IPA aplicada automáticamente.
+
+Ver [Módulo de Presentaciones](modulos/04-presentaciones-ipa.md) para entender la filosofía.
+
+??? note "Ver contenido completo"
+    ```markdown
+    # Presentaciones IPA — Instrucciones para Claude Code
+
+    ## Qué hacer
+
+    Cuando te pida generar una presentación, crea un archivo .pptx
+    usando la librería pptxgenjs (JavaScript) o python-pptx (Python),
+    aplicando la marca de IPA.
+
+    ## Marca IPA — Colores
+
+    Primarios:
+    - IPA Green: #49ac57 (RGB 73,172,87)
+    - Dark Green: #155240 (RGB 21,82,64)
+
+    Secundarios:
+    - Light Gray: #f1f2f2
+    - Charcoal: #414042
+    - Light Blue: #84d0d4
+    - Red-Orange: #f26529
+
+    Usar máximo 3 colores por presentación. Priorizar legibilidad.
+
+    ## Marca IPA — Tipografía
+
+    - Títulos: Georgia Regular
+    - Labels y subtítulos: Arial Bold (mayúsculas en labels)
+    - Cuerpo y bullets: Arial Regular
+
+    ## Reglas de slides
+
+    - Una idea principal por slide
+    - Jerarquía visual clara: título > subtítulo > contenido
+    - Bullets cortos (máximo 2 líneas cada uno)
+    - Datos siempre con fuente citada
+    - Slide de título: tema + fecha + "IPA Colombia"
+    - Slide final: próximos pasos o call to action
+
+    ## Estructura sugerida
+
+    1. Título y fecha
+    2. Contexto / por qué importa
+    3-N. Contenido principal (un tema por slide)
+    N+1. Próximos pasos o cierre
+
+    ## Cómo recibir el brief
+
+    El usuario describe lo que necesita en texto libre.
+    Ejemplo: "Hazme 6 slides sobre X. Slide 1: título.
+    Slide 2: contexto. Slides 3-5: hallazgos. Slide 6: cierre."
+
+    Genera el .pptx en la carpeta de workspace del usuario.
+    ```
+
+---
+
+### Revisión semanal starter
+
+Instrucciones para que Claude Code te ayude a hacer una revisión estructurada de tu semana.
+
+Ver [Módulo de Revisión semanal](modulos/05-revision-semanal.md) para entender la filosofía.
+
+??? note "Ver contenido completo"
+    ```markdown
+    # Revisión semanal — Instrucciones para Claude Code
+
+    ## Qué hacer
+
+    Cada viernes (o cuando el usuario lo pida), facilita una revisión
+    semanal estructurada. El objetivo es dar claridad sobre qué
+    avanzó, qué quedó pendiente, y qué priorizar la próxima semana.
+
+    ## Estructura del review (5 bloques)
+
+    ### 1. Qué logramos
+    - Lista de tareas o compromisos completados esta semana
+    - Agrupar por proyecto si hay varios
+
+    ### 2. Qué está en curso
+    - Tareas activas con su estado actual
+    - Próximo paso concreto para cada una
+
+    ### 3. Qué está bloqueado
+    - Tareas detenidas y por qué
+    - Qué se necesita para desbloquearlas (una decisión, información,
+      una persona)
+
+    ### 4. Balance estratégico
+    - Clasificar las actividades de la semana en:
+      - **Estratégico**: avanzar prioridades del plan o proyectos clave
+      - **Operativo**: mantener la oficina funcionando (procurement,
+        HR, finanzas, reuniones de rutina)
+      - **Reactivo**: responder a lo urgente e inesperado
+    - Estimar el porcentaje aproximado de cada categoría
+    - Comparar con semanas anteriores si hay datos
+
+    ### 5. Decisiones pendientes
+    - Qué necesita atención la próxima semana
+    - Qué priorizar primero
+
+    ## Cómo funciona
+
+    - Presenta cada bloque uno por uno
+    - Espera la reacción del usuario antes de avanzar al siguiente
+    - Si el usuario quiere repriorizar, delegar o cerrar algo,
+      hazlo inmediatamente
+    - Al final, genera un resumen guardado como snapshot semanal
+
+    ## Fuentes de información
+
+    - Si hay un archivo de tareas en el workspace, léelo
+    - Si no, pide al usuario que liste sus compromisos de la semana
+    - Si hay reviews anteriores, compara para identificar tendencias
+
+    ## Reglas
+
+    - Sé directo: di qué avanzó y qué no, sin suavizar
+    - Si algo lleva más de 2 semanas pendiente, señálalo
+    - No agregar tareas nuevas sin que el usuario lo pida
     ```
 
 ---

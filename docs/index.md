@@ -20,13 +20,16 @@ Encontrarás:
 
 ## Qué es Claude Code
 
-Claude Code es una herramienta de terminal que te permite conversar con Claude directamente desde tu computador. A diferencia de claude.ai (el chat web), Claude Code puede:
+Claude Code es una forma de conversar con Claude directamente desde tu computador. Hay una app de escritorio, una versión de terminal y una versión web. A diferencia de claude.ai (el chat web normal), Claude Code puede:
 
-- **Leer y editar archivos** en tu computador
-- **Ejecutar código** que automatiza tareas repetitivas
+- **Leer y editar archivos** en tu computador (documentos, Excel, carpetas)
+- **Generar documentos** (Word, PowerPoint, Excel) listos para compartir
 - **Buscar en tu correo** (con integración de Gmail)
-- **Generar documentos** (Word, PowerPoint, Excel)
-- **Mantener contexto** entre sesiones mediante un archivo CLAUDE.md
+- **Automatizar tareas repetitivas** (reportes, seguimiento, formateo)
+- **Recordar quién eres y cómo trabajas** entre sesiones, mediante un archivo de contexto llamado CLAUDE.md
+
+!!! tip "¿Necesito saber programar?"
+    No. La app de escritorio tiene una interfaz visual donde conversas con Claude igual que en un chat. La diferencia es que Claude puede acceder a tus archivos locales y generar documentos. Si ya has usado Claude o ChatGPT en el navegador, Claude Code es el siguiente paso.
 
 !!! info "Lo que NO es"
     No reemplaza tu criterio. No es almacenamiento. No es un motor de búsqueda. Siempre revisa lo que produce.

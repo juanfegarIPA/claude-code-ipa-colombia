@@ -18,15 +18,15 @@ La pregunta central: ¿cuál es el retorno de invertir en un laboratorio que mej
 - Cada decisión metodológica se registró en un log de decisiones para trazabilidad
 
 ### Modelamiento
-- El modelo vive en un Excel (`cea-lab-icbf.xlsx`) con escenarios, supuestos y fórmulas
-- Claude Code generó el Excel usando Python (openpyxl) con colores por tipo de celda y fórmulas con referencias reales
+- El modelo vive en un Excel con escenarios, supuestos y fórmulas
+- Claude Code generó el Excel con colores por tipo de celda y fórmulas funcionales
 - Se pueden correr escenarios cambiando los supuestos sin reconstruir el modelo
 
 ### Documentos
-- Los entregables se escriben como markdown en el workspace (fáciles de editar y versionar)
-- Un script de Node.js convierte los .md a Word (.docx) automáticamente, con formato profesional
-- Los .docx se copian a Box para compartir con el equipo
-- La presentación se generó con pptxgenjs aplicando marca IPA
+- Los entregables se escriben primero como texto en el workspace (fáciles de editar)
+- Claude Code los convierte automáticamente a Word (.docx) con formato profesional
+- Los documentos finales se copian a Box para compartir con el equipo
+- La presentación se generó con marca IPA aplicada automáticamente
 
 ### Flujo dual: workspace + Box
 | Lugar | Formato | Propósito |
@@ -57,3 +57,10 @@ Si trabajas en proyectos que requieren investigación, análisis y documentos t�
 - Producir presentaciones para distintas audiencias desde un mismo brief
 
 No necesitas que tu proyecto sea tan técnico como un CEA. Si tienes un análisis que requiere documentos para distintas audiencias, Claude Code te ahorra horas de formato.
+
+## Cómo empezar con algo parecido
+
+1. Si tienes un análisis, informe o documento técnico en curso, abre Claude Code con ese archivo en tu workspace
+2. Pídele a Claude: "Lee este documento y genera un resumen ejecutivo de una página en Word" o "Convierte este análisis en una presentación de 5 slides"
+3. Claude generará el archivo (.docx o .pptx) que puedes abrir, revisar y compartir
+4. Si necesitas investigación: "Busca literatura reciente sobre [tema] y hazme una síntesis de los 5 hallazgos más relevantes"

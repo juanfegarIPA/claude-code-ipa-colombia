@@ -16,14 +16,6 @@ Una revisión semanal en 5 bloques que conecta las tareas concretas con la direc
 
 El review es conversacional: Claude presenta cada bloque, tú reaccionas, tomas decisiones y Claude las ejecuta (repriorizar, delegar, cerrar).
 
-## Cómo está construido
-
-El weekly review usa dos fuentes:
-- **Task manager** (`tasks.json`): todas las tareas con sus estados y proyectos
-- **Contexto estratégico** (`strategy-context.json`): mapeo de proyectos a pilares del plan estratégico, para clasificar cada tarea como estratégica, operativa o reactiva
-
-El output es un archivo markdown con el reporte completo que se guarda como snapshot semanal.
-
 ## Ejemplo real
 
 **Prompt:**
@@ -38,10 +30,22 @@ El output es un archivo markdown con el reporte completo que se guarda como snap
 >
 > Comparado con la semana anterior, el balance estratégico subió 10 puntos. La meta es mantenerlo por encima de 40%.
 
+## Cómo está construido
+
+El weekly review usa dos fuentes:
+
+- **Task manager** (`tasks.json`): todas las tareas con sus estados y proyectos
+- **Contexto estratégico** (`strategy-context.json`): un archivo que mapea cada proyecto a un pilar del plan estratégico, para clasificar cada tarea como estratégica, operativa o reactiva
+
+El output es un archivo markdown con el reporte completo que se guarda como snapshot semanal en una carpeta de reviews.
+
+!!! note "Glosario rápido"
+    - **snapshot**: una foto del estado de las cosas en un momento dado. Guardar un snapshot semanal permite ver tendencias con el tiempo.
+    - **estratégico vs. operativo vs. reactivo**: categorías para clasificar tu tiempo. Estratégico = avanzar prioridades del plan. Operativo = mantener la oficina funcionando. Reactivo = responder a lo urgente e inesperado.
+
 ## Cómo empezar
 
-No necesitas un task manager completo para hacer un weekly review. Puedes empezar con algo más simple:
-
-1. Al final de cada semana, pídele a Claude: "Ayúdame a revisar mi semana. Estos fueron mis compromisos: [lista]. Qué avancé, qué no, y qué debería priorizar la próxima semana?"
-2. Si te sirve, puedes ir agregando estructura: un archivo de tareas, categorías (estratégico/operativo/reactivo), y el review se vuelve más preciso.
-3. La clave no es la herramienta sino el hábito de reflexionar sobre tu semana con estructura.
+1. Copia la plantilla [`revision-semanal-starter.md`](../plantillas.md) a tu workspace
+2. No necesitas un task manager completo. Al final de cada semana, pídele a Claude: "Ayúdame a revisar mi semana. Estos fueron mis compromisos: [lista]. Qué avancé, qué no, y qué debería priorizar la próxima semana?"
+3. Si te sirve, puedes ir agregando estructura: un archivo de tareas, categorías (estratégico/operativo/reactivo), y el review se vuelve más preciso
+4. La clave no es la herramienta sino el hábito de reflexionar sobre tu semana con estructura

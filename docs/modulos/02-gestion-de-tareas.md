@@ -18,25 +18,30 @@ No es un sistema para el equipo (para eso hay otras herramientas). Es un sistema
 
 ```
 task-manager/
-├── tasks.json          # Fuente de verdad: todas las tareas en JSON
+├── tasks.json          # Fuente de verdad: todas las tareas en formato JSON
 ├── dashboard.md        # Estado actual generado automáticamente
-├── today.md            # Plan del día (MITs: Most Important Tasks)
+├── today.md            # Plan del día (tareas más importantes)
 ├── reviews/            # Snapshots semanales
 └── README.md           # Guía completa
 
 scripts/
-├── tasks.js            # CLI principal (add, list, update, complete, review, dashboard...)
-├── hook-post-tool-use.js  # Auto-marca tareas in_progress al editar archivos
+├── tasks.js            # CLI principal (agregar, listar, actualizar, completar, revisar...)
+├── hook-post-tool-use.js  # Auto-marca tareas como "en progreso" al editar archivos
 └── hook-stop.js           # Sugiere completar tareas al cerrar sesión
 ```
 
 **Campos clave de cada tarea:**
+
 - `title`, `status` (pending, in_progress, blocked, completed)
 - `priority` (critical, high, medium, low)
-- `project` (ruta al proyecto asociado)
+- `project` (proyecto asociado)
 - `lane` (today, week, backlog)
 - `blocked_by` (IDs de tareas que la bloquean)
-- `owner`, `next_checkin`, `promised_date` (para delegación)
+
+!!! note "Glosario rápido"
+    - **`tasks.json`**: el archivo central donde viven todas las tareas. Claude lo lee y actualiza automáticamente. No necesitas editarlo a mano.
+    - **CLI (Command Line Interface)**: interfaz de línea de comandos. En este caso, un programa que permite crear, listar y actualizar tareas escribiendo comandos en la terminal.
+    - **hook**: una regla automática que se ejecuta cuando algo pasa. Por ejemplo, `hook-post-tool-use.js` detecta cuando editas un archivo de un proyecto y marca la tarea correspondiente como "en progreso" sin que tengas que hacerlo manualmente.
 
 ## Ejemplo real
 
