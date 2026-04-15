@@ -1,5 +1,12 @@
 # Módulo 7: Ejemplo — Análisis de costo-efectividad (CEA)
 
+!!! info "Prerequisitos para replicar algo parecido"
+    - **Software**: Claude Code
+    - **Para documentos Word**: Claude Code genera `.docx` con la librería `docx` de npm (`npm install docx`)
+    - **Para Excel con formato**: Python + openpyxl (`pip install openpyxl`)
+    - **Para presentaciones**: Node.js + pptxgenjs (ver [módulo 4](04-presentaciones-ipa.md))
+    - **Dificultad**: :material-square: :material-square: :material-square: :material-square: :material-square-outline: (proyecto técnico, múltiples herramientas)
+
 ## Qué muestra este ejemplo
 
 Cómo Claude Code funciona como research assistant + generador de documentos para un proyecto analítico técnico: investigación de literatura, modelamiento, y producción de entregables en Word, Excel y PowerPoint.

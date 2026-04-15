@@ -1,5 +1,10 @@
 # Módulo 6: Ejemplo — Seguimiento al plan estratégico
 
+!!! info "Prerequisitos para replicar algo parecido"
+    - **Software**: Claude Code + acceso a Box Drive (si tus archivos están en Box)
+    - **Opcional**: Python + openpyxl (`pip install openpyxl`) si necesitas generar Excels con formato
+    - **Dificultad**: :material-square: :material-square: :material-square: :material-square-outline: :material-square-outline: (depende de la complejidad de tu proyecto)
+
 ## Qué muestra este ejemplo
 
 Cómo Claude Code sirve de puente entre un Excel complejo y outputs accionables: reportes de monitoreo, mensajes al equipo, dashboards de estado. Todo a partir de una fuente de verdad que vive en Box.

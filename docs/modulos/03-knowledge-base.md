@@ -1,5 +1,10 @@
 # Módulo 3: Knowledge Base de Business Development
 
+!!! info "Prerequisitos"
+    - **Software**: [Box Drive](https://www.box.com/drive) instalado y sincronizado
+    - **Acceso**: carpeta `CO BD Knowledge Base/` visible en tu Box
+    - **Dificultad**: :material-square: :material-square: :material-square-outline: :material-square-outline: :material-square-outline: (requiere Box configurado)
+
 ## Qué problema resuelve
 
 La inteligencia relacional del equipo de BD está dispersa: en correos, en carpetas de Box, en la memoria de cada persona. Cuando alguien nuevo entra al equipo, o cuando necesitas recordar el historial con un aliado, no hay un lugar centralizado para consultar.
@@ -66,9 +71,9 @@ Esta visión no necesita implementarse toda de una vez. Se construye incremental
 
 ## Cómo empezar
 
-1. Verifica que tienes **Box Drive** instalado y sincronizado en tu computador. Si no lo tienes, descárgalo desde [box.com/drive](https://www.box.com/drive) o pídele al helpdesk que te ayude a configurarlo.
+1. Verifica que tienes **Box Drive** instalado y sincronizado en tu computador. Si no lo tienes, descárgalo desde [box.com/drive](https://www.box.com/drive) o pídele al helpdesk que te ayude a configurarlo
 2. Verifica que puedes ver la carpeta `CO BD Knowledge Base/` dentro de Box
-3. Copia la plantilla [`kb-consulta-starter.md`](../plantillas.md) a tu workspace (ajusta la ruta de Box a tu usuario)
-4. Agrega la línea del KB a tu `CLAUDE.md` (la plantilla te indica exactamente qué línea agregar y dónde)
-5. Abre Claude Code y hazle una pregunta sobre el KB
+3. Copia la plantilla [`kb-consulta-starter`](../plantillas.md#kb-consulta-starter) a tu workspace como `kb-consulta.md`
+4. Abre Claude Code — él te preguntará tu usuario de Windows para armar la ruta de Box y verificará que tienes acceso. También agregará la línea del KB a tu `CLAUDE.md` si ya lo tienes
+5. Hazle una pregunta sobre el KB: "¿Qué aliados tenemos activos este trimestre?"
 6. Si encuentras información desactualizada o faltante, avísale al equipo de BD para actualizar

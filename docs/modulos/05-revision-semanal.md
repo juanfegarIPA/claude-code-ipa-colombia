@@ -1,5 +1,10 @@
 # Módulo 5: Revisión semanal
 
+!!! info "Prerequisitos"
+    - **Software**: Ninguno adicional — solo Claude Code
+    - **Recomendado**: tener la plantilla de tareas activa (módulo 2) para que Claude tenga datos que revisar
+    - **Dificultad**: :material-square: :material-square: :material-square-outline: :material-square-outline: :material-square-outline: (funciona mejor con historial de tareas)
+
 ## Qué problema resuelve
 
 Las semanas pasan y no siempre hay claridad sobre qué avanzó, qué se quedó sin atención, o si tu tiempo está alineado con tus prioridades estratégicas. Sin una revisión estructurada, lo urgente siempre desplaza lo importante.
@@ -45,7 +50,11 @@ El output es un archivo markdown con el reporte completo que se guarda como snap
 
 ## Cómo empezar
 
-1. Copia la plantilla [`revision-semanal-starter.md`](../plantillas.md) a tu workspace
-2. No necesitas un task manager completo. Al final de cada semana, pídele a Claude: "Ayúdame a revisar mi semana. Estos fueron mis compromisos: [lista]. Qué avancé, qué no, y qué debería priorizar la próxima semana?"
-3. Si te sirve, puedes ir agregando estructura: un archivo de tareas, categorías (estratégico/operativo/reactivo), y el review se vuelve más preciso
-4. La clave no es la herramienta sino el hábito de reflexionar sobre tu semana con estructura
+1. Copia la plantilla [`revisión-semanal-starter`](../plantillas.md#revision-semanal-starter) a tu workspace como `revision-semanal.md`
+2. Abre Claude Code — él te preguntará si ya tienes un archivo de tareas, cuáles son tus proyectos activos, y cada cuándo quieres hacer el review
+3. Cada viernes (o cuando quieras), dile: "Hagamos el weekly review"
+4. Claude presenta cada bloque y espera tu reacción antes de avanzar. Si quieres repriorizar, delegar o cerrar algo, se lo dices y lo ejecuta inmediatamente
+5. Al final, genera un snapshot guardado que puedes consultar la próxima semana
+
+!!! tip "No necesitas un task manager completo"
+    Si no tienes un archivo de tareas estructurado, simplemente dile a Claude tus compromisos de la semana y él hace el review con eso. Si te sirve, puedes ir agregando estructura con el tiempo. La clave no es la herramienta sino el hábito de reflexionar sobre tu semana.

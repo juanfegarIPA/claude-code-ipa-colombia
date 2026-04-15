@@ -1,5 +1,9 @@
 # Módulo 2: Gestión de tareas
 
+!!! info "Prerequisitos"
+    - **Software**: Ninguno adicional — solo Claude Code
+    - **Dificultad**: :material-square: :material-square-outline: :material-square-outline: :material-square-outline: :material-square-outline: (mínima)
+
 ## Qué problema resuelve
 
 Los compromisos se dispersan: algunos quedan en correos, otros en notas de reunión, otros en tu cabeza. Cuando llega viernes, no siempre sabes qué avanzó, qué está bloqueado, o qué se te olvidó. Las herramientas formales de project management (Asana, Monday) son poderosas pero requieren que el equipo las adopte y las mantenga.
@@ -59,7 +63,8 @@ scripts/
 
 ## Cómo empezar
 
-1. Copia la plantilla [`tareas-starter.md`](../plantillas.md) a tu workspace
-2. Empieza simple: pídele a Claude que te ayude a listar tus compromisos de la semana
-3. No necesitas el sistema completo de JSON + hooks para empezar. Claude puede mantener una lista en un archivo .md y ya tienes más estructura que antes.
-4. Si te funciona y quieres escalar, Claude puede ayudarte a construir un sistema más robusto con el tiempo.
+1. Copia la plantilla [`tareas-starter`](../plantillas.md#tareas-starter) a tu workspace como `tareas.md`
+2. Abre Claude Code — él te preguntará tus proyectos activos y compromisos de la semana, y llenará la tabla por ti
+3. Pídele que te ayude a listar tus compromisos pendientes
+4. No necesitas el sistema completo de JSON + hooks para empezar. Claude puede mantener una lista en un archivo .md y ya tienes más estructura que antes
+5. Si te funciona y quieres escalar, Claude puede ayudarte a construir un sistema más robusto con el tiempo

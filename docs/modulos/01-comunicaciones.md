@@ -1,5 +1,9 @@
 # Módulo 1: Comunicaciones
 
+!!! info "Prerequisitos"
+    - **Software**: Ninguno adicional — solo Claude Code
+    - **Dificultad**: :material-square: :material-square-outline: :material-square-outline: :material-square-outline: :material-square-outline: (mínima)
+
 ## Qué problema resuelve
 
 Cuando escribes 50+ mensajes a la semana (emails, Teams, WhatsApp) a audiencias distintas (donantes, equipo, aliados, HQ), mantener un tono consistente y profesional es difícil. Cada mensaje compite con todo lo demás que tienes que hacer, y la calidad baja cuando estás cansado o apurado.
@@ -55,9 +59,9 @@ Claude lee la referencia de voz y las últimas correcciones antes de cada borrad
 
 ## Cómo empezar
 
-1. Copia la plantilla [`comunicaciones-starter.md`](../plantillas.md) a tu workspace
-2. Edítala con tu información: cómo escribes, qué tono usas, qué errores quieres evitar
-3. Pídele a Claude Code que te ayude a redactar un mensaje real
-4. Cuando corrijas el borrador, dile a Claude qué cambiar y por qué. Esas correcciones se acumulan.
+1. Copia la plantilla [`comunicaciones-starter`](../plantillas.md#comunicaciones-starter) a tu workspace como `comunicaciones.md`
+2. Abre Claude Code — él te preguntará tu nombre, cargo, estilo de comunicación y frases a evitar, y llenará la plantilla por ti
+3. Pídele que te ayude a redactar un mensaje real
+4. Cuando corrijas el borrador, dile a Claude qué cambiar y por qué — él lo guarda en el log de correcciones
 
-No necesitas 150 ejemplos para empezar. Con 5-10 mensajes aprobados, Claude ya tiene buena calibración.
+No necesitas 150 ejemplos para empezar. Con 5-10 mensajes aprobados, Claude ya tiene buena calibración. El sistema mejora con cada corrección.

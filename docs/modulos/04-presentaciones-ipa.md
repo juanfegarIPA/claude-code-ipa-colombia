@@ -1,5 +1,13 @@
 # Módulo 4: Presentaciones con marca IPA
 
+!!! info "Prerequisitos"
+    - **Software**: [Node.js](https://nodejs.org) (versión LTS) — descargar e instalar
+    - **Paquete**: ejecutar `npm install pptxgenjs` en tu carpeta de workspace
+    - **Dificultad**: :material-square: :material-square: :material-square: :material-square-outline: :material-square-outline: (requiere instalar software y ejecutar comandos en terminal)
+
+!!! tip "¿No tienes Node.js?"
+    Node.js es un programa que permite ejecutar código JavaScript fuera del navegador. Claude Code lo necesita para generar archivos .pptx. La instalación toma 5 minutos: descarga desde [nodejs.org](https://nodejs.org), ejecuta el instalador, y reinicia Claude Code. Si necesitas ayuda, Claude Code te guiará paso a paso.
+
 ## Qué problema resuelve
 
 Crear slides profesionales con la marca de IPA toma horas: elegir colores, ajustar tipografía, formatear tablas, asegurar consistencia visual. Y cuando tienes prisa, la calidad baja.
@@ -38,13 +46,24 @@ Documentos de referencia que Claude Code consulta:
 
 ## Cómo empezar
 
-1. Copia la plantilla [`presentaciones-ipa-starter.md`](../plantillas.md) a tu workspace. Esta plantilla contiene los colores, tipografía y reglas de marca IPA para que Claude Code las aplique automáticamente.
-2. Abre Claude Code (app de escritorio o terminal) y describe lo que necesitas: tema, número de slides, qué va en cada una
-3. Claude Code generará un archivo .pptx en tu carpeta de workspace
-4. Abre el .pptx en PowerPoint, revísalo, y ajusta lo que necesites
+1. **Instala Node.js** si no lo tienes: descarga desde [nodejs.org](https://nodejs.org) (versión LTS), instala, y reinicia Claude Code
+2. Copia la plantilla [`presentaciones-ipa-starter`](../plantillas.md#presentaciones-ipa-starter) a tu workspace como `presentaciones-ipa.md`
+3. Abre Claude Code — él verificará que tienes Node.js y pptxgenjs instalados. Si falta algo, te guiará
+4. Describe lo que necesitas: tema, número de slides, qué va en cada una
+5. Claude Code generará un script `build-slides.js`, lo ejecutará, y producirá un `.pptx` en tu workspace
+6. Abre el .pptx en PowerPoint, revísalo, y ajusta lo que necesites
 
 !!! tip "Consejo"
     Entre más específico sea tu brief, mejor será el resultado. En vez de "hazme una presentación sobre el proyecto", di "hazme 6 slides: la primera con título y fecha, la segunda con el contexto del problema (estos 3 puntos), etc."
 
-!!! note "Nota técnica"
-    Para generar el .pptx, Claude Code necesita ejecutar un script de JavaScript, lo cual requiere Node.js instalado. En la app de escritorio esto se maneja automáticamente. Si Claude te pide instalar algo, sigue las instrucciones que te dé.
+## Qué pasa detrás de escena
+
+Cuando le pides una presentación a Claude Code, esto es lo que hace:
+
+1. Lee tu plantilla `presentaciones-ipa.md` → carga las reglas de marca (colores, tipografía, layouts)
+2. Interpreta tu brief → decide qué tipo de layout usar en cada slide
+3. Genera un archivo `build-slides.js` → un script de JavaScript que usa la librería `pptxgenjs` para construir cada slide con la marca IPA
+4. Ejecuta `node build-slides.js` → produce el archivo `.pptx` final
+5. Te confirma dónde quedó el archivo
+
+El script `build-slides.js` se queda en tu workspace. Si quieres ajustar algo después (cambiar un título, agregar una slide), le pides a Claude que modifique el script y lo vuelva a ejecutar.
