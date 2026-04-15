@@ -69,5 +69,6 @@ Esta visión no necesita implementarse toda de una vez. Se construye incremental
 1. Verifica que tienes **Box Drive** instalado y sincronizado en tu computador. Si no lo tienes, descárgalo desde [box.com/drive](https://www.box.com/drive) o pídele al helpdesk que te ayude a configurarlo.
 2. Verifica que puedes ver la carpeta `CO BD Knowledge Base/` dentro de Box
 3. Copia la plantilla [`kb-consulta-starter.md`](../plantillas.md) a tu workspace (ajusta la ruta de Box a tu usuario)
-4. Abre Claude Code y hazle una pregunta sobre el KB
-5. Si encuentras información desactualizada o faltante, avísale al equipo de BD para actualizar
+4. Agrega la línea del KB a tu `CLAUDE.md` (la plantilla te indica exactamente qué línea agregar y dónde)
+5. Abre Claude Code y hazle una pregunta sobre el KB
+6. Si encuentras información desactualizada o faltante, avísale al equipo de BD para actualizar

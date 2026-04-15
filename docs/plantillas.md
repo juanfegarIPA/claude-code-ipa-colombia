@@ -151,6 +151,16 @@ Ver [Módulo de Knowledge Base](modulos/03-knowledge-base.md) para entender qué
     ```markdown
     # Knowledge Base de BD — Instrucciones para Claude Code
 
+    ## Setup
+
+    Copia este archivo a tu workspace. Luego agrega esta línea
+    a tu CLAUDE.md (en la sección de estructura o al final):
+
+    - **KB** (Knowledge Base) → `C:/Users/[TU-USUARIO]/Box/Oficina IPA Colombia/07_Budget Template/CO BD Knowledge Base/` — "el KB", "nuestro KB" siempre refiere a esta ruta. Tiene su propio `CLAUDE.md`.
+
+    > Ajusta [TU-USUARIO] a tu usuario de Windows.
+    > En Mac: ~/Box/Oficina IPA Colombia/07_Budget Template/CO BD Knowledge Base/
+
     ## Qué es
 
     El Knowledge Base de Business Development de IPA Colombia.
@@ -159,31 +169,16 @@ Ver [Módulo de Knowledge Base](modulos/03-knowledge-base.md) para entender qué
 
     ## Dónde está
 
-    [Ajusta esta ruta a tu computador]
-
-    - Windows: C:\Users\[TU-USUARIO]\Box\Oficina IPA Colombia\
-      07_Budget Template\CO BD Knowledge Base\
-    - Mac: ~/Box/Oficina IPA Colombia/07_Budget Template/
-      CO BD Knowledge Base/
+    C:/Users/[TU-USUARIO]/Box/Oficina IPA Colombia/07_Budget Template/CO BD Knowledge Base/
 
     ## Cómo consultarlo
 
-    Cuando pregunte sobre aliados, oportunidades, propuestas o el
-    pipeline de BD, lee los archivos del KB en la ruta de arriba.
+    Cuando el usuario pregunte sobre aliados, oportunidades,
+    propuestas, el pipeline de BD, o diga "el KB" / "nuestro KB",
+    ve directo a la ruta de arriba. El KB tiene su propio CLAUDE.md
+    con la estructura, taxonomía y reglas de edición.
 
-    ### Estructura del KB
-    - **Threads**: perfiles de relaciones (un archivo por aliado)
-    - **Assets**: collateral reutilizable (one-pagers, memos)
-    - **Verticals**: portafolios temáticos con varios actores
-    - **_pipeline.md**: dashboard del pipeline de oportunidades
-
-    ### Ejemplos de consultas
-    - "Qué aliados tenemos en educación?"
-    - "Dame el resumen del thread con [organización]"
-    - "Qué assets tenemos para una reunión con un donante?"
-    - "Cómo está el pipeline?"
-
-    ### Reglas
+    ## Reglas
     - El KB es un recurso de equipo — no agregar info privada
     - Si la información parece desactualizada, mencionarlo
     ```
