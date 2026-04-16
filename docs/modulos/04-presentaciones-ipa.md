@@ -50,6 +50,7 @@ Documentos de referencia que Claude Code consulta:
 2. Descarga la plantilla y guárdala en tu carpeta de workspace:
 
     [:material-download: Descargar presentaciones-ipa.md](../downloads/presentaciones-ipa.md.txt){ .md-button download="presentaciones-ipa.md" }
+
 3. Abre Claude Code — él verificará que tienes Node.js y pptxgenjs instalados. Si falta algo, te guiará
 4. Describe lo que necesitas: tema, número de slides, qué va en cada una
 5. Claude Code generará un script `build-slides.js`, lo ejecutará, y producirá un `.pptx` en tu workspace

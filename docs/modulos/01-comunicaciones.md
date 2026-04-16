@@ -62,6 +62,7 @@ Claude lee la referencia de voz y las últimas correcciones antes de cada borrad
 1. Descarga la plantilla y guárdala en tu carpeta de workspace:
 
     [:material-download: Descargar comunicaciones.md](../downloads/comunicaciones.md.txt){ .md-button download="comunicaciones.md" }
+
 2. Abre Claude Code — él te preguntará tu nombre, cargo, estilo de comunicación y frases a evitar, y llenará la plantilla por ti
 3. Pídele que te ayude a redactar un mensaje real
 4. Cuando corrijas el borrador, dile a Claude qué cambiar y por qué — él lo guarda en el log de correcciones

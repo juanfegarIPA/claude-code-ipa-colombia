@@ -66,6 +66,7 @@ scripts/
 1. Descarga la plantilla y guárdala en tu carpeta de workspace:
 
     [:material-download: Descargar tareas.md](../downloads/tareas.md.txt){ .md-button download="tareas.md" }
+
 2. Abre Claude Code — él te preguntará tus proyectos activos y compromisos de la semana, y llenará la tabla por ti
 3. Pídele que te ayude a listar tus compromisos pendientes
 4. No necesitas el sistema completo de JSON + hooks para empezar. Claude puede mantener una lista en un archivo .md y ya tienes más estructura que antes
