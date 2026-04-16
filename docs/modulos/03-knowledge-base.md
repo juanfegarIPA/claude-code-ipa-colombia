@@ -73,7 +73,9 @@ Esta visión no necesita implementarse toda de una vez. Se construye incremental
 
 1. Verifica que tienes **Box Drive** instalado y sincronizado en tu computador. Si no lo tienes, descárgalo desde [box.com/drive](https://www.box.com/drive) o pídele al helpdesk que te ayude a configurarlo
 2. Verifica que puedes ver la carpeta `CO BD Knowledge Base/` dentro de Box
-3. Copia la plantilla [`kb-consulta-starter`](../plantillas.md#kb-consulta-starter) a tu workspace como `kb-consulta.md`
+3. Descarga la plantilla y guárdala en tu carpeta de workspace:
+
+    [:material-download: Descargar kb-consulta.md](../downloads/kb-consulta.md.txt){ .md-button download="kb-consulta.md" }
 4. Abre Claude Code — él te preguntará tu usuario de Windows para armar la ruta de Box y verificará que tienes acceso. También agregará la línea del KB a tu `CLAUDE.md` si ya lo tienes
 5. Hazle una pregunta sobre el KB: "¿Qué aliados tenemos activos este trimestre?"
 6. Si encuentras información desactualizada o faltante, avísale al equipo de BD para actualizar

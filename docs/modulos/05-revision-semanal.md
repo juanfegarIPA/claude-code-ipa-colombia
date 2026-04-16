@@ -50,7 +50,9 @@ El output es un archivo markdown con el reporte completo que se guarda como snap
 
 ## Cómo empezar
 
-1. Copia la plantilla [`revisión-semanal-starter`](../plantillas.md#revision-semanal-starter) a tu workspace como `revision-semanal.md`
+1. Descarga la plantilla y guárdala en tu carpeta de workspace:
+
+    [:material-download: Descargar revision-semanal.md](../downloads/revision-semanal.md.txt){ .md-button download="revision-semanal.md" }
 2. Abre Claude Code — él te preguntará si ya tienes un archivo de tareas, cuáles son tus proyectos activos, y cada cuándo quieres hacer el review
 3. Cada viernes (o cuando quieras), dile: "Hagamos el weekly review"
 4. Claude presenta cada bloque y espera tu reacción antes de avanzar. Si quieres repriorizar, delegar o cerrar algo, se lo dices y lo ejecuta inmediatamente
