@@ -41,7 +41,7 @@ Estas plantillas son archivos de texto con instrucciones que Claude Code lee aut
 
 Tu primer CLAUDE.md: le dice a Claude quién eres, qué haces y qué reglas seguir.
 
-[:material-download: Descargar CLAUDE.md](https://raw.githubusercontent.com/juanfegarIPA/claude-code-ipa-colombia/main/plantillas-src/CLAUDE.md){ .md-button .md-button--primary download="CLAUDE.md" }
+[:material-download: Descargar CLAUDE.md](downloads/CLAUDE.md.txt){ .md-button .md-button--primary download="CLAUDE.md" }
 
 ??? note "Ver contenido completo"
     ```markdown
@@ -56,7 +56,7 @@ Instrucciones para que Claude redacte mensajes en tu voz. Incluye perfil de voz,
 
 Ver [Módulo de Comunicaciones](modulos/01-comunicaciones.md) para entender la filosofía.
 
-[:material-download: Descargar comunicaciones.md](https://raw.githubusercontent.com/juanfegarIPA/claude-code-ipa-colombia/main/plantillas-src/comunicaciones.md){ .md-button .md-button--primary download="comunicaciones.md" }
+[:material-download: Descargar comunicaciones.md](downloads/comunicaciones.md.txt){ .md-button .md-button--primary download="comunicaciones.md" }
 
 ??? note "Ver contenido completo"
     ```markdown
@@ -71,7 +71,7 @@ Setup mínimo para seguimiento de compromisos con una tabla simple. Claude la ac
 
 Ver [Módulo de Gestión de tareas](modulos/02-gestion-de-tareas.md) para entender la filosofía.
 
-[:material-download: Descargar tareas.md](https://raw.githubusercontent.com/juanfegarIPA/claude-code-ipa-colombia/main/plantillas-src/tareas.md){ .md-button .md-button--primary download="tareas.md" }
+[:material-download: Descargar tareas.md](downloads/tareas.md.txt){ .md-button .md-button--primary download="tareas.md" }
 
 ??? note "Ver contenido completo"
     ```markdown
@@ -89,7 +89,7 @@ Instrucciones para que Claude Code sepa dónde encontrar el Knowledge Base de BD
 
 Ver [Módulo de Knowledge Base](modulos/03-knowledge-base.md) para entender qué contiene y la visión futura.
 
-[:material-download: Descargar kb-consulta.md](https://raw.githubusercontent.com/juanfegarIPA/claude-code-ipa-colombia/main/plantillas-src/kb-consulta.md){ .md-button .md-button--primary download="kb-consulta.md" }
+[:material-download: Descargar kb-consulta.md](downloads/kb-consulta.md.txt){ .md-button .md-button--primary download="kb-consulta.md" }
 
 ??? note "Ver contenido completo"
     ```markdown
@@ -104,7 +104,7 @@ Instrucciones para que Claude Code genere presentaciones .pptx con la marca de I
 
 Ver [Módulo de Presentaciones](modulos/04-presentaciones-ipa.md) para entender la filosofía.
 
-[:material-download: Descargar presentaciones-ipa.md](https://raw.githubusercontent.com/juanfegarIPA/claude-code-ipa-colombia/main/plantillas-src/presentaciones-ipa.md){ .md-button .md-button--primary download="presentaciones-ipa.md" }
+[:material-download: Descargar presentaciones-ipa.md](downloads/presentaciones-ipa.md.txt){ .md-button .md-button--primary download="presentaciones-ipa.md" }
 
 ??? note "Ver contenido completo"
     ```markdown
@@ -119,7 +119,7 @@ Instrucciones para que Claude Code te ayude a hacer una revisión estructurada d
 
 Ver [Módulo de Revisión semanal](modulos/05-revision-semanal.md) para entender la filosofía.
 
-[:material-download: Descargar revision-semanal.md](https://raw.githubusercontent.com/juanfegarIPA/claude-code-ipa-colombia/main/plantillas-src/revision-semanal.md){ .md-button .md-button--primary download="revision-semanal.md" }
+[:material-download: Descargar revision-semanal.md](downloads/revision-semanal.md.txt){ .md-button .md-button--primary download="revision-semanal.md" }
 
 ??? note "Ver contenido completo"
     ```markdown

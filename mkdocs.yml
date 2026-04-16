@@ -36,6 +36,9 @@ plugins:
   - search:
       lang: es
 
+hooks:
+  - hooks/copy_templates.py
+
 markdown_extensions:
   - admonition
   - pymdownx.details
