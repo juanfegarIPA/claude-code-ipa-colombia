@@ -24,15 +24,20 @@ Claude Code es una forma de conversar con Claude directamente desde tu computado
 
 - **Leer y editar archivos** en tu computador (documentos, Excel, carpetas)
 - **Generar documentos** (Word, PowerPoint, Excel) listos para compartir
-- **Buscar en tu correo** (con integración de Gmail)
+- **Buscar en tu correo** (con integración de Gmail)[^1]
 - **Automatizar tareas repetitivas** (reportes, seguimiento, formateo)
 - **Recordar quién eres y cómo trabajas** entre sesiones, mediante un archivo de contexto llamado CLAUDE.md
+
+[^1]: La integración con Gmail requiere configurar un conector adicional (MCP server) y autorización previa. No viene activada por defecto. Consulta con Juan Felipe antes de configurarla.
 
 !!! tip "¿Necesito saber programar?"
     No. La app de escritorio tiene una interfaz visual donde conversas con Claude igual que en un chat. La diferencia es que Claude puede acceder a tus archivos locales y generar documentos. Si ya has usado Claude o ChatGPT en el navegador, Claude Code es el siguiente paso.
 
 !!! info "Lo que NO es"
     No reemplaza tu criterio. No es almacenamiento. No es un motor de búsqueda. Siempre revisa lo que produce.
+
+!!! note "¿Usas Box para tus archivos?"
+    Algunos módulos (como el Knowledge Base y el Plan Estratégico) leen archivos desde carpetas de Box. Para que funcione, necesitas tener **Box Drive** instalado y sincronizado en tu computador. Si no lo tienes, descárgalo desde [box.com/drive](https://www.box.com/drive) o pide ayuda al helpdesk.
 
 ---
 
