@@ -1,4 +1,4 @@
-# Knowledge Base de BD — Instrucciones para Claude Code
+# Knowledge Base de PD — Instrucciones para Claude Code
 
 ## Onboarding (primera vez)
 
@@ -16,19 +16,21 @@ Si el usuario tiene CLAUDE.md, agrega la línea del KB ahí también.
 
 ## Qué es
 
-El Knowledge Base de Business Development de IPA Colombia.
-Contiene perfiles de aliados, assets reutilizables, portafolios
-temáticos y un pipeline de oportunidades.
+El Knowledge Base de Project Development de IPA Colombia. Cubre
+desarrollo de proyectos y de negocios en sentido amplio: perfiles
+de aliados, donantes, implementadores, gobierno, academia y PIs;
+assets reutilizables; portafolios temáticos y un pipeline de
+oportunidades.
 
 ## Dónde está
 
-- Windows: C:/Users/pendiente/Box/Oficina IPA Colombia/07_Budget Template/CO BD Knowledge Base/
-- Mac: ~/Box/Oficina IPA Colombia/07_Budget Template/CO BD Knowledge Base/
+- Windows: C:/Users/pendiente/Box/IPA_COL_Resources/IPA_COL_PD_Resources/IPA_COL_PD_KnowledgeBase/
+- Mac: ~/Box/IPA_COL_Resources/IPA_COL_PD_Resources/IPA_COL_PD_KnowledgeBase/
 
 ## Cómo consultarlo
 
 Cuando el usuario pregunte sobre aliados, oportunidades,
-propuestas, el pipeline de BD, o diga "el KB" / "nuestro KB",
+propuestas, el pipeline de PD, o diga "el KB" / "nuestro KB",
 ve directo a la ruta de arriba. El KB tiene su propio CLAUDE.md
 con la estructura, taxonomía y reglas de edición.
 

@@ -1,13 +1,13 @@
-# Módulo 3: Knowledge Base de Business Development
+# Módulo 3: Knowledge Base de Project Development
 
 !!! info "Prerequisitos"
     - **Software**: [Box Drive](https://www.box.com/drive) instalado y sincronizado
-    - **Acceso**: carpeta `CO BD Knowledge Base/` visible en tu Box
+    - **Acceso**: carpeta `IPA_COL_PD_KnowledgeBase/` visible en tu Box
     - **Dificultad**: :material-square: :material-square: :material-square-outline: :material-square-outline: :material-square-outline: (requiere Box configurado)
 
 ## Qué problema resuelve
 
-La inteligencia relacional del equipo de BD está dispersa: en correos, en carpetas de Box, en la memoria de cada persona. Cuando alguien nuevo entra al equipo, o cuando necesitas recordar el historial con un aliado, no hay un lugar centralizado para consultar.
+La inteligencia relacional del equipo de PD está dispersa: en correos, en carpetas de Box, en la memoria de cada persona. Cuando alguien nuevo entra al equipo, o cuando necesitas recordar el historial con un aliado, un donante o un implementador, no hay un lugar centralizado para consultar.
 
 ## Cómo funciona (la filosofía)
 
@@ -23,7 +23,7 @@ El KB vive en Box porque es un recurso de equipo, no individual. Todos los manag
 
 El KB está en Box en la siguiente ruta:
 ```
-Box/Oficina IPA Colombia/07_Budget Template/CO BD Knowledge Base/
+Box/IPA_COL_Resources/IPA_COL_PD_Resources/IPA_COL_PD_KnowledgeBase/
 ```
 
 Contenido actual:
@@ -72,11 +72,11 @@ Esta visión no necesita implementarse toda de una vez. Se construye incremental
 ## Cómo empezar
 
 1. Verifica que tienes **Box Drive** instalado y sincronizado en tu computador. Si no lo tienes, descárgalo desde [box.com/drive](https://www.box.com/drive) o pídele al helpdesk que te ayude a configurarlo
-2. Verifica que puedes ver la carpeta `CO BD Knowledge Base/` dentro de Box
+2. Verifica que puedes ver la carpeta `IPA_COL_PD_KnowledgeBase/` dentro de Box
 3. Descarga la plantilla y guárdala en tu carpeta de workspace:
 
     [:material-download: Descargar kb-consulta.md](../downloads/kb-consulta.md.txt){ .md-button download="kb-consulta.md" }
 
 4. Abre Claude Code — él te preguntará tu usuario de Windows para armar la ruta de Box y verificará que tienes acceso. También agregará la línea del KB a tu `CLAUDE.md` si ya lo tienes
 5. Hazle una pregunta sobre el KB: "¿Qué aliados tenemos activos este trimestre?"
-6. Si encuentras información desactualizada o faltante, avísale al equipo de BD para actualizar
+6. Si encuentras información desactualizada o faltante, avísale al equipo de PD para actualizar
