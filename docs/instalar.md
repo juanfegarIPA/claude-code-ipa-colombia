@@ -25,6 +25,19 @@ Claude Code se puede usar de tres formas. Todas funcionan con tu licencia Enterp
 !!! tip "¿Cuál usar?"
     La **aplicación de escritorio** es la forma más sencilla de empezar. Tiene la misma capacidad que la terminal pero con una interfaz más amigable. El CD de IPA Colombia usa la terminal porque permite automatizar flujos más complejos, pero no es necesario para aprovechar Claude Code.
 
+!!! warning "Antes de instalar: necesitas Git"
+    Tanto la aplicación de escritorio como la terminal requieren **Git** en tu computador. Si no lo tienes, Claude Code te pedirá instalarlo al abrirlo.
+
+    === "Windows"
+        1. Descarga el instalador desde [git-scm.com/downloads/win](https://git-scm.com/downloads/win)
+        2. Ejecútalo y **acepta todas las opciones por defecto** (siguiente → siguiente → instalar)
+        3. Si ya tenías Claude Code abierto, ciérralo y vuelve a abrirlo
+
+    === "Mac"
+        La mayoría de Macs ya lo traen. Si Claude Code lo pide, abre Terminal, ejecuta `git --version` y macOS te ofrecerá instalar las Command Line Tools automáticamente.
+
+    No requiere cuenta de GitHub ni configuración adicional. La opción Web (Opción C) no necesita Git.
+
 ### Opción A: Aplicación de escritorio (recomendada)
 
 1. Descárgala desde [claude.ai/download](https://claude.ai/download) (disponible para Windows y Mac)
@@ -34,7 +47,7 @@ Claude Code se puede usar de tres formas. Todas funcionan con tu licencia Enterp
 
 ### Opción B: Terminal (CLI)
 
-Requiere **Node.js**. Descárgalo desde [nodejs.org](https://nodejs.org/) (versión LTS) e instálalo con las opciones por defecto.
+Requiere **Node.js** (además de Git). Descárgalo desde [nodejs.org](https://nodejs.org/) (versión LTS) e instálalo con las opciones por defecto.
 
 Luego abre una terminal:
 
@@ -132,6 +145,7 @@ Prueba algo concreto:
 | Problema | Solución |
 |----------|----------|
 | No encuentro la app de escritorio | Descárgala desde [claude.ai/download](https://claude.ai/download) |
+| Claude Code me pide instalar Git | Descarga Git desde [git-scm.com/downloads/win](https://git-scm.com/downloads/win) (Windows) con opciones por defecto, cierra y reabre Claude Code. En Mac, ejecuta `git --version` en Terminal. |
 | `npm: command not found` (solo terminal) | Node.js no se instaló correctamente. Reinicia la terminal e intenta de nuevo. |
 | `claude: command not found` (solo terminal) | Ejecuta `npm install -g @anthropic-ai/claude-code` de nuevo. |
 | Error de autenticación | Verifica que estás usando tu correo @poverty-action.org. |
