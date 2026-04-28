@@ -57,9 +57,17 @@ markdown_extensions:
 
 nav:
   - Inicio: index.md
+  - Cómo empezar: empezar.md
   - Instalar Claude Code: instalar.md
   - Qué puedo y qué no: que-puedo-y-que-no.md
-  - Módulos:
+  - Bucles de feedback: feedback-loops.md
+  - Starter packs:
+    - Catálogo: starters/index.md
+    - Growth: starters/growth.md
+    - Weekly review: starters/weekly-review.md
+    - People layer: starters/people.md
+    - Procurement: starters/procurement.md
+  - Módulos por capacidad:
     - Índice: modulos/index.md
     - Comunicaciones: modulos/01-comunicaciones.md
     - Gestión de tareas: modulos/02-gestion-de-tareas.md

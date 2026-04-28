@@ -1,0 +1,97 @@
+# Bucles de feedback — la práctica más importante
+
+Una de las cosas que hace que Claude Code se vuelva genuinamente útil con el tiempo es la práctica de guardar las correcciones que le das. Sin esto, repites las mismas correcciones para siempre. Con esto, cada corrección queda como aprendizaje acumulado.
+
+Esta página explica cómo funciona, por qué importa, y cómo armar el bucle desde el primer día.
+
+---
+
+## El problema sin feedback
+
+Imagina la primera vez que le pides a Claude que te redacte un email a un partner. El draft que entrega tiene un saludo demasiado formal. Tú le dices "cámbialo a Hola, [nombre]," y lo arregla. Genial.
+
+La próxima vez que le pidas un email, Claude vuelve a usar saludo formal. Vuelves a corregirlo. Otra vez. Y otra. Pasan tres meses y has gastado horas en repetir la misma corrección.
+
+El problema es que Claude empieza cada conversación desde cero. No recuerda cómo le pediste antes que fueran las cosas, salvo que tú se lo digas explícitamente.
+
+---
+
+## El bucle de feedback
+
+El bucle de feedback es una práctica simple:
+
+1. Claude entrega un draft.
+2. Tú lo corriges en alguna dimensión (tono, formato, fraseo, estructura).
+3. Antes de cerrar, le dices a Claude: "guarda esa corrección como regla para próximas veces".
+4. Claude agrega una entrada a `feedback.md` con la corrección y el contexto.
+5. La próxima vez que pidas algo parecido, Claude lee `feedback.md` ANTES de redactar y aplica la regla.
+
+Después de dos o tres meses haciendo esto, `feedback.md` tiene 30-50 reglas específicas y Claude redacta más cerca de tu estilo desde el primer draft.
+
+---
+
+## Cómo se ve una entrada en `feedback.md`
+
+```markdown
+## 2026-04-27 | email | partner externo
+- Saludo: usar "Hola [Nombre]," — nunca "Estimado/a" salvo si es gobierno o donante institucional formal.
+- Cierre: "Gracias," sin "Saludos cordiales" ni firmas inflamadas.
+
+## 2026-04-29 | teams | equipo
+- No firmar mensajes con mi nombre al final, salvo si lo pido explícito.
+```
+
+Las reglas son específicas, accionables, sin teoría. Cuanto más concreta la regla, más fácil aplicarla bien.
+
+**Una regla buena**:
+> "En reuniones con academia, no usar 'partnership' como verbo (ej: 'partnering with X'). Usar 'colaboración con' o 'trabajar con'."
+
+**Una regla mala**:
+> "Ser más conciso." (demasiado vago para aplicar)
+
+---
+
+## Reglas graduadas
+
+Cuando una regla aparece tres o más veces (es decir, te has tenido que recordar a Claude tres veces que aplique la misma cosa), es señal de que esa regla es universal y vale la pena moverla a un archivo más permanente. Claude propone graduar la regla y, si confirmas, la mueve a una sección "Reglas graduadas" en `feedback.md` o a un archivo separado de voz/estilo.
+
+Esto evita que `feedback.md` se vuelva una lista interminable y mantiene las reglas activas frescas.
+
+---
+
+## Por qué importa
+
+Sin feedback loops, Claude Code es una herramienta que repite siempre lo mismo y tú gastas tiempo corrigiendo. Con feedback loops, Claude Code es una herramienta que se ajusta a ti.
+
+La diferencia entre "uso ocasionalmente Claude pero no me termina de funcionar" y "Claude se siente como una extensión de mi forma de trabajar" suele ser exactamente esta práctica. Es invisible las primeras semanas y muy visible al tercer mes.
+
+---
+
+## Cómo arrancar
+
+1. Si todavía no tienes `feedback.md` en tu workspace, descárgalo desde el [Paso 4 de la página Cómo empezar](empezar.md#paso-4-descargar-tu-feedbackmd-y-guardarlo-en-el-workspace) y guárdalo al lado de tu `CLAUDE.md`.
+2. La primera vez que corrijas algo a Claude, después de aprobar la versión final pasa este prompt:
+
+```
+Guarda esa corrección en feedback.md como regla para próximas veces.
+```
+
+3. Claude te muestra cómo va a quedar la entrada que agregaría en `feedback.md`. Si la entrada está bien, le confirmas y la guarda.
+4. La próxima vez que pidas algo similar, Claude lee `feedback.md` antes de redactar y aplica la regla automáticamente.
+
+No intentes prellenar `feedback.md` con reglas teóricas. Las reglas que funcionan son las que vienen de correcciones reales en trabajo real.
+
+---
+
+## Más allá de redacción
+
+El bucle de feedback aplica a casi todo lo que hagas con Claude:
+- Si Claude estructura mal una síntesis, le dices la corrección y la guardas.
+- Si Claude usa un formato de tabla que no te sirve, lo guardas.
+- Si Claude clasifica mal un tipo de tarea o documento, lo guardas.
+
+Cuanto más diversa la fuente de las reglas, más útil se vuelve el archivo.
+
+---
+
+**Siguiente paso**: si todavía no has visto la página de [cómo empezar](empezar.md), revísala — el feedback loop está integrado en el Paso 4.

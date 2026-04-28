@@ -1,0 +1,141 @@
+# Starter: Weekly review
+
+Setup para hacer una revisión semanal estructurada de tu trabajo, conversacional con Claude.
+
+## Para qué sirve
+
+Sin estructura, las semanas se acumulan: tareas viejas que nadie cancela, compromisos que se pierden, riesgos que escalan en silencio. Este starter te da un espacio fijo (30-45 minutos un día fijo de la semana) donde Claude te lleva por 5 bloques, tú decides qué hacer con cada cosa, y queda registro escrito.
+
+## Para quién
+
+Managers que tienen suficiente diversidad de tareas y proyectos como para que un cierre estructurado tenga valor.
+
+Si tu rol es muy operativo y reactivo (la lista es siempre la misma cada semana), este starter no aplica.
+
+---
+
+## Qué te deja instalado
+
+Una carpeta `revisiones/` dentro de tu workspace con esta estructura:
+
+```
+[tu-workspace]/
+├── CLAUDE.md
+├── feedback.md
+└── revisiones/
+    ├── CLAUDE.md       (descargado en el Paso 1)
+    ├── tareas.md       (Claude lo crea en el Paso 4)
+    ├── proyectos.md    (Claude lo crea en el Paso 4)
+    └── reviews/        (Claude crea esta carpeta vacía)
+```
+
+---
+
+## Paso 1 — Descarga el archivo CLAUDE.md del starter
+
+Haz clic en el botón. El archivo `CLAUDE.md` se descarga a tu carpeta de Descargas.
+
+[:material-download: Descargar CLAUDE.md del starter de weekly review](../downloads/starters/weekly-review/CLAUDE.md.txt){ .md-button .md-button--primary download="CLAUDE.md" }
+
+---
+
+## Paso 2 — Crea la carpeta `revisiones/` y mueve el archivo
+
+1. En tu workspace de Claude Code, crea una carpeta nueva llamada exactamente `revisiones`.
+2. Mueve el archivo `CLAUDE.md` descargado a esa carpeta `revisiones/`.
+
+---
+
+## Paso 3 — Pídele a Claude que marque el starter como cargado
+
+Pasa este prompt en Claude Code:
+
+```
+Acabo de cargar el starter de weekly review en una carpeta llamada
+revisiones/. En mi CLAUDE.md raíz, busca la sección "Plantillas
+starter que cargué" y marca el starter de weekly review como cargado,
+usando revisiones/ como nombre de la carpeta. La línea debe quedar:
+
+- [x] Weekly review — carpeta: `revisiones/`
+```
+
+**Qué hace Claude**: edita tu `CLAUDE.md` raíz y guarda el archivo.
+
+**Qué tienes que hacer tú**: nada.
+
+---
+
+## Paso 4 — Pídele a Claude que cree los archivos iniciales
+
+Pasa este prompt:
+
+```
+Acabo de cargar el starter de weekly review en revisiones/. Lee el CLAUDE.md
+de esa carpeta y crea los archivos iniciales: revisiones/tareas.md y
+revisiones/proyectos.md, ambos con la estructura mínima descrita en el
+CLAUDE.md. También crea la carpeta revisiones/reviews/ vacía.
+```
+
+**Qué hace Claude**: crea `tareas.md` y `proyectos.md` con la estructura correcta y la carpeta `reviews/`.
+
+**Qué tienes que hacer tú**: nada en este paso.
+
+---
+
+## Paso 5 — Llena `tareas.md` y `proyectos.md` con tu información real
+
+Pasa este prompt:
+
+```
+Vamos a llenar tareas.md y proyectos.md con información real. Hazme las
+preguntas que necesites para identificar mis 10-15 tareas activas y mis
+proyectos en curso.
+```
+
+**Qué hace Claude**: te pregunta una por una tus tareas activas (en curso, esperando respuesta, ideas) y tus proyectos (qué son, tu rol, estado verde/amarillo/rojo, próximo hito). Va llenando los archivos a medida que respondes.
+
+**Qué tienes que hacer tú**: contestar con tu información real. No intentes ser exhaustivo. 10-15 tareas y los 4-5 proyectos más relevantes son suficientes para empezar.
+
+---
+
+## Paso 6 — Agenda tu primera revisión
+
+Reserva 30-45 minutos en tu calendario para tu primera revisión semanal. La recomendación es agendarlo recurrente — los viernes en la tarde funciona bien para muchos managers.
+
+---
+
+## Cómo correr una revisión semanal
+
+En el momento agendado, abre Claude Code y pasa este prompt:
+
+```
+Hagamos la revisión semanal.
+```
+
+**Qué hace Claude**:
+
+1. Lee `tareas.md`, `proyectos.md` y, si los tienes, archivos relevantes de otros starters (people, growth).
+2. Te presenta los 5 bloques uno por uno, conversacionalmente. No avanza al siguiente bloque hasta que respondes.
+3. En cada bloque te muestra información y te hace preguntas concretas.
+4. Toma nota de todas las decisiones que vas tomando, sin ejecutar ningún cambio todavía.
+5. Al final te muestra el resumen de decisiones acumuladas y te pregunta si las ejecuta.
+
+**Qué tienes que hacer tú**:
+
+1. Responder a las preguntas de cada bloque (qué hacer con cada tarea overdue, qué replanificar, qué cancelar, cuáles son las MIT de la semana siguiente).
+2. Confirmar al final si las decisiones acumuladas se ejecutan.
+
+Una vez confirmas la ejecución, Claude:
+
+- Actualiza `tareas.md` con las replanificaciones, cancelaciones y nuevas tareas.
+- Crea el archivo `revisiones/reviews/YYYY-MM-DD.md` con el resumen de la revisión.
+
+La próxima semana repites: "Hagamos la revisión semanal".
+
+---
+
+## Conexión con otros starters
+
+- **People layer**: si lo tienes cargado, alimenta el Bloque 5 (relaciones y seguimiento) automáticamente.
+- **Growth**: las oportunidades activas en `growth/opportunities/` aparecen en el Bloque 2 si llevan tiempo sin moverse.
+- **Procurement**: casos de procurement abiertos también aparecen en el Bloque 2 si están stale.

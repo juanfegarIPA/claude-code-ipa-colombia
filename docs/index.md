@@ -43,33 +43,38 @@ Claude Code es una forma de conversar con Claude directamente desde tu computado
 
 ## Por dónde empezar
 
+Hay un paso a paso completo en la página [Cómo empezar](empezar.md). Si quieres ir directo a algo concreto:
+
 <div class="grid cards" markdown>
 
--   **Paso 1: Instalar**
+-   **1. Instalar**
 
-    Verifica tu licencia Enterprise e instala Claude Code en 10 minutos.
+    Verifica tu licencia e instala Claude Code en 10-15 minutos.
 
     [:octicons-arrow-right-24: Ir a instalación](instalar.md)
 
--   **Paso 2: Conocer los límites**
+-   **2. Conocer los límites**
 
     Qué puedes y qué no puedes hacer con la licencia Enterprise.
 
     [:octicons-arrow-right-24: Ver compliance](que-puedo-y-que-no.md)
 
--   **Paso 3: Explorar módulos**
+-   **3. Cargar un starter pack**
 
-    Elige el que más conecte con tu trabajo y lee cómo funciona.
+    Setup completo por rol (growth, revisiones, people, procurement). 10-20 min cada uno.
+
+    [:octicons-arrow-right-24: Ver starter packs](starters/index.md)
+
+-   **4. Aprender por capacidad**
+
+    Si prefieres entender qué se puede hacer y armar tu setup a medida.
 
     [:octicons-arrow-right-24: Ver módulos](modulos/index.md)
 
--   **Paso 4: Copiar una plantilla**
-
-    Archivos .md listos para copiar a tu workspace.
-
-    [:octicons-arrow-right-24: Ver plantillas](plantillas.md)
-
 </div>
+
+!!! tip "Starter pack o módulos: ¿cuál es cuál?"
+    **Starter packs** son setups listos por rol (managers de growth, weekly review, people, procurement). Cargas uno y arrancas con estructura validada. **Módulos** son explicaciones por capacidad (comunicaciones, gestión de tareas, KB). Útil si todavía no tienes claro qué empezar a hacer y prefieres entender primero. Las dos rutas son legítimas, puedes empezar por una y migrar.
 
 ---
 
@@ -77,7 +82,7 @@ Claude Code es una forma de conversar con Claude directamente desde tu computado
 
 No necesitas adoptar todo. No necesitas saber programar. No necesitas construir nada complejo.
 
-Revisa lo que te llame la atención, hazte preguntas, y si algo te interesa, pruébalo. Estamos construyendo una comunidad de práctica donde cada quien encuentra su propio camino.
+Revisa lo que te llame la atención, hazte preguntas, y si algo te interesa, pruébalo.
 
 ---
 

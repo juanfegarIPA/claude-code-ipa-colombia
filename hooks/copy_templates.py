@@ -27,17 +27,19 @@ def on_files(files, config):
         return files
 
     added = 0
-    for fname in sorted(os.listdir(src_dir)):
-        if not fname.endswith(".md"):
-            continue
-        src = os.path.join(src_dir, fname)
-        f = File.generated(
-            config,
-            src_uri=f"downloads/{fname}.txt",
-            abs_src_path=src,
-        )
-        files.append(f)
-        added += 1
+    for root, _dirs, fnames in os.walk(src_dir):
+        for fname in sorted(fnames):
+            if not fname.endswith(".md"):
+                continue
+            src = os.path.join(root, fname)
+            rel = os.path.relpath(src, src_dir).replace(os.sep, "/")
+            f = File.generated(
+                config,
+                src_uri=f"downloads/{rel}.txt",
+                abs_src_path=src,
+            )
+            files.append(f)
+            added += 1
 
     print(f"copy_templates hook: registered {added} templates under downloads/")
     return files

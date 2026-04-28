@@ -14,21 +14,6 @@
 | Aprobación de caso de uso nuevo | ipahelpdesk.freshservice.com (asunto: "AI Use Case") |
 | Acceso a Azure OpenAI (datos sensibles) | researchsupport@poverty-action.org (GRDS) |
 
-## Comunidad de práctica — IPA Colombia
-
-Estamos construyendo una comunidad de práctica alrededor de Claude Code. La idea: cada quien encuentra sus propios casos de uso y compartimos lo que funciona.
-
-**Cómo participar:**
-
-1. Revisa los módulos que te llamen la atención
-2. Si algo te interesa, pruébalo y comparte tu experiencia
-3. Pregunta sin miedo — estamos todos aprendiendo
-
-**Próximos pasos:**
-
-- Sesión práctica grupal (fecha por confirmar)
-- Canal de Teams dedicado
-
 ---
 
 *Juan Felipe García, con apoyo de Claude · IPA Colombia · Abril 2026*
