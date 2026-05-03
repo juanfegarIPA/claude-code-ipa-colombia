@@ -25,12 +25,13 @@ El sistema usa `pptxgenjs` (una librería de JavaScript para generar archivos de
 1. Lee un brief en texto con la estructura de cada slide
 2. Aplica las reglas de marca IPA (colores, fuentes, layouts)
 3. Genera un .pptx listo para presentar
+4. Corre un audit de legibilidad para asegurar que ningún texto esté bajo 10pt
 
-Documentos de referencia que Claude Code consulta:
+Reglas que Claude aplica automáticamente al generar la presentación:
 
-- **IPA brand context**: colores, tipografía, reglas visuales
-- **Evidence-based slide rules**: reglas de calidad para slides (una idea por slide, jerarquía visual, datos con fuente)
-- **IPA slides playbook**: flujo estándar de trabajo
+- **Variedad de layouts**: nunca dos slides consecutivas con el mismo layout. La plantilla incluye layouts listos para usar (cards 2x2, numbered-flow, comparison, dark-title) y exige usarlos según corresponda.
+- **Marca IPA aplicada**: paleta institucional (verde oscuro `#155240`, IPA Green `#49AC57`, charcoal, etc.), Georgia para títulos, Arial para cuerpo, accent bar verde a la izquierda.
+- **Audit de legibilidad obligatorio**: después de generar el .pptx, Claude corre el audit y arregla cualquier texto bajo 10pt antes de declarar la presentación lista.
 
 !!! note "Glosario rápido"
     - **`pptxgenjs`**: una librería (herramienta de software) que permite crear archivos .pptx desde código JavaScript. Claude Code la instala y usa automáticamente cuando le pides una presentación.
