@@ -39,6 +39,8 @@ Claude Code es una forma de conversar con Claude directamente desde tu computado
 !!! note "¿Usas Box para tus archivos?"
     Algunos módulos (como el Knowledge Base y el Plan Estratégico) leen archivos desde carpetas de Box. Para que funcione, necesitas tener **Box Drive** instalado y sincronizado en tu computador. Si no lo tienes, descárgalo desde [box.com/drive](https://www.box.com/drive) o pide ayuda al helpdesk.
 
+    **Si Claude va a tener acceso a tu Box**, considera instalar también el [guardrail de Box](proteger-box.md). Limita a Claude a leer solo las carpetas que tú autorizas, en vez de cualquier archivo de tu Box. Toma 15 minutos configurarlo.
+
 ---
 
 ## Por dónde empezar

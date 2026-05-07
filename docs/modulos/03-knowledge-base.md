@@ -72,6 +72,7 @@ Esta visión no necesita implementarse toda de una vez. Se construye incremental
 ## Cómo empezar
 
 1. Verifica que tienes **Box Drive** instalado y sincronizado en tu computador. Si no lo tienes, descárgalo desde [box.com/drive](https://www.box.com/drive) o pídele al helpdesk que te ayude a configurarlo
+    - Recomendado: instala también el [guardrail de Box](../proteger-box.md) para limitar a Claude a leer solo las carpetas que tú autorices.
 2. Verifica que puedes ver la carpeta `IPA_COL_PD_KnowledgeBase/` dentro de Box
 3. Descarga la plantilla y guárdala en tu carpeta de workspace:
 
