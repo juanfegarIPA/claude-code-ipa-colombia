@@ -4,9 +4,9 @@ subtitle: "Claude Code para managers de IPA Colombia"
 ---
 
 ::: {.callout-note}
-Esta ruta de la guía está adaptada del trabajo de **Juan Felipe García**, Country Director de IPA Colombia, quien construyó un workspace personal con Claude Code durante 3 meses y documentó las herramientas y plantillas que creó. La versión original en MkDocs vive en [juanfegarIPA/claude-code-ipa-colombia](https://github.com/juanfegarIPA/claude-code-ipa-colombia).
+Esta ruta de la guía recoge el trabajo de **Juan Felipe García**, Country Director de IPA Colombia, quien construyó un workspace personal con Claude Code durante 3 meses y documentó las herramientas y plantillas que creó. Este repo es el sitio oficial; un mirror técnico (con la misma fuente) vive en [Quintero-DiegoIPA/ipa-claude-code-intro](https://github.com/Quintero-DiegoIPA/ipa-claude-code-intro).
 
-**¿Comentarios sobre esta ruta?** Juan Felipe está abierto a recibir feedback, ajustes o casos nuevos. Escríbele a [jfgarcia@poverty-action.org](mailto:jfgarcia@poverty-action.org) o abre un issue en el [repo original](https://github.com/juanfegarIPA/claude-code-ipa-colombia/issues).
+**¿Comentarios sobre esta ruta?** Juan Felipe está abierto a recibir feedback, ajustes o casos nuevos. Escríbele a [jfgarcia@poverty-action.org](mailto:jfgarcia@poverty-action.org) o abre un issue en este repo.
 :::
 
 ## Qué es esto

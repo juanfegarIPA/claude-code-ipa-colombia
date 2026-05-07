@@ -9,7 +9,7 @@ subtitle: "Guia practica · dos rutas segun tu trabajo"
 <div class="site-banner">
   <span class="banner-badge">BETA v0.2</span>
   Esta guia esta en beta. Combinamos dos guias hermanas en un solo sitio.
-  Comentarios bienvenidos a <a href="mailto:dquintero@poverty-action.org">Diego Quintero</a> (ruta analista) o a <a href="mailto:jfgarcia@poverty-action.org">Juan Felipe Garcia</a> (ruta manager) — tambien por <a href="https://github.com/Quintero-DiegoIPA/ipa-claude-code-intro/issues">GitHub Issues</a>.
+  Comentarios bienvenidos a <a href="mailto:dquintero@poverty-action.org">Diego Quintero</a> (ruta analista) o a <a href="mailto:jfgarcia@poverty-action.org">Juan Felipe Garcia</a> (ruta manager) — tambien por <a href="https://github.com/juanfegarIPA/claude-code-ipa-colombia/issues">GitHub Issues</a>.
 </div>
 ```
 

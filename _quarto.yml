@@ -34,7 +34,7 @@ website:
             text: Recursos
     right:
       - icon: github
-        href: https://github.com/Quintero-DiegoIPA/ipa-claude-code-intro
+        href: https://github.com/juanfegarIPA/claude-code-ipa-colombia
   page-footer:
     center: |
       Construido con [Claude Code](https://docs.anthropic.com/en/docs/claude-code/overview) · IPA Colombia · Feedback: [Diego Quintero](mailto:dquintero@poverty-action.org) (analista) o [Juan Felipe Garcia](mailto:jfgarcia@poverty-action.org) (manager)
