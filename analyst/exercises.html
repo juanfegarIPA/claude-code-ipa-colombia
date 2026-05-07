@@ -1,0 +1,972 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="es" xml:lang="es"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.9.37">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>5. Ejercicios prácticos – Claude Code para IPA</title>
+<style>
+/* Default styles provided by pandoc.
+** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+*/
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+html { -webkit-text-size-adjust: 100%; }
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+</style>
+
+
+<script src="../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../site_libs/quarto-nav/headroom.min.js"></script>
+<script src="../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../">
+<script src="../site_libs/quarto-html/quarto.js" type="module"></script>
+<script src="../site_libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="../site_libs/quarto-html/popper.min.js"></script>
+<script src="../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../site_libs/quarto-html/quarto-syntax-highlighting-dark-d0ae9245876894da5ac7e18953ecc5cc.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../site_libs/bootstrap/bootstrap-946ebdbbec906026926b90a4edaa2784.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="dark">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No se han encontrado resultados",
+    "search-matching-documents-text": "documentos encontrados",
+    "search-copy-link-title": "Copiar el enlace en la búsqueda",
+    "search-hide-matches-text": "Ocultar resultados adicionales",
+    "search-more-match-text": "resultado adicional en este documento",
+    "search-more-matches-text": "resultados adicionales en este documento",
+    "search-clear-button-title": "Borrar",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancelar",
+    "search-submit-button-title": "Enviar",
+    "search-label": "Buscar"
+  }
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+
+
+<link rel="stylesheet" href="../styles.css">
+</head>
+
+<body class="nav-sidebar floating nav-fixed quarto-light">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="../index.html">
+    <span class="navbar-title">Claude Code para IPA</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Buscar"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Navegación de palanca" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../index.html"> 
+<span class="menu-text">Inicio</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link active" href="../analyst/index.html" aria-current="page"> 
+<span class="menu-text">Para Analistas</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="../manager/index.html"> 
+<span class="menu-text">Para Equipos</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-compartido" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Compartido</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-compartido">    
+        <li>
+    <a class="dropdown-item" href="../shared/safety.html">
+ <span class="dropdown-text">Seguridad</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../shared/prompting.html">
+ <span class="dropdown-text">Prompting</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../shared/feedback-loops.html">
+ <span class="dropdown-text">Feedback loops</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../shared/recursos.html">
+ <span class="dropdown-text">Recursos</span></a>
+  </li>  
+    </ul>
+  </li>
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/juanfegarIPA/claude-code-ipa-colombia"> <i class="bi bi-github" role="img">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="../analyst/exercises.html">5. Ejercicios prácticos</a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Alternar barra lateral" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../analyst/index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Para Analistas</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../analyst/quickstart.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Demo: Claude Code en acción</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../analyst/setup.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Instalación y configuración</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../analyst/concepts.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">2. Conceptos clave</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../analyst/stata-workflow.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Flujo de trabajo con Stata</span></a>
+  </div>
+</li>
+        <li class="sidebar-item sidebar-item-section">
+      <div class="sidebar-item-container"> 
+            <a class="sidebar-item-text sidebar-link text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true">
+ <span class="menu-text">Compartido</span></a>
+          <a class="sidebar-item-toggle text-start" data-bs-toggle="collapse" data-bs-target="#quarto-sidebar-section-1" role="navigation" aria-expanded="true" aria-label="Alternar sección">
+            <i class="bi bi-chevron-right ms-2"></i>
+          </a> 
+      </div>
+      <ul id="quarto-sidebar-section-1" class="collapse list-unstyled sidebar-section depth1 show">  
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../shared/safety.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Seguridad de datos</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../shared/prompting.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Prompting</span></a>
+  </div>
+</li>
+          <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../shared/feedback-loops.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Bucles de feedback</span></a>
+  </div>
+</li>
+      </ul>
+  </li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../analyst/exercises.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text">5. Ejercicios prácticos</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="../analyst/examples.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Qué se puede lograr</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">En esta página</h2>
+   
+  <ul class="collapse">
+  <li><a href="#ejercicio-1-diagnosticar-un-merge-problemático" id="toc-ejercicio-1-diagnosticar-un-merge-problemático" class="nav-link active" data-scroll-target="#ejercicio-1-diagnosticar-un-merge-problemático">Ejercicio 1: Diagnosticar un merge problemático</a></li>
+  <li><a href="#ejercicio-2-escribir-un-do-file-de-estadísticas-descriptivas" id="toc-ejercicio-2-escribir-un-do-file-de-estadísticas-descriptivas" class="nav-link" data-scroll-target="#ejercicio-2-escribir-un-do-file-de-estadísticas-descriptivas">Ejercicio 2: Escribir un do-file de estadísticas descriptivas</a></li>
+  <li><a href="#ejercicio-3-configura-tu-proyecto-con-claude.md" id="toc-ejercicio-3-configura-tu-proyecto-con-claude.md" class="nav-link" data-scroll-target="#ejercicio-3-configura-tu-proyecto-con-claude.md">Ejercicio 3: Configura tu proyecto con CLAUDE.md</a></li>
+  <li><a href="#referencia-rápida" id="toc-referencia-rápida" class="nav-link" data-scroll-target="#referencia-rápida">Referencia rápida</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">5. Ejercicios prácticos</h1>
+<p class="subtitle lead">~30 minutos · Tres ejercicios progresivos</p>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="ejercicio-1-diagnosticar-un-merge-problemático" class="level2">
+<h2 class="anchored" data-anchor-id="ejercicio-1-diagnosticar-un-merge-problemático">Ejercicio 1: Diagnosticar un merge problemático</h2>
+<p><em>10–15 minutos</em></p>
+<p>Estás limpiando datos y haces un merge entre tu encuesta de línea base y las características de las unidades de servicio. El log muestra un resultado inesperado:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb1"><pre class="sourceCode stata code-with-copy"><code class="sourceCode stata"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>. <span class="kw">use</span> <span class="st">"$data/clean/baseline_clean.dta"</span>, <span class="kw">clear</span></span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>(Baseline survey - HtG 3.0)</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>. <span class="kw">merge</span> <span class="fu">m</span>:1 uds_id <span class="kw">using</span> <span class="st">"$data/clean/uds_characteristics.dta"</span></span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>    Result                      Number <span class="kw">of</span> <span class="kw">obs</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>    -----------------------------------------</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a>    Not matched                           147</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a>        from master                        12  (<span class="dt">_merge</span>==1)</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a>        from <span class="kw">using</span>                        135  (<span class="dt">_merge</span>==2)</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    Matched                             2,841  (<span class="dt">_merge</span>==3)</span>
+<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a>    -----------------------------------------</span>
+<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>. <span class="kw">tab</span> <span class="dt">_merge</span></span>
+<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a>                 <span class="dt">_merge</span> |      Freq.     Percent        Cum.</span>
+<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>------------------------+-----------------------------------</span>
+<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>        Master only (1) |         12        0.40        0.40</span>
+<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>         Using only (2) |        135        4.52        4.93</span>
+<span id="cb1-20"><a href="#cb1-20" aria-hidden="true" tabindex="-1"></a>            Matched (3) |      2,841       95.07      100.00</span>
+<span id="cb1-21"><a href="#cb1-21" aria-hidden="true" tabindex="-1"></a>------------------------+-----------------------------------</span>
+<span id="cb1-22"><a href="#cb1-22" aria-hidden="true" tabindex="-1"></a>                  Total |      2,988      100.00</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Esperabas que todas las UDS del archivo <code>using</code> emparejaran. 135 no lo hicieron. Algo anda mal.</p>
+<section id="tu-tarea" class="level3">
+<h3 class="anchored" data-anchor-id="tu-tarea">Tu tarea</h3>
+<ol type="1">
+<li>Abre Claude Code en cualquier carpeta de proyecto (<code>claude</code> en la terminal)</li>
+<li>Pega el log y pregunta: *“Hice este merge y tengo 135 observaciones con _merge==2 que no esperaba. ¿Qué puede estar causando esto y cómo lo diagnostico?“*</li>
+<li>Lee el diagnóstico. ¿Propone múltiples hipótesis? (formato de variable, espacios, UDS sin encuestas)</li>
+<li>Haz seguimiento: <em>“uds_id es string en un archivo y numérico en el otro. ¿Cómo lo arreglo de forma reproducible?”</em></li>
+<li>Evalúa si la solución es correcta y si es reproducible (va en el do-file, no es manual)</li>
+</ol>
+</section>
+<section id="criterios-de-evaluación" class="level3">
+<h3 class="anchored" data-anchor-id="criterios-de-evaluación">Criterios de evaluación</h3>
+<ul>
+<li>¿Propone <strong>múltiples hipótesis</strong> en vez de asumir una sola causa?</li>
+<li>¿Sugiere comandos de diagnóstico concretos (e.g., <code>describe</code>, <code>assert</code>, <code>list</code>)?</li>
+<li>¿La solución propuesta es <strong>reproducible</strong> (código en el do-file, no edición manual)?</li>
+<li>¿Menciona la importancia de verificar <strong>después</strong> del fix (e.g., <code>assert _merge==3</code>)?</li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="ejercicio-2-escribir-un-do-file-de-estadísticas-descriptivas" class="level2">
+<h2 class="anchored" data-anchor-id="ejercicio-2-escribir-un-do-file-de-estadísticas-descriptivas">Ejercicio 2: Escribir un do-file de estadísticas descriptivas</h2>
+<p><em>15–20 minutos</em></p>
+<p>Necesitas una tabla de estadísticas descriptivas comparando autos domésticos y extranjeros.</p>
+<section id="paso-1-escribe-el-prompt" class="level3">
+<h3 class="anchored" data-anchor-id="paso-1-escribe-el-prompt">Paso 1: Escribe el prompt</h3>
+<p>Usa esta especificación con plan mode:</p>
+<blockquote class="blockquote">
+<p><em>“Usa plan mode. Necesito un do-file que produzca una tabla de estadísticas descriptivas de sysuse auto, comparando autos domésticos vs extranjeros. Variables: price, mpg, weight, length, headroom. Muestra media, DE, N, y un p-valor de t-test para cada una. Guarda como exercise_sumstats.do.”</em></p>
+</blockquote>
+</section>
+<section id="paso-2-revisa-el-output" class="level3">
+<h3 class="anchored" data-anchor-id="paso-2-revisa-el-output">Paso 2: Revisa el output</h3>
+<ul class="task-list">
+<li><label><input type="checkbox">¿Carga <code>sysuse auto, clear</code>?</label></li>
+<li><label><input type="checkbox">¿Produce estadísticas por <code>foreign</code> (0/1)?</label></li>
+<li><label><input type="checkbox">¿Incluye un t-test de diferencia?</label></li>
+<li><label><input type="checkbox">¿El código es legible con comentarios?</label></li>
+<li><label><input type="checkbox">¿Lo podrías ejecutar en Stata ahora mismo?</label></li>
+</ul>
+</section>
+<section id="paso-3-itera" class="level3">
+<h3 class="anchored" data-anchor-id="paso-3-itera">Paso 3: Itera</h3>
+<p>Pide dos modificaciones:</p>
+<ol type="1">
+<li><em>“Agrega una fila para <code>rep78</code> (registro de reparaciones). Maneja los valores faltantes.”</em></li>
+<li><em>“Agrega etiquetas de variable a la tabla para que muestre ‘Precio (USD)’ en vez de ‘price’.”</em></li>
+</ol>
+</section>
+<section id="paso-4-evalúa" class="level3">
+<h3 class="anchored" data-anchor-id="paso-4-evalúa">Paso 4: Evalúa</h3>
+<p>¿Modificó el do-file sin romper la estructura existente? ¿Manejó correctamente los valores faltantes en <code>rep78</code>?</p>
+</section>
+<section id="criterios-de-evaluación-1" class="level3">
+<h3 class="anchored" data-anchor-id="criterios-de-evaluación-1">Criterios de evaluación</h3>
+<ul>
+<li>¿Carga <code>sysuse auto, clear</code> al inicio?</li>
+<li>¿Usa un loop o estructura repetible (no copia-pega por variable)?</li>
+<li>¿Maneja los valores faltantes de <code>rep78</code> explícitamente (no los ignora)?</li>
+<li>¿Aplica etiquetas de variable legibles?</li>
+<li>¿El código está comentado y es ejecutable sin modificaciones?</li>
+<li>¿Modificó sin romper la estructura que ya había generado?</li>
+</ul>
+<hr>
+</section>
+</section>
+<section id="ejercicio-3-configura-tu-proyecto-con-claude.md" class="level2">
+<h2 class="anchored" data-anchor-id="ejercicio-3-configura-tu-proyecto-con-claude.md">Ejercicio 3: Configura tu proyecto con CLAUDE.md</h2>
+<p><em>10–15 minutos</em></p>
+<p>Los ejercicios anteriores usaron datos de práctica. Este ejercicio usa tu proyecto real — es donde Claude Code empieza a ser verdaderamente útil.</p>
+<section id="paso-1-crea-tu-claude.md" class="level3">
+<h3 class="anchored" data-anchor-id="paso-1-crea-tu-claude.md">Paso 1: Crea tu CLAUDE.md</h3>
+<p>Abre la <a href="../analyst/concepts.html#plantilla-claudemd-para-proyectos-ipa-clic-para-expandir">plantilla de CLAUDE.md</a> del módulo de conceptos. Cópiala a la raíz de tu repositorio de proyecto y adapta cada sección:</p>
+<ul>
+<li>Cambia la descripción del proyecto</li>
+<li>Agrega las reglas específicas de tu proyecto (convenciones de variables, rutas, restricciones de datos)</li>
+<li>Lista los comandos que usas frecuentemente</li>
+</ul>
+</section>
+<section id="paso-2-prueba-tu-claude.md" class="level3">
+<h3 class="anchored" data-anchor-id="paso-2-prueba-tu-claude.md">Paso 2: Prueba tu CLAUDE.md</h3>
+<p>Abre Claude Code desde la raíz de tu proyecto y pregunta:</p>
+<blockquote class="blockquote">
+<p><em>“¿Qué proyecto es este?”</em></p>
+</blockquote>
+<p>Claude Code debería responder con la información de tu <code>CLAUDE.md</code>. Si no lo hace, verifica que el archivo está en la raíz del proyecto (no dentro de una subcarpeta).</p>
+</section>
+<section id="paso-3-prueba-una-regla" class="level3">
+<h3 class="anchored" data-anchor-id="paso-3-prueba-una-regla">Paso 3: Prueba una regla</h3>
+<p>Agrega una regla específica a tu CLAUDE.md, por ejemplo:</p>
+<div class="code-copy-outer-scaffold"><div class="sourceCode" id="cb2"><pre class="sourceCode markdown code-with-copy"><code class="sourceCode markdown"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">## Reglas del proyecto</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="ss">- </span>Todos los do-files deben usar header estándar IPA.</span></code></pre></div><button title="Copiar al portapapeles" class="code-copy-button"><i class="bi"></i></button></div>
+<p>Luego pide a Claude Code: <em>“Crea un do-file vacío para limpieza de datos.”</em> Verifica que el do-file generado incluye el header que especificaste.</p>
+</section>
+<section id="criterios-de-evaluación-2" class="level3">
+<h3 class="anchored" data-anchor-id="criterios-de-evaluación-2">Criterios de evaluación</h3>
+<ul>
+<li>¿Claude Code identifica correctamente tu proyecto cuando le preguntas?</li>
+<li>¿El do-file generado sigue la regla que agregaste?</li>
+<li>Si no la sigue, ¿tu regla está escrita de forma clara y específica?</li>
+</ul>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Nota
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Un buen CLAUDE.md es específico. “Seguir estándares IPA” es vago. “Usar extended missing values: .d, .r, .n, .s. Nunca usar solo punto (.)” es accionable.</p>
+</div>
+</div>
+<hr>
+</section>
+</section>
+<section id="referencia-rápida" class="level2">
+<h2 class="anchored" data-anchor-id="referencia-rápida">Referencia rápida</h2>
+<section id="comandos-comunes" class="level3">
+<h3 class="anchored" data-anchor-id="comandos-comunes">Comandos comunes</h3>
+<table class="caption-top table">
+<thead>
+<tr class="header">
+<th>Qué quieres</th>
+<th>Qué escribir</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Iniciar Claude Code</td>
+<td><code>claude</code> en la terminal</td>
+</tr>
+<tr class="even">
+<td>Planificar antes de actuar</td>
+<td><code>/plan</code> o <em>“usa plan mode”</em></td>
+</tr>
+<tr class="odd">
+<td>Editar un archivo</td>
+<td><em>“Edita [ruta] para [cambio]”</em></td>
+</tr>
+<tr class="even">
+<td>Crear un archivo</td>
+<td><em>“Crea un do-file que [especificación]”</em></td>
+</tr>
+<tr class="odd">
+<td>Diagnosticar un error</td>
+<td>Pega el log y pregunta <em>“¿Qué está mal?”</em></td>
+</tr>
+<tr class="even">
+<td>Salir</td>
+<td><code>/exit</code> o <code>Ctrl+C</code></td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="seguro-vs.-no-seguro" class="level3">
+<h3 class="anchored" data-anchor-id="seguro-vs.-no-seguro">Seguro vs.&nbsp;no seguro</h3>
+<table class="caption-top table">
+<colgroup>
+<col style="width: 55%">
+<col style="width: 45%">
+</colgroup>
+<thead>
+<tr class="header">
+<th>✅ Seguro</th>
+<th>❌ Nunca</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>“Escribe un do-file que…”</td>
+<td>“Lee los datos crudos de la encuesta…”</td>
+</tr>
+<tr class="even">
+<td>“Diagnostica este log…”</td>
+<td>“Muéstrame observaciones donde nombre =…”</td>
+</tr>
+<tr class="odd">
+<td>“Explica este comando de Stata…”</td>
+<td>“Lista todos los nombres de encuestados…”</td>
+</tr>
+<tr class="even">
+<td>“Genera una tabla en LaTeX para…”</td>
+<td>“Abre el archivo en la unidad D:…”</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="siguientes-pasos" class="level3">
+<h3 class="anchored" data-anchor-id="siguientes-pasos">Siguientes pasos</h3>
+<ol type="1">
+<li><strong>Empieza aquí.</strong> Pide a Claude Code que explique una sección de un do-file existente.</li>
+<li><strong>Luego intenta.</strong> Pega un error de Stata de un log y pide un diagnóstico.</li>
+<li><strong>Avanza.</strong> Pide que revise un do-file contra estándares de código.</li>
+<li><strong>Profundiza.</strong> Trabaja con la <a href="https://claudeblattman.com/">guía de Blattman</a> para flujos avanzados.</li>
+</ol>
+</section>
+<section id="recursos" class="level3">
+<h3 class="anchored" data-anchor-id="recursos">Recursos</h3>
+<ul>
+<li><a href="https://ipastorage.box.com/s/mvr67ygvz1y3v8qmgjey67lk7msmyeks">IPA AI Usage Guidelines</a></li>
+<li><a href="https://claudeblattman.com/">Guía de Blattman sobre IA</a></li>
+<li><a href="https://docs.anthropic.com/en/docs/claude-code/overview">Documentación de Claude Code</a></li>
+<li><a href="https://github.com/PovertyAction/ipa-stata-template">Plantilla Stata de IPA</a></li>
+<li>Mesa de ayuda MIST para aprobaciones</li>
+</ul>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+  window.document.addEventListener("DOMContentLoaded", function (event) {
+    const icon = "";
+    const anchorJS = new window.AnchorJS();
+    anchorJS.options = {
+      placement: 'right',
+      icon: icon
+    };
+    anchorJS.add('.anchored');
+    const isCodeAnnotation = (el) => {
+      for (const clz of el.classList) {
+        if (clz.startsWith('code-annotation-')) {                     
+          return true;
+        }
+      }
+      return false;
+    }
+    const onCopySuccess = function(e) {
+      // button target
+      const button = e.trigger;
+      // don't keep focus
+      button.blur();
+      // flash "checked"
+      button.classList.add('code-copy-button-checked');
+      var currentTitle = button.getAttribute("title");
+      button.setAttribute("title", "Copiado");
+      let tooltip;
+      if (window.bootstrap) {
+        button.setAttribute("data-bs-toggle", "tooltip");
+        button.setAttribute("data-bs-placement", "left");
+        button.setAttribute("data-bs-title", "Copiado");
+        tooltip = new bootstrap.Tooltip(button, 
+          { trigger: "manual", 
+            customClass: "code-copy-button-tooltip",
+            offset: [0, -8]});
+        tooltip.show();    
+      }
+      setTimeout(function() {
+        if (tooltip) {
+          tooltip.hide();
+          button.removeAttribute("data-bs-title");
+          button.removeAttribute("data-bs-toggle");
+          button.removeAttribute("data-bs-placement");
+        }
+        button.setAttribute("title", currentTitle);
+        button.classList.remove('code-copy-button-checked');
+      }, 1000);
+      // clear code selection
+      e.clearSelection();
+    }
+    const getTextToCopy = function(trigger) {
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+    const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+      text: getTextToCopy
+    });
+    clipboard.on('success', onCopySuccess);
+    if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+      const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+        text: getTextToCopy,
+        container: window.document.getElementById('quarto-embedded-source-code-modal')
+      });
+      clipboardModal.on('success', onCopySuccess);
+    }
+      var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+      var mailtoRegex = new RegExp(/^mailto:/);
+        var filterRegex = new RegExp("https:\/\/juanfegarIPA\.github\.io\/claude-code-ipa-colombia\/");
+      var isInternal = (href) => {
+          return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+      }
+      // Inspect non-navigation links and adorn them if external
+     var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+      for (var i=0; i<links.length; i++) {
+        const link = links[i];
+        if (!isInternal(link.href)) {
+          // undo the damage that might have been done by quarto-nav.js in the case of
+          // links that we want to consider external
+          if (link.dataset.originalHref !== undefined) {
+            link.href = link.dataset.originalHref;
+          }
+            // target, if specified
+            link.setAttribute("target", "_blank");
+            if (link.getAttribute("rel") === null) {
+              link.setAttribute("rel", "noopener");
+            }
+        }
+      }
+    function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+      const config = {
+        allowHTML: true,
+        maxWidth: 500,
+        delay: 100,
+        arrow: false,
+        appendTo: function(el) {
+            return el.parentElement;
+        },
+        interactive: true,
+        interactiveBorder: 10,
+        theme: 'quarto',
+        placement: 'bottom-start',
+      };
+      if (contentFn) {
+        config.content = contentFn;
+      }
+      if (onTriggerFn) {
+        config.onTrigger = onTriggerFn;
+      }
+      if (onUntriggerFn) {
+        config.onUntrigger = onUntriggerFn;
+      }
+      window.tippy(el, config); 
+    }
+    const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+    for (var i=0; i<noterefs.length; i++) {
+      const ref = noterefs[i];
+      tippyHover(ref, function() {
+        // use id or data attribute instead here
+        let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+        try { href = new URL(href).hash; } catch {}
+        const id = href.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note) {
+          return note.innerHTML;
+        } else {
+          return "";
+        }
+      });
+    }
+    const xrefs = window.document.querySelectorAll('a.quarto-xref');
+    const processXRef = (id, note) => {
+      // Strip column container classes
+      const stripColumnClz = (el) => {
+        el.classList.remove("page-full", "page-columns");
+        if (el.children) {
+          for (const child of el.children) {
+            stripColumnClz(child);
+          }
+        }
+      }
+      stripColumnClz(note)
+      if (id === null || id.startsWith('sec-')) {
+        // Special case sections, only their first couple elements
+        const container = document.createElement("div");
+        if (note.children && note.children.length > 2) {
+          container.appendChild(note.children[0].cloneNode(true));
+          for (let i = 1; i < note.children.length; i++) {
+            const child = note.children[i];
+            if (child.tagName === "P" && child.innerText === "") {
+              continue;
+            } else {
+              container.appendChild(child.cloneNode(true));
+              break;
+            }
+          }
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(container);
+          }
+          return container.innerHTML
+        } else {
+          if (window.Quarto?.typesetMath) {
+            window.Quarto.typesetMath(note);
+          }
+          return note.innerHTML;
+        }
+      } else {
+        // Remove any anchor links if they are present
+        const anchorLink = note.querySelector('a.anchorjs-link');
+        if (anchorLink) {
+          anchorLink.remove();
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        if (note.classList.contains("callout")) {
+          return note.outerHTML;
+        } else {
+          return note.innerHTML;
+        }
+      }
+    }
+    for (var i=0; i<xrefs.length; i++) {
+      const xref = xrefs[i];
+      tippyHover(xref, undefined, function(instance) {
+        instance.disable();
+        let url = xref.getAttribute('href');
+        let hash = undefined; 
+        if (url.startsWith('#')) {
+          hash = url;
+        } else {
+          try { hash = new URL(url).hash; } catch {}
+        }
+        if (hash) {
+          const id = hash.replace(/^#\/?/, "");
+          const note = window.document.getElementById(id);
+          if (note !== null) {
+            try {
+              const html = processXRef(id, note.cloneNode(true));
+              instance.setContent(html);
+            } finally {
+              instance.enable();
+              instance.show();
+            }
+          } else {
+            // See if we can fetch this
+            fetch(url.split('#')[0])
+            .then(res => res.text())
+            .then(html => {
+              const parser = new DOMParser();
+              const htmlDoc = parser.parseFromString(html, "text/html");
+              const note = htmlDoc.getElementById(id);
+              if (note !== null) {
+                const html = processXRef(id, note);
+                instance.setContent(html);
+              } 
+            }).finally(() => {
+              instance.enable();
+              instance.show();
+            });
+          }
+        } else {
+          // See if we can fetch a full url (with no hash to target)
+          // This is a special case and we should probably do some content thinning / targeting
+          fetch(url)
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.querySelector('main.content');
+            if (note !== null) {
+              // This should only happen for chapter cross references
+              // (since there is no id in the URL)
+              // remove the first header
+              if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+                note.children[0].remove();
+              }
+              const html = processXRef(null, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      }, function(instance) {
+      });
+    }
+        let selectedAnnoteEl;
+        const selectorForAnnotation = ( cell, annotation) => {
+          let cellAttr = 'data-code-cell="' + cell + '"';
+          let lineAttr = 'data-code-annotation="' +  annotation + '"';
+          const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+          return selector;
+        }
+        const selectCodeLines = (annoteEl) => {
+          const doc = window.document;
+          const targetCell = annoteEl.getAttribute("data-target-cell");
+          const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+          const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+          const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+          const lineIds = lines.map((line) => {
+            return targetCell + "-" + line;
+          })
+          let top = null;
+          let height = null;
+          let parent = null;
+          if (lineIds.length > 0) {
+              //compute the position of the single el (top and bottom and make a div)
+              const el = window.document.getElementById(lineIds[0]);
+              top = el.offsetTop;
+              height = el.offsetHeight;
+              parent = el.parentElement.parentElement;
+            if (lineIds.length > 1) {
+              const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+              const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+              height = bottom - top;
+            }
+            if (top !== null && height !== null && parent !== null) {
+              // cook up a div (if necessary) and position it 
+              let div = window.document.getElementById("code-annotation-line-highlight");
+              if (div === null) {
+                div = window.document.createElement("div");
+                div.setAttribute("id", "code-annotation-line-highlight");
+                div.style.position = 'absolute';
+                parent.appendChild(div);
+              }
+              div.style.top = top - 2 + "px";
+              div.style.height = height + 4 + "px";
+              div.style.left = 0;
+              let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+              if (gutterDiv === null) {
+                gutterDiv = window.document.createElement("div");
+                gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+                gutterDiv.style.position = 'absolute';
+                const codeCell = window.document.getElementById(targetCell);
+                const gutter = codeCell.querySelector('.code-annotation-gutter');
+                gutter.appendChild(gutterDiv);
+              }
+              gutterDiv.style.top = top - 2 + "px";
+              gutterDiv.style.height = height + 4 + "px";
+            }
+            selectedAnnoteEl = annoteEl;
+          }
+        };
+        const unselectCodeLines = () => {
+          const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+          elementsIds.forEach((elId) => {
+            const div = window.document.getElementById(elId);
+            if (div) {
+              div.remove();
+            }
+          });
+          selectedAnnoteEl = undefined;
+        };
+          // Handle positioning of the toggle
+      window.addEventListener(
+        "resize",
+        throttle(() => {
+          elRect = undefined;
+          if (selectedAnnoteEl) {
+            selectCodeLines(selectedAnnoteEl);
+          }
+        }, 10)
+      );
+      function throttle(fn, ms) {
+      let throttle = false;
+      let timer;
+        return (...args) => {
+          if(!throttle) { // first call gets through
+              fn.apply(this, args);
+              throttle = true;
+          } else { // all the others get throttled
+              if(timer) clearTimeout(timer); // cancel #2
+              timer = setTimeout(() => {
+                fn.apply(this, args);
+                timer = throttle = false;
+              }, ms);
+          }
+        };
+      }
+        // Attach click handler to the DT
+        const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+        for (const annoteDlNode of annoteDls) {
+          annoteDlNode.addEventListener('click', (event) => {
+            const clickedEl = event.target;
+            if (clickedEl !== selectedAnnoteEl) {
+              unselectCodeLines();
+              const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+              if (activeEl) {
+                activeEl.classList.remove('code-annotation-active');
+              }
+              selectCodeLines(clickedEl);
+              clickedEl.classList.add('code-annotation-active');
+            } else {
+              // Unselect the line
+              unselectCodeLines();
+              clickedEl.classList.remove('code-annotation-active');
+            }
+          });
+        }
+    const findCites = (el) => {
+      const parentEl = el.parentElement;
+      if (parentEl) {
+        const cites = parentEl.dataset.cites;
+        if (cites) {
+          return {
+            el,
+            cites: cites.split(' ')
+          };
+        } else {
+          return findCites(el.parentElement)
+        }
+      } else {
+        return undefined;
+      }
+    };
+    var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+    for (var i=0; i<bibliorefs.length; i++) {
+      const ref = bibliorefs[i];
+      const citeInfo = findCites(ref);
+      if (citeInfo) {
+        tippyHover(citeInfo.el, function() {
+          var popup = window.document.createElement('div');
+          citeInfo.cites.forEach(function(cite) {
+            var citeDiv = window.document.createElement('div');
+            citeDiv.classList.add('hanging-indent');
+            citeDiv.classList.add('csl-entry');
+            var biblioDiv = window.document.getElementById('ref-' + cite);
+            if (biblioDiv) {
+              citeDiv.innerHTML = biblioDiv.innerHTML;
+            }
+            popup.appendChild(citeDiv);
+          });
+          return popup.innerHTML;
+        });
+      }
+    }
+  });
+  </script>
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+      &nbsp;
+    </div>   
+    <div class="nav-footer-center">
+<p>Construido con <a href="https://docs.anthropic.com/en/docs/claude-code/overview">Claude Code</a> · IPA Colombia · Feedback: <a href="mailto:dquintero@poverty-action.org">Diego Quintero</a> (analista) o <a href="mailto:jfgarcia@poverty-action.org">Juan Felipe García</a> (manager)</p>
+</div>
+    <div class="nav-footer-right">
+      &nbsp;
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="../site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>
