@@ -46,6 +46,8 @@ No reemplaza tu criterio. No es almacenamiento. No es un motor de búsqueda. Sie
 ::: {.callout-note}
 ## ¿Usas Box para tus archivos?
 Algunos módulos (como el Knowledge Base y el Plan Estratégico) leen archivos desde carpetas de Box. Para que funcione, necesitas tener **Box Drive** instalado y sincronizado en tu computador. Si no lo tienes, descárgalo desde [box.com/drive](https://www.box.com/drive) o pide ayuda al helpdesk.
+
+**Si Claude va a tener acceso a tu Box**, considera instalar también el [guardrail de Box](proteger-box.qmd). Limita a Claude a leer solo las carpetas que tú autorizas, en vez de cualquier archivo de tu Box. Toma 5–10 minutos configurarlo.
 :::
 
 ## Por dónde empezar
