@@ -1,0 +1,163 @@
+---
+title: "Flujo de trabajo con Stata"
+subtitle: "Cómo Claude Code ejecuta, lee logs y reporta resultados"
+---
+
+::: {.callout-note}
+## De dónde viene este patrón
+Lo que sigue es el flujo que usamos en el repo de **SpC** (Sanar para Crecer 3.0). Está documentado allá en `documentation/CLAUDE_STATA_GUIDE.md` y se invoca desde `CLAUDE.md` en la raíz. Este módulo es la versión genérica adaptada a cualquier proyecto IPA que use la plantilla `ipa-stata-template`.
+
+**Hay seguramente muchas otras formas de integrar Claude con Stata** — vía la app de escritorio, vía notebooks `nbstata`, vía wrappers personalizados, o vía workflows distintos al "run-and-report". Esta es simplemente la que a nosotros nos funcionó en SpC y la que decidimos documentar. Si encuentras una mejor para tu proyecto, abre un issue y la sumamos como alternativa.
+:::
+
+## La idea central: Claude corre y reporta — no espera
+
+El flujo que mejor funciona en proyectos Stata es uno donde **Claude ejecuta el do-file que acaba de editar y reporta resultados sin esperar a que se le pida**. La instrucción que va en tu `CLAUDE.md` es esta:
+
+> **Después de editar cualquier do-file, ejecútalo autónomamente y reporta resultados — no esperes a que te pida. Lee el log y reporta: éxito o falla, resultados clave (β, N, F-stats), y dónde quedaron los outputs. Diagnostica y corrige errores antes de reportar. Solo escala si la causa raíz requiere un juicio sobre el análisis.**
+
+Esto cambia la dinámica: en vez de un loop "edita → me dices → corro → te respondo → pegas el log → me dices qué pasó", el ciclo se cierra solo. Tú reaccionas al **resultado**, no al proceso.
+
+## Las cuatro reglas que nunca se rompen
+
+Estas reglas son las que me hicieron confiable en SpC. Cópialas a tu `CLAUDE.md`:
+
+::: {.callout-warning}
+1. **Nunca llamar Stata directamente.** Siempre vía `just`. El `Justfile` resuelve paths, mueve logs y detecta errores. Si Claude llama `stata-se -e do ...` directo, los logs quedan huérfanos y los errores pasan inadvertidos.
+2. **Nunca saltarse el log.** Después de cada corrida, leer el log y buscar `r(\d+);` antes de reportar éxito.
+3. **Nunca correr análisis sobre PII.** Si un dataset puede contener PII, parar y pedir al usuario que anonimice primero.
+4. **Nunca acceder a unidades encriptadas (D:, Cryptomator) directamente vía bash o PowerShell.** Solo Stata (vía `just stata-script`) sabe acceder a ellas con seguridad. Probarlas con `ls`, `find` o `Test-Path` puede colgar el vault. Si hay un file-not-found, pedir al usuario que verifique que Cryptomator está desbloqueado — no hurgar la unidad.
+:::
+
+## Los comandos `just` que pre-apruebas
+
+La plantilla `ipa-stata-template` define estas recetas. Para que Claude las ejecute sin pedir confirmación cada vez, agrégalas a `.claude/settings.json` de tu proyecto:
+
+```json
+{
+  "permissions": {
+    "allow": [
+      "Bash(just stata-run)",
+      "Bash(just stata-script:*)",
+      "Bash(just stata-do:*)",
+      "Bash(just stata-setup)",
+      "Bash(just lint-stata)",
+      "Bash(just fmt-all)"
+    ]
+  }
+}
+```
+
+| Comando | Qué hace |
+|---|---|
+| `just stata-run` | Ejecuta el pipeline maestro (`do_files/00_run.do`). Log: `logs/00_run.log`. |
+| `just stata-script <ruta>` | Ejecuta un script individual. Log: `logs/<basename>.log`. Detecta errores vía exit code y scan del log. |
+| `just stata-do <archivo>` | Ejecuta cualquier `.do` por path. Log se mueve a `logs/`. |
+| `just stata-setup` | Setup de una vez por máquina: instala `setroot` + paquetes Stata. |
+| `just lint-stata` | Linting con `stata_linter`. |
+
+## Log lifecycle — dónde encontrar el output
+
+Entender este flujo es crítico para debugging:
+
+1. Stata corre en modo batch (`-e`) y escribe `.log` en la **raíz del proyecto** (al lado del Justfile).
+2. La receta del `Justfile` mueve el log inmediatamente a `logs/`.
+3. Claude lee el log desde `logs/` — **nunca desde la raíz**.
+
+| Comando | Log resultante |
+|---|---|
+| `just stata-run` | `logs/00_run.log` |
+| `just stata-script 01_cleaning` | `logs/01_cleaning.log` |
+| `just stata-script subdir/04_tablas` | `logs/04_tablas.log` |
+| `just stata-do do_files/foo.do` | `logs/foo.log` |
+| `just stata-setup` | `logs/setup.log` |
+
+## Cómo Claude detecta errores
+
+Después de cada corrida, el patrón que Claude debe seguir:
+
+```
+1. Correr:           just stata-script <nombre>
+2. Leer log:         logs/<basename>.log
+3. Buscar r(\d+);    si no aparece y termina con "end of do-file" → éxito
+4. Si hay error:     leer 3-5 líneas antes del r(###); para identificar la causa
+5. Editar el do-file para corregir
+6. Re-correr y repetir hasta que pase
+```
+
+**Señales de éxito:**
+
+- Log termina con `end of do-file`
+- No hay líneas que matcheen `r(\d+);`
+
+**Señales de falla:**
+
+- Líneas como `r(111);`, `r(198);` en cualquier punto del log
+- Log truncado (sin `end of do-file` al final)
+- Justfile sale con código distinto de cero
+
+## Tabla de error codes comunes
+
+Los más frecuentes que Claude debe reconocer al instante:
+
+| Code | Significado |
+|---|---|
+| `r(1)` | Interrupción del usuario (Ctrl+C) |
+| `r(100)` | Memoria insuficiente |
+| `r(101)` | Demasiadas variables |
+| `r(111)` | Variable no encontrada |
+| `r(198)` | Sintaxis inválida o opción incorrecta |
+| `r(199)` | Comando no reconocido (paquete no instalado) |
+| `r(601)` | Archivo no encontrado |
+| `r(603)` | Archivo no se pudo abrir |
+
+Para errores no listados: buscar la documentación de Stata o leer el contexto inmediatamente antes del `r(###);`.
+
+## Convención ASCII-only para paths
+
+Todos los nombres de carpetas y do-files bajo `do_files/` deben ser **ASCII puros** — sin espacios, sin tildes, sin eñes. Esto significa que `just stata-script <ruta>` siempre funciona sin wrappers ni escapes raros. En vez de `2_RCT Analysis/3_Análisis niños endline survey`, usa `2_RCT_Analysis/3_Analisis_ninos_endline_survey`.
+
+::: {.callout-tip}
+La ñ rompe `statsmodels` en Python y muchos parsers; los espacios rompen quoting en PowerShell. Adoptar ASCII-only desde el inicio del proyecto te ahorra bugs aleatorios todo el camino.
+:::
+
+## Cómo se ve en `CLAUDE.md` del proyecto
+
+Esta es la sección que va en `CLAUDE.md` de tu proyecto para activar el flujo:
+
+```markdown
+## How to Run Stata
+
+Full instructions: documentation/CLAUDE_STATA_GUIDE.md
+
+Quick reference:
+    just stata-run                  # Run pipeline (00_run.do)
+    just stata-script 01_cleaning   # Run a single script
+    just stata-setup                # One-time setup
+
+## Claude's Workflow for Stata
+
+After editing any do-file, run it autonomously and report results — do
+not wait to be asked. Read the log and report: success/failure, key
+results (β, N, F-stats), and output file locations. Diagnose and fix
+errors before reporting back. Only escalate if the root cause requires
+a judgment call about the analysis.
+
+## Project-Specific Rules
+
+- PII: Raw data contains PII — never read, process, or display raw
+  data files.
+- config.do is gitignored — never commit it; copy from config.do.template.
+- Do not use cap / capture except for cap mkdir.
+- Path globals are defined in 00_run.do. Never redefine them.
+- Extended missing values: .d (don't know), .o (other), .n (not
+  applicable), .r (refused), .s (skipped).
+```
+
+## Cuando algo no encaja
+
+Si tu proyecto tiene particularidades — un wrapper para data en Box, un Cryptomator vault, scripts que dependen de scripts previos en orden estricto — escribe una **guía dedicada** en `documentation/CLAUDE_STATA_GUIDE.md` y referénciala desde `CLAUDE.md`. Eso fue lo que hicimos en SpC: el `CLAUDE.md` raíz queda corto y digerible (~100 líneas), y la guía técnica detallada vive en su propio archivo. Claude lee ambos automáticamente al iniciar sesión.
+
+---
+
+**Siguiente paso:** [Prompting](../shared/prompting.qmd) — cómo escribir prompts que aprovechen este flujo.

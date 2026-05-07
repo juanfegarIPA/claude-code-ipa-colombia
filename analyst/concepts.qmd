@@ -1,0 +1,171 @@
+---
+title: "2. Conceptos clave"
+subtitle: "~10 minutos"
+---
+
+## ¿Qué es Claude Code?
+
+Claude Code es un asistente de código con IA construido por Anthropic. Se ejecuta dentro de la terminal de VS Code. A diferencia de chatbots en el navegador, lee los archivos de tu proyecto, entiende la estructura, y puede escribir o editar código directamente en tu máquina.
+
+Tres capacidades lo distinguen:
+
+1. **Contexto del proyecto.** Lee tus archivos automáticamente — do-files, configs, documentación. No necesitas copiar y pegar en una ventana de chat.
+2. **Edición directa.** Crea, modifica y elimina archivos en tu proyecto. Pide tu aprobación antes de hacer cambios.
+3. **Instrucciones persistentes.** Sigue reglas escritas en un archivo `CLAUDE.md` en la raíz de tu proyecto — estándares de código, convenciones y reglas de seguridad.
+
+## Qué puede y qué no puede hacer
+
+| ✅ Puede hacer | ❌ No puede hacer |
+|---|---|
+| Escribir do-files siguiendo estándares IPA/DIME | Acceder o leer datos que contengan PII |
+| Diagnosticar errores leyendo logs de Stata | Reemplazar tu juicio sobre diseño de investigación |
+| Generar tablas en LaTeX con `esttab` o `outreg2` | Ejecutar Stata por sí solo (usa comandos `just`) |
+| Explicar código existente en lenguaje sencillo | Acceder a Box, email u otros sistemas externos |
+| Revisar do-files contra estándares de código | Garantizar metodología estadística correcta |
+| Ayudar con comandos de Git | Recordar entre sesiones separadas |
+
+## Cómo Claude Code conoce tu proyecto
+
+Claude Code no empieza de cero cada vez. Tres mecanismos le dan conocimiento persistente:
+
+### CLAUDE.md: el briefing del proyecto
+
+Es como el documento que escribirías para un nuevo miembro del equipo en su primer día. Le dice a Claude Code qué es el proyecto, qué reglas seguir, y dónde encontrar las cosas.
+
+```yaml
+# CLAUDE.md — Proyecto SpC
+
+## Qué es este proyecto
+SpC 3.0 = Sanar para Crecer 3.0 (HtG)
+Programa de educación a cuidadores implementado por ICBF en Colombia.
+
+## Reglas del proyecto
+- PII: nunca leer o mostrar archivos de datos crudos.
+- No usar cap / capture excepto para cap mkdir.
+- Globals de rutas definidos en 00_run.do (master do-file).
+```
+
+Este archivo se sube a Git. Todos los miembros del equipo comparten las mismas instrucciones.
+
+::: {.callout-tip collapse="true"}
+## Plantilla CLAUDE.md para proyectos IPA (clic para expandir)
+
+Copia esta plantilla a la raíz de tu proyecto y adapta cada sección. Para un ejemplo completo, consulta el [CLAUDE.md de ipa-stata-template](https://github.com/PovertyAction/ipa-stata-template).
+
+```markdown
+# CLAUDE.md
+
+## Descripción del proyecto
+[Nombre del proyecto] — [descripción de una línea].
+Implementado por [organización] en [país/región].
+
+## Reglas críticas
+- NUNCA leer, abrir, ni mostrar archivos en `data/raw/` ni datos con PII.
+- No usar `capture` excepto para `cap mkdir`.
+- Globals de rutas están definidos en `do_files/00_run.do`.
+- Usar convenciones de valores faltantes IPA: .d (don't know), .r (refused),
+  .n (not applicable), .s (skipped).
+
+## Estructura del proyecto
+- `do_files/`   — Scripts de Stata. `00_run.do` es el maestro.
+- `data/raw/`   — Datos crudos. NUNCA leer ni editar.
+- `data/clean/` — Datos limpios generados por scripts.
+- `outputs/`    — Tablas (`tables/`) y gráficos (`figures/`).
+- `logs/`       — Logs de ejecución de Stata.
+- `ado/`        — Paquetes locales aislados (reproducibilidad).
+- `.here`       — Marcador de raíz del proyecto (resuelto por `setroot`).
+
+## Estándares de código
+- Seguir IPA Data Cleaning Guide y estándares DIME.
+- Variables con prefijos descriptivos (e.g., `bl_` baseline, `el_` endline).
+- Headers estándar IPA en cada do-file (proyecto, autor, fecha, propósito).
+- Usar `assert` para validación defensiva.
+
+## Comandos comunes
+just stata-run                     # Ejecutar pipeline completo
+just stata-script 01_data_cleaning # Ejecutar script individual
+```
+
+Prueba tu CLAUDE.md: abre Claude Code y pregunta *"¿Qué proyecto es este?"*. Si responde correctamente, tu archivo funciona.
+:::
+
+### Skills: los manuales de referencia
+
+El directorio `.claude/skills/` contiene instrucciones especializadas que Claude Code carga automáticamente según lo que le pidas. Cada skill es una **carpeta** con un archivo `SKILL.md` (descripción + frontmatter) y opcionalmente `references/` con material extenso.
+
+La plantilla [`ipa-stata-template`](https://github.com/PovertyAction/ipa-stata-template) ya viene con cinco skills oficiales preinstalados:
+
+```
+.claude/
+└── skills/
+    ├── stata/
+    │   ├── SKILL.md                       # Headers, missing values, naming
+    │   └── references/
+    │       ├── coding_standards.md
+    │       ├── data_cleaning_checklist.md
+    │       └── missing_values.md
+    ├── markdownlint/SKILL.md              # Linting de archivos Markdown
+    ├── quarto/SKILL.md                    # Reportes Quarto
+    ├── ruff/SKILL.md                      # Lint Python (cuando aplica)
+    └── uv/SKILL.md                        # Gestor Python para tooling
+```
+
+El `SKILL.md` de Stata empieza con un frontmatter YAML que describe **cuándo se debe activar**, y luego enumera los principios y patrones:
+
+```yaml
+---
+name: stata
+description: Use when writing, reviewing, or debugging Stata code for
+  data cleaning and analysis. Apply IPA/DIME coding standards.
+---
+
+## Core Principles
+- Reproducible · Defensive · Documented · No PII
+
+## Do-File Header
+* ==============================================================================
+* Project: [Project Name]
+* Purpose: [Brief description]
+* Author:  [Name]
+* Created: [Date]
+* ==============================================================================
+clear all
+set more off
+version 17.0
+
+## Missing Values
+Usar extended missing: .d (don't know), .r (refused),
+.n (not applicable), .s (skipped). Nunca solo "."
+
+## Variable Naming
+hh_ household · ind_ individual · bl_/el_ baseline/endline
+d_ dummy · n_ count
+```
+
+Cuando le pides a Claude Code que escriba un do-file, carga automáticamente el skill `stata`. Cuando le pides que edite un Quarto report, carga el de `quarto`. No necesitas indicarle cuál skill usar.
+
+> **Modelo mental:** `CLAUDE.md` es el briefing para un nuevo miembro del equipo. Los skills son los manuales de referencia en su escritorio. Si usas `ipa-stata-template`, ya vienen escritos.
+
+### Configuración y permisos
+
+El archivo `.claude/settings.json` controla qué comandos puede ejecutar Claude Code sin pedir permiso. Normalmente lo configura el líder del proyecto.
+
+```json
+{
+  "permissions": {
+    "allow": [
+      "just stata-run",
+      "just stata-script *",
+      "just stata-build",
+      "just lint-stata",
+      "just fmt-all"
+    ],
+    "deny": [
+      "rm -rf *",
+      "git push --force"
+    ]
+  }
+}
+```
+
+Los comandos en `allow` se ejecutan sin pedirte confirmación. Los de `deny` están bloqueados. Todo lo demás te pide aprobación antes de ejecutarse. La plantilla `ipa-stata-template` incluye un `settings.json` base con los comandos `just` más usados ya pre-aprobados.

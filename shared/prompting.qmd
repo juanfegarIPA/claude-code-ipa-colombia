@@ -1,0 +1,135 @@
+---
+title: "Prompting"
+subtitle: "Compartido · ~10 minutos"
+---
+
+## La idea mas importante
+
+**Buenos planes producen buenos resultados. Malos prompts producen resultados pobres, descontrolados y aleatorios.** La calidad de lo que Claude Code entrega es directamente proporcional a la claridad y especificidad de lo que pides.
+
+::: {.callout-tip}
+Estos cinco patrones funcionan tanto para tareas de código (do-files, scripts, debugging) como para tareas administrativas (comunicaciones, briefings, presentaciones). Cada patrón incluye un ejemplo de cada tipo.
+:::
+
+## Usa el modo plan
+
+Para cualquier tarea que implique mas que una pregunta rapida, empieza pidiendo a Claude Code que **planifique antes de actuar**. Escribe `/plan` o pidele "planifica primero".
+
+El modo plan obliga a Claude Code a delinear su enfoque y obtener tu aprobacion antes de actuar:
+
+- Detectas malentendidos **antes** de que edite 10 archivos en la direccion equivocada
+- Mantienes el control del enfoque
+- El plan mismo se convierte en un registro de lo que se hizo y por que
+
+**Sin planificar:**
+
+```
+Escribeme un do-file de analisis de desercion
+```
+
+Claude Code adivina todo. Terminas gastando mas tiempo corrigiendo del que ahorraste.
+
+**Con planificacion:**
+
+```
+Necesito un analisis de desercion. Usa plan mode. El outcome es un
+indicador binario de desercion. Regresa sobre tratamiento con EF de
+estrato y EE agrupados a nivel de UDS. Exporta con esttab a LaTeX.
+```
+
+Claude Code delinea su plan. Tu apruebas, ajustas o rediriges antes de que se escriba codigo.
+
+## Cinco patrones para prompts efectivos
+
+### 1. Describe el resultado, no los pasos
+
+Claude Code ya sabe la sintaxis. Dile qué quieres, no cómo escribirlo.
+
+**Ejemplo de código (Stata):**
+
+```
+# ❌ Debil
+Usa regress, luego outreg2, luego agrega un titulo, luego guarda como .tex
+
+# ✅ Fuerte
+Ejecuta una regresion ITT de FFMQ sobre tratamiento con efectos fijos
+de estrato y EE agrupados a nivel de UDS. Exporta a LaTeX con esttab.
+```
+
+**Ejemplo de redacción:**
+
+```
+# ❌ Debil
+Escribe un parrafo, luego pon vinetas con los puntos, luego cierra
+con una pregunta
+
+# ✅ Fuerte
+Redacta un email para [partner externo] confirmando la reunion del
+jueves. Tono profesional-cercano. Incluir agenda en 3 puntos. No
+mas de 8 lineas.
+```
+
+### 2. Referencia convenciones del proyecto
+
+Apunta a la documentacion existente en vez de inventar formatos.
+
+```
+Exporta usando el patron de esttab en CLAUDE_DELIVERABLES_GUIDE.md.
+Usa la misma estructura de columnas que las tablas de desercion en outputs/tables/.
+```
+
+### 3. Da contexto sobre los errores
+
+Un codigo de error solo no es suficiente.
+
+```
+Corri mi analisis de desercion y me salio r(111). Aqui estan las ultimas
+30 lineas del log: [pega el extracto]. El error esta en la linea que
+referencia `treatment_status`.
+```
+
+### 4. Pide explicaciones junto con el codigo
+
+Especialmente util para aprender.
+
+```
+Escribe el comando de merge y explica por que elegiste 1:1 vs m:1.
+Tambien explica que significan los resultados del assert.
+```
+
+### 5. Itera, no empieces de cero
+
+Claude Code recuerda la conversacion. Refina sobre lo que ya entrego.
+
+**Ejemplo de código:**
+
+```
+La tabla se ve bien. Agrega controles de linea base como segunda
+columna e incluye el test F de significancia conjunta al final.
+```
+
+**Ejemplo de redacción:**
+
+```
+El borrador esta bien pero el cierre se siente abrupto. Cambia las
+ultimas dos lineas por un cierre que invite a una proxima reunion.
+Manten el resto igual.
+```
+
+## Comandos utiles
+
+Ademas de escribir prompts, Claude Code tiene comandos que puedes usar durante una sesion:
+
+| Comando | Que hace |
+|---------|----------|
+| `/plan` | Planificar antes de actuar — Claude Code delinea su enfoque y espera tu aprobacion |
+| `/compact` | Comprimir el contexto de la conversacion cuando se vuelve larga |
+| `/clear` | Limpiar la conversacion y empezar de cero |
+| `/cost` | Ver cuanto ha costado la sesion actual |
+| `/doctor` | Diagnosticar problemas de configuracion o conexion |
+| `/exit` | Salir de Claude Code |
+
+::: {.callout-tip}
+## Profundiza en prompting
+La [guia de Blattman sobre prompting](https://claudeblattman.com/essentials/prompting) cubre este tema con mucha mas profundidad y es un buen siguiente paso despues de esta guia.
+:::

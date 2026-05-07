@@ -1,0 +1,233 @@
+---
+title: "Instalación y configuración"
+subtitle: "~15 minutos"
+---
+
+## Paso 1: Verifica tu licencia Enterprise
+
+1. Ve a [claude.ai](https://claude.ai) e inicia sesión con tu correo de IPA (`@poverty-action.org`)
+2. Si ves el logo de IPA o la indicación "Enterprise", estás cubierto
+3. Si no, contacta a `support@poverty-action.org` para solicitar tu seat
+
+::: {.callout-note}
+**¿Por qué Enterprise y no API key?** IPA tiene contrato Enterprise con Anthropic. Eso te cubre con un seat institucional, DPA contractual y políticas de retención que protegen los datos de IPA. La API key personal o cuenta Pro funcionan técnicamente, pero quedan fuera de la cobertura institucional — úsalas solo si tu seat aún no está aprovisionado.
+:::
+
+---
+
+## Paso 2: Elige cómo usar Claude Code
+
+Claude Code se puede usar de tres formas. Todas funcionan con tu licencia Enterprise:
+
+| Forma | Qué es | Para quién |
+|-------|--------|------------|
+| **Terminal (CLI) en VS Code** | Línea de comandos integrada en el editor. Máxima integración con Stata, `just`, skills y el ecosistema IPA. | **Recomendado para analistas** |
+| **Aplicación de escritorio** | App para Windows/Mac. Interfaz visual, sin terminal. | Tareas administrativas o exploración casual |
+| **Web (claude.ai/code)** | Desde el navegador, sin instalar nada. | Probar rápido sin instalar |
+
+::: {.callout-warning}
+## Por qué CLI para análisis Stata
+La app de escritorio funciona, pero **no integra con el ecosistema IPA**:
+
+- No corre `just stata-run` ni los pipelines de la plantilla `ipa-stata-template`
+- No carga `.claude/skills/stata.md` con los estándares DIME del proyecto
+- No edita do-files con syntax highlighting (no tiene la extensión `vscode-stata`)
+- No deja ver el log de Stata mientras corre
+
+Para análisis serio: instala el CLI dentro de VS Code. Para weekly reviews, comunicaciones o procurement: la [ruta de Equipos y PMs](../manager/index.qmd) describe la app de escritorio.
+:::
+
+---
+
+## Paso 3: Instala los prerrequisitos
+
+Antes de instalar Claude Code CLI, necesitas **Git** y **Node.js**.
+
+::: {.callout-tip}
+## ¿Por qué Git?
+Versionar do-files es central a los estándares IPA/DIME — cada proyecto IPA vive en un repo de GitHub. Git también permite a Claude Code entender el historial de cambios, generar commits en tu nombre y leer el contexto del repo automáticamente. La plantilla `ipa-stata-template` se clona con `git clone`.
+:::
+
+::: {.callout-tip}
+## ¿Por qué Node.js?
+Claude Code CLI se distribuye como un paquete de [npm](https://npmjs.com) (Node.js Package Manager). Instalar Node.js te da `npm`, y con `npm` se instala Claude Code en un solo comando. Adicionalmente, varios flujos generan documentos (PPTX con `pptxgenjs`, DOCX con `docx`) que también requieren Node. La app de escritorio NO necesita Node, pero el CLI sí.
+:::
+
+### Instalar Git
+
+::: {.panel-tabset}
+## Windows
+
+```bash
+winget install --id Git.Git -e
+```
+
+O descarga el instalador desde [git-scm.com/downloads/win](https://git-scm.com/downloads/win) y acepta todas las opciones por defecto.
+
+## Mac
+
+```bash
+brew install git
+```
+
+La mayoría de Macs ya lo traen. Si falta, ejecuta `git --version` en Terminal y macOS te ofrecerá instalar las Command Line Tools.
+:::
+
+### Instalar Node.js
+
+::: {.panel-tabset}
+## Windows
+
+Descarga la **versión LTS** desde [nodejs.org](https://nodejs.org/) e instala con opciones por defecto.
+
+## Mac
+
+```bash
+brew install node
+```
+
+O descarga la versión LTS desde [nodejs.org](https://nodejs.org/).
+:::
+
+Verifica con:
+
+```bash
+node --version    # debe imprimir v18.x.x o superior
+npm --version     # debe imprimir 9.x.x o superior
+```
+
+::: {.callout-note collapse="true"}
+## Otras herramientas opcionales del ecosistema IPA
+La plantilla `ipa-stata-template` también usa `just` (task runner) y `uv` (gestor Python) en sus tiers más completos. No son necesarios para empezar — instálalos solo cuando los necesites:
+
+- **Just**: `winget install Casey.Just` (Windows) o `brew install just` (Mac)
+- **uv**: ver [docs.astral.sh/uv](https://docs.astral.sh/uv/)
+:::
+
+---
+
+## Paso 4: Instala VS Code y el set de extensiones IPA
+
+Descarga VS Code desde [code.visualstudio.com](https://code.visualstudio.com/) e instálalo con opciones por defecto.
+
+La forma más limpia de instalar las extensiones es **clonando primero un repo basado en `ipa-stata-template`**: el archivo `.vscode/extensions.json` define el set oficial, y al abrir el repo VS Code te ofrece instalarlas todas en un clic.
+
+Si prefieres instalarlas manualmente desde la terminal de VS Code:
+
+```bash
+# Críticas para analistas IPA
+code --install-extension kylebutts.vscode-stata           # ejecutar Stata
+code --install-extension anthropic.claude-code            # Claude Code en VS Code
+code --install-extension github.vscode-pull-request-github  # PRs y review
+
+# Recomendadas para flujo IPA completo
+code --install-extension quarto.quarto                    # reportes Quarto
+code --install-extension skellock.just                    # syntax para justfiles
+code --install-extension davidanson.vscode-markdownlint
+code --install-extension yzhang.markdown-all-in-one
+code --install-extension redhat.vscode-yaml
+
+# Si tu proyecto usa Python
+code --install-extension ms-python.python
+code --install-extension ms-toolsai.jupyter
+code --install-extension charliermarsh.ruff
+```
+
+::: {.callout-note}
+La extensión correcta para Stata es `kylebutts.vscode-stata` (la que define `ipa-stata-template`). Versiones anteriores de la guía recomendaban `kylebarron.stata-enhanced` — el template ya no la usa.
+:::
+
+---
+
+## Paso 5: Instala Claude Code CLI
+
+Abre la terminal de VS Code (`` Ctrl+` ``) y ejecuta:
+
+```bash
+npm install -g @anthropic-ai/claude-code
+```
+
+Verifica:
+
+```bash
+claude --version
+```
+
+La primera vez que ejecutes `claude`, te pedirá autenticarte. Inicia sesión con tu correo `@poverty-action.org` (Enterprise) — no necesitas configurar API keys.
+
+---
+
+## Paso 6: Estructura de proyecto IPA
+
+Los proyectos IPA siguen una estructura estandarizada. La plantilla oficial está en [PovertyAction/ipa-stata-template](https://github.com/PovertyAction/ipa-stata-template). Para iniciar un proyecto nuevo, abre el repo en GitHub y haz clic en **"Use this template"**.
+
+```
+mi-proyecto/
+├── do_files/           # Scripts de Stata
+│   └── 00_run.do       # Do-file maestro
+├── data/
+│   ├── raw/            # Datos crudos (NUNCA editar, NUNCA commit)
+│   └── clean/          # Datos limpios (generados)
+├── outputs/
+│   ├── tables/         # Tablas generadas
+│   └── figures/        # Gráficos generados
+├── logs/               # Logs de ejecución
+├── ado/                # Paquetes locales de Stata
+├── .vscode/            # Configuración VS Code (extensiones recomendadas)
+├── .claude/            # Skills y settings de Claude Code
+│   └── skills/         # Estándares Stata, missing values, etc.
+├── CLAUDE.md           # Briefing del proyecto para Claude Code
+├── .env                # Ruta local de Stata (no se sube a Git)
+└── .here               # Marcador de raíz del proyecto
+```
+
+La plantilla soporta cuatro tiers:
+
+| Tier | Tiempo | Para |
+|------|--------|------|
+| 1 | 15 min | Empezar — solo Git + Stata + Just |
+| 2 | +5 min | Comandos simples (no escribir paths) |
+| 3 | +10 min | Pipelines largos (>5 min) — solo recompila lo que cambió |
+| 4 | +15 min | Desarrollo completo — IDE + linting + skills de Claude |
+
+Si ya tienes un repo de proyecto, no necesitas empezar de cero. Esta estructura es la referencia.
+
+---
+
+## Paso 7: Tu primera conversación con Claude Code
+
+Desde la terminal de VS Code, navega a la raíz de tu proyecto y ejecuta:
+
+```bash
+cd /ruta/a/tu/proyecto
+claude
+```
+
+Claude Code lee tu `CLAUDE.md` automáticamente. Para verificar:
+
+```
+What project is this?
+```
+
+Si responde correctamente describiendo tu proyecto, todo funciona. Si tu repo aún no tiene `CLAUDE.md`, el [módulo de Conceptos](concepts.qmd#claudemd-el-briefing-del-proyecto) te muestra cómo crear uno (la plantilla `ipa-stata-template` ya viene con uno listo).
+
+---
+
+## Problemas comunes
+
+| Problema | Solución |
+|----------|----------|
+| `claude: command not found` | Reabre la terminal después de instalar Node. Si persiste, ejecuta `npm install -g @anthropic-ai/claude-code` de nuevo. |
+| `npm install` falla con error de permisos (Windows) | Cierra VS Code y reabre como Administrador. |
+| `npm install` falla con permisos (macOS/Linux) | Usa `sudo npm install -g @anthropic-ai/claude-code`. |
+| Claude no encuentra el proyecto | Verifica que estás en la raíz: `pwd`. Claude Code busca `CLAUDE.md` en el directorio actual. |
+| Versión de Node muy antigua | Verifica con `node --version`. Necesitas 18+. Reinstala la versión LTS desde [nodejs.org](https://nodejs.org/). |
+| Error de autenticación | Verifica que estás usando tu correo `@poverty-action.org` con seat Enterprise activo. |
+| `code --install-extension` no funciona | El comando `code` no está en el PATH. Alternativa: abre VS Code, `Ctrl+Shift+X`, busca cada extensión por nombre. |
+| La extensión Stata no ejecuta do-files | Verifica que tu `.env` apunta a la ruta correcta del ejecutable de Stata. La plantilla `ipa-stata-template` incluye un `.env-example`. |
+
+Para problemas técnicos no listados, consulta la [documentación oficial](https://docs.anthropic.com/en/docs/claude-code) o escribe a `support@poverty-action.org`.
+
+---
+
+**Siguiente paso:** [Conceptos clave](concepts.qmd) — cómo Claude Code conoce tu proyecto (CLAUDE.md, skills, settings).

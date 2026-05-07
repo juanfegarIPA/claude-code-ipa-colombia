@@ -1,0 +1,37 @@
+---
+title: "Recursos"
+subtitle: "Compartido · Links útiles y soporte"
+---
+
+## Documentación oficial
+
+- [Documentación de Claude Code](https://docs.anthropic.com/en/docs/claude-code/overview) — referencia oficial de Anthropic
+- [IPA AI Usage Guidelines (Box)](https://ipastorage.box.com/s/mvr67ygvz1y3v8qmgjey67lk7msmyeks) — política institucional de IPA, lectura obligatoria
+
+## Recursos técnicos para Analistas
+
+- [Plantilla `ipa-stata-template`](https://github.com/PovertyAction/ipa-stata-template) — estructura estándar de proyecto Stata IPA
+- [DIME Analytics Stata Coding Standards](https://dimewiki.worldbank.org/Stata_Coding_Practices) — estándares de código
+- [Guía de Chris Blattman sobre IA](https://claudeblattman.com/) — siguiente paso después de esta guía
+
+## Recursos para Equipos y PMs
+
+- [Mirror técnico del sitio](https://github.com/Quintero-DiegoIPA/ipa-claude-code-intro) — copia funcional mantenida por Diego Quintero (analyst lead)
+- [Box Drive](https://www.box.com/drive) — sincronización de Box necesaria para varios módulos
+- [Node.js](https://nodejs.org/) — necesario para presentaciones IPA y otras automatizaciones
+- [Git para Windows](https://git-scm.com/downloads/win) — requisito previo de la app de escritorio
+
+## Soporte
+
+- **Cuestiones técnicas de Claude Code**: support@poverty-action.org
+- **Casos de uso de IA / aprobaciones**: [ipahelpdesk.freshservice.com](https://ipahelpdesk.freshservice.com) (asunto: "AI Use Case")
+- **Datos confidenciales / Azure OpenAI / LLMs locales**: researchsupport@poverty-action.org (GRDS)
+
+## Feedback sobre esta guía
+
+Cualquiera de los dos canales funciona — usa el que más se conecte con tu pregunta:
+
+- **Ruta de analistas (Stata, do-files, ejercicios)**: [Diego Quintero](mailto:dquintero@poverty-action.org) — analista lead, también vía [GitHub Issues del mirror técnico](https://github.com/Quintero-DiegoIPA/ipa-claude-code-intro/issues)
+- **Ruta de managers (módulos, starter packs, plantillas)**: [Juan Felipe García](mailto:jfgarcia@poverty-action.org) — Country Director, IPA Colombia, autor del contenido original. También vía [GitHub Issues de este repo](https://github.com/juanfegarIPA/claude-code-ipa-colombia/issues).
+
+Si no estás seguro a quién escribir, escríbele a cualquiera y te redirige al otro.

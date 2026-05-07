@@ -1,3 +1,19 @@
-site/
-__pycache__/
-*.pyc
+# Quarto build artifacts
+/.quarto/
+*_cache/
+*_files/
+_site/
+
+# IPA documents (do not track)
+*.pdf
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor files
+.vscode/
+*.swp
+*.swo
+
+**/*.quarto_ipynb

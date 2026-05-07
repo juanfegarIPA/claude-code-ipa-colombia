@@ -1,0 +1,178 @@
+---
+title: "5. Ejercicios prácticos"
+subtitle: "~30 minutos · Tres ejercicios progresivos"
+---
+
+## Ejercicio 1: Diagnosticar un merge problemático
+
+*10–15 minutos*
+
+Estás limpiando datos y haces un merge entre tu encuesta de línea base y las características de las unidades de servicio. El log muestra un resultado inesperado:
+
+```stata
+. use "$data/clean/baseline_clean.dta", clear
+(Baseline survey - HtG 3.0)
+
+. merge m:1 uds_id using "$data/clean/uds_characteristics.dta"
+
+    Result                      Number of obs
+    -----------------------------------------
+    Not matched                           147
+        from master                        12  (_merge==1)
+        from using                        135  (_merge==2)
+    Matched                             2,841  (_merge==3)
+    -----------------------------------------
+
+. tab _merge
+
+                 _merge |      Freq.     Percent        Cum.
+------------------------+-----------------------------------
+        Master only (1) |         12        0.40        0.40
+         Using only (2) |        135        4.52        4.93
+            Matched (3) |      2,841       95.07      100.00
+------------------------+-----------------------------------
+                  Total |      2,988      100.00
+```
+
+Esperabas que todas las UDS del archivo `using` emparejaran. 135 no lo hicieron. Algo anda mal.
+
+### Tu tarea
+
+1. Abre Claude Code en cualquier carpeta de proyecto (`claude` en la terminal)
+2. Pega el log y pregunta: *"Hice este merge y tengo 135 observaciones con _merge==2 que no esperaba. ¿Qué puede estar causando esto y cómo lo diagnostico?"*
+3. Lee el diagnóstico. ¿Propone múltiples hipótesis? (formato de variable, espacios, UDS sin encuestas)
+4. Haz seguimiento: *"uds_id es string en un archivo y numérico en el otro. ¿Cómo lo arreglo de forma reproducible?"*
+5. Evalúa si la solución es correcta y si es reproducible (va en el do-file, no es manual)
+
+### Criterios de evaluación
+
+- ¿Propone **múltiples hipótesis** en vez de asumir una sola causa?
+- ¿Sugiere comandos de diagnóstico concretos (e.g., `describe`, `assert`, `list`)?
+- ¿La solución propuesta es **reproducible** (código en el do-file, no edición manual)?
+- ¿Menciona la importancia de verificar **después** del fix (e.g., `assert _merge==3`)?
+
+---
+
+## Ejercicio 2: Escribir un do-file de estadísticas descriptivas
+
+*15–20 minutos*
+
+Necesitas una tabla de estadísticas descriptivas comparando autos domésticos y extranjeros.
+
+### Paso 1: Escribe el prompt
+
+Usa esta especificación con plan mode:
+
+> *"Usa plan mode. Necesito un do-file que produzca una tabla de estadísticas descriptivas de sysuse auto, comparando autos domésticos vs extranjeros. Variables: price, mpg, weight, length, headroom. Muestra media, DE, N, y un p-valor de t-test para cada una. Guarda como exercise_sumstats.do."*
+
+### Paso 2: Revisa el output
+
+- [ ] ¿Carga `sysuse auto, clear`?
+- [ ] ¿Produce estadísticas por `foreign` (0/1)?
+- [ ] ¿Incluye un t-test de diferencia?
+- [ ] ¿El código es legible con comentarios?
+- [ ] ¿Lo podrías ejecutar en Stata ahora mismo?
+
+### Paso 3: Itera
+
+Pide dos modificaciones:
+
+1. *"Agrega una fila para `rep78` (registro de reparaciones). Maneja los valores faltantes."*
+2. *"Agrega etiquetas de variable a la tabla para que muestre 'Precio (USD)' en vez de 'price'."*
+
+### Paso 4: Evalúa
+
+¿Modificó el do-file sin romper la estructura existente? ¿Manejó correctamente los valores faltantes en `rep78`?
+
+### Criterios de evaluación
+
+- ¿Carga `sysuse auto, clear` al inicio?
+- ¿Usa un loop o estructura repetible (no copia-pega por variable)?
+- ¿Maneja los valores faltantes de `rep78` explícitamente (no los ignora)?
+- ¿Aplica etiquetas de variable legibles?
+- ¿El código está comentado y es ejecutable sin modificaciones?
+- ¿Modificó sin romper la estructura que ya había generado?
+
+---
+
+## Ejercicio 3: Configura tu proyecto con CLAUDE.md
+
+*10–15 minutos*
+
+Los ejercicios anteriores usaron datos de práctica. Este ejercicio usa tu proyecto real — es donde Claude Code empieza a ser verdaderamente útil.
+
+### Paso 1: Crea tu CLAUDE.md
+
+Abre la [plantilla de CLAUDE.md](concepts.qmd#plantilla-claudemd-para-proyectos-ipa-clic-para-expandir) del módulo de conceptos. Cópiala a la raíz de tu repositorio de proyecto y adapta cada sección:
+
+- Cambia la descripción del proyecto
+- Agrega las reglas específicas de tu proyecto (convenciones de variables, rutas, restricciones de datos)
+- Lista los comandos que usas frecuentemente
+
+### Paso 2: Prueba tu CLAUDE.md
+
+Abre Claude Code desde la raíz de tu proyecto y pregunta:
+
+> *"¿Qué proyecto es este?"*
+
+Claude Code debería responder con la información de tu `CLAUDE.md`. Si no lo hace, verifica que el archivo está en la raíz del proyecto (no dentro de una subcarpeta).
+
+### Paso 3: Prueba una regla
+
+Agrega una regla específica a tu CLAUDE.md, por ejemplo:
+
+```markdown
+## Reglas del proyecto
+- Todos los do-files deben usar header estándar IPA.
+```
+
+Luego pide a Claude Code: *"Crea un do-file vacío para limpieza de datos."* Verifica que el do-file generado incluye el header que especificaste.
+
+### Criterios de evaluación
+
+- ¿Claude Code identifica correctamente tu proyecto cuando le preguntas?
+- ¿El do-file generado sigue la regla que agregaste?
+- Si no la sigue, ¿tu regla está escrita de forma clara y específica?
+
+::: {.callout-note}
+Un buen CLAUDE.md es específico. "Seguir estándares IPA" es vago. "Usar extended missing values: .d, .r, .n, .s. Nunca usar solo punto (.)" es accionable.
+:::
+
+---
+
+## Referencia rápida
+
+### Comandos comunes
+
+| Qué quieres | Qué escribir |
+|-------------|-------------|
+| Iniciar Claude Code | `claude` en la terminal |
+| Planificar antes de actuar | `/plan` o *"usa plan mode"* |
+| Editar un archivo | *"Edita [ruta] para [cambio]"* |
+| Crear un archivo | *"Crea un do-file que [especificación]"* |
+| Diagnosticar un error | Pega el log y pregunta *"¿Qué está mal?"* |
+| Salir | `/exit` o `Ctrl+C` |
+
+### Seguro vs. no seguro
+
+| ✅ Seguro | ❌ Nunca |
+|-----------|---------|
+| "Escribe un do-file que..." | "Lee los datos crudos de la encuesta..." |
+| "Diagnostica este log..." | "Muéstrame observaciones donde nombre =..." |
+| "Explica este comando de Stata..." | "Lista todos los nombres de encuestados..." |
+| "Genera una tabla en LaTeX para..." | "Abre el archivo en la unidad D:..." |
+
+### Siguientes pasos
+
+1. **Empieza aquí.** Pide a Claude Code que explique una sección de un do-file existente.
+2. **Luego intenta.** Pega un error de Stata de un log y pide un diagnóstico.
+3. **Avanza.** Pide que revise un do-file contra estándares de código.
+4. **Profundiza.** Trabaja con la [guía de Blattman](https://claudeblattman.com/) para flujos avanzados.
+
+### Recursos
+
+- [IPA AI Usage Guidelines](https://ipastorage.box.com/s/mvr67ygvz1y3v8qmgjey67lk7msmyeks)
+- [Guía de Blattman sobre IA](https://claudeblattman.com/)
+- [Documentación de Claude Code](https://docs.anthropic.com/en/docs/claude-code/overview)
+- [Plantilla Stata de IPA](https://github.com/PovertyAction/ipa-stata-template)
+- Mesa de ayuda MIST para aprobaciones
