@@ -1,0 +1,94 @@
+---
+title: "Para Equipos y PMs"
+subtitle: "Claude Code para managers de IPA Colombia"
+---
+
+::: {.callout-note}
+Esta ruta de la guía está adaptada del trabajo de **Juan Felipe García**, Country Director de IPA Colombia, quien construyó un workspace personal con Claude Code durante 3 meses y documentó las herramientas y plantillas que creó. La versión original en MkDocs vive en [juanfegarIPA/claude-code-ipa-colombia](https://github.com/juanfegarIPA/claude-code-ipa-colombia).
+
+**¿Comentarios sobre esta ruta?** Juan Felipe está abierto a recibir feedback, ajustes o casos nuevos. Escríbele a [jfgarcia@poverty-action.org](mailto:jfgarcia@poverty-action.org) o abre un issue en el [repo original](https://github.com/juanfegarIPA/claude-code-ipa-colombia/issues).
+:::
+
+## Qué es esto
+
+IPA nos asignó licencias Enterprise de Claude, incluyendo acceso a Claude Code. Esta sección documenta cómo un manager puede construir un workspace con Claude Code, y te da herramientas para que explores si te interesa.
+
+Encontrarás:
+
+- **Cómo instalar** Claude Code paso a paso
+- **Qué puedes y qué no puedes hacer** según la política de IPA (ver [Seguridad](../shared/safety.qmd))
+- **Módulos** que explican cada herramienta: qué problema resuelve, la filosofía detrás, cómo está construida
+- **Plantillas funcionales** que puedes copiar a tu propio workspace
+- **Ejemplos reales** de proyectos (plan estratégico, análisis de costo-efectividad)
+
+## Qué es Claude Code
+
+Claude Code es una forma de conversar con Claude directamente desde tu computador. Hay una app de escritorio, una versión de terminal y una versión web. A diferencia de claude.ai (el chat web normal), Claude Code puede:
+
+- **Leer y editar archivos** en tu computador (documentos, Excel, carpetas)
+- **Generar documentos** (Word, PowerPoint, Excel) listos para compartir
+- **Buscar en tu correo** (con integración de Gmail)[^1]
+- **Automatizar tareas repetitivas** (reportes, seguimiento, formateo)
+- **Recordar quién eres y cómo trabajas** entre sesiones, mediante un archivo de contexto llamado CLAUDE.md
+
+[^1]: La integración con Gmail requiere configurar un conector adicional (MCP server) y autorización previa. No viene activada por defecto. Consulta con tu líder de área antes de configurarla.
+
+::: {.callout-tip}
+## ¿Necesito saber programar?
+No. La app de escritorio tiene una interfaz visual donde conversas con Claude igual que en un chat. La diferencia es que Claude puede acceder a tus archivos locales y generar documentos. Si ya has usado Claude o ChatGPT en el navegador, Claude Code es el siguiente paso.
+:::
+
+::: {.callout-important}
+## Lo que NO es
+No reemplaza tu criterio. No es almacenamiento. No es un motor de búsqueda. Siempre revisa lo que produce.
+:::
+
+::: {.callout-note}
+## ¿Usas Box para tus archivos?
+Algunos módulos (como el Knowledge Base y el Plan Estratégico) leen archivos desde carpetas de Box. Para que funcione, necesitas tener **Box Drive** instalado y sincronizado en tu computador. Si no lo tienes, descárgalo desde [box.com/drive](https://www.box.com/drive) o pide ayuda al helpdesk.
+:::
+
+## Por dónde empezar
+
+Hay un paso a paso completo en [Cómo empezar](empezar.qmd). Si quieres ir directo a algo concreto:
+
+::: {.feature-grid}
+::: {.feature-card}
+### 1. Instalar
+Verifica tu licencia e instala Claude Code en 10–15 minutos.
+
+[Ir a instalación →](instalar.qmd)
+:::
+
+::: {.feature-card}
+### 2. Conocer los límites
+Qué puedes y qué no puedes hacer con la licencia Enterprise.
+
+[Ver Seguridad →](../shared/safety.qmd)
+:::
+
+::: {.feature-card}
+### 3. Cargar un starter pack
+Setup completo por rol (growth, revisiones, people, procurement). 10–20 min cada uno.
+
+[Ver starter packs →](starters/index.qmd)
+:::
+
+::: {.feature-card}
+### 4. Aprender por capacidad
+Si prefieres entender qué se puede hacer y armar tu setup a medida.
+
+[Ver módulos →](modulos/index.qmd)
+:::
+:::
+
+::: {.callout-tip}
+## Starter pack o módulos: ¿cuál es cuál?
+**Starter packs** son setups listos por rol (managers de growth, weekly review, people, procurement). Cargas uno y arrancas con estructura validada. **Módulos** son explicaciones por capacidad (comunicaciones, gestión de tareas, KB). Útil si todavía no tienes claro qué empezar a hacer y prefieres entender primero. Las dos rutas son legítimas, puedes empezar por una y migrar.
+:::
+
+## No hay presión
+
+No necesitas adoptar todo. No necesitas saber programar. No necesitas construir nada complejo.
+
+Revisa lo que te llame la atención, hazte preguntas, y si algo te interesa, pruébalo.

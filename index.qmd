@@ -1,0 +1,61 @@
+---
+title: "Claude Code para IPA Colombia"
+subtitle: "Guia practica · dos rutas segun tu trabajo"
+---
+
+```{=html}
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<div class="site-banner">
+  <span class="banner-badge">BETA v0.2</span>
+  Esta guia esta en beta. Combinamos dos guias hermanas en un solo sitio.
+  Comentarios bienvenidos a <a href="mailto:dquintero@poverty-action.org">Diego Quintero</a> (ruta analista) o a <a href="mailto:jfgarcia@poverty-action.org">Juan Felipe Garcia</a> (ruta manager) — tambien por <a href="https://github.com/Quintero-DiegoIPA/ipa-claude-code-intro/issues">GitHub Issues</a>.
+</div>
+```
+
+## De que se trata esta guia
+
+Claude Code es un asistente de IA de Anthropic. A diferencia de un chatbot en el navegador, lee los archivos de tu proyecto, entiende la estructura, y puede escribir o editar archivos directamente en tu maquina. Esta guia te ensena a usarlo de forma segura en proyectos de IPA Colombia.
+
+::: {.callout-important}
+## Lectura obligatoria previa
+Esta guia complementa las [IPA AI Usage Guidelines](https://ipastorage.box.com/s/mvr67ygvz1y3v8qmgjey67lk7msmyeks). Revisalas primero para conocer el marco completo de clasificacion de datos y aprobaciones.
+:::
+
+## Elige tu ruta
+
+::: {.grid}
+::: {.g-col-md-6 .audience-card}
+### Para Analistas
+
+Para Research Analysts que escriben **codigo**: do-files de Stata, debugging, pipelines MEL, tablas LaTeX.
+
+- Instalacion en VS Code + terminal
+- CLAUDE.md como briefing del proyecto
+- Tres ejercicios practicos con datos sinteticos
+- Productos reales construidos con Claude Code
+
+[Empezar →](analyst/index.qmd){.btn-cta}
+:::
+
+::: {.g-col-md-6 .audience-card}
+### Para Equipos y PMs
+
+Para staff que delega trabajo administrativo: comunicaciones, weekly reviews, procurement, gestion de personas, presentaciones.
+
+- App de escritorio (sin terminal)
+- CLAUDE.md como memoria operativa personal
+- 7 modulos por capacidad + 4 starter packs por rol
+- Plantillas descargables listas para usar
+
+[Empezar →](manager/index.qmd){.btn-cta}
+:::
+:::
+
+## Lo que comparten ambas rutas
+
+Tres modulos son obligatorios independientemente de la ruta que elijas:
+
+- [**Seguridad de datos**](shared/safety.qmd) — clasificacion IPA, PII, escenarios seguros y no seguros
+- [**Bucles de feedback**](shared/feedback-loops.qmd) — la practica que hace que Claude se vuelva mas util con el tiempo
+- [**Prompting**](shared/prompting.qmd) — modo plan y patrones para prompts efectivos

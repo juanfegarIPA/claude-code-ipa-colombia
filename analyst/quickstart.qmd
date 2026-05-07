@@ -1,0 +1,124 @@
+---
+title: "Demo: Claude Code en accion"
+subtitle: "2 minutos · No requiere instalacion"
+---
+
+Antes de instalar nada, mira como se ve una sesion real de Claude Code. Estos son dos escenarios tipicos del trabajo diario de un analista.
+
+---
+
+## Escenario 1: Diagnosticar un merge que no cuadra
+
+Tu merge de linea base con seguimiento produce observaciones inesperadas. El log muestra:
+
+```stata
+. use "$data/clean/baseline_clean.dta", clear
+(Baseline survey - HtG 3.0)
+
+. merge m:1 uds_id using "$data/clean/uds_characteristics.dta"
+
+    Result                      Number of obs
+    -----------------------------------------
+    Not matched                           147
+        from master                        12  (_merge==1)
+        from using                        135  (_merge==2)
+    Matched                             2,841  (_merge==3)
+    -----------------------------------------
+```
+
+135 UDS del archivo `using` no emparejaron. Algo no cuadra. Le pegas el log a Claude Code:
+
+```
+> Me salio este resultado de merge. Esperaba que todas las UDS del using
+> emparejaran. Por que hay 135 observaciones con _merge==2?
+```
+
+Claude Code responde:
+
+```
+El problema es que 135 registros en uds_characteristics.dta tienen un
+uds_id que no aparece en baseline_clean.dta. Causas comunes:
+
+1. **Formatos diferentes**: uds_id es string en un archivo y numerico
+   en otro. Verifica con `describe uds_id` en ambos datasets.
+
+2. **Espacios extra**: Si uds_id es string, puede tener espacios al
+   inicio o final. Prueba `gen test = strtrim(uds_id)` y compara.
+
+3. **UDS sin encuestas**: Son UDS registradas pero sin participantes
+   encuestados en baseline.
+
+Para diagnosticar, ejecuta esto antes del merge:
+
+    use "$data/clean/uds_characteristics.dta", clear
+    tempfile uds
+    save `uds'
+
+    use "$data/clean/baseline_clean.dta", clear
+    merge m:1 uds_id using `uds', keep(using) nogenerate
+    list uds_id in 1/10
+
+Eso te mostrara cuales UDS no emparejaron.
+```
+
+Haces seguimiento:
+
+```
+> uds_id es string en un archivo y numerico en el otro. Como lo arreglo?
+```
+
+```
+Convierte a un formato comun antes del merge. Si uds_id deberia ser
+numerico:
+
+    destring uds_id, replace
+
+Si deberia ser string:
+
+    tostring uds_id, replace
+
+Agrega esto al do-file de limpieza, antes del merge, para que sea
+reproducible.
+```
+
+**Sin Claude Code**, diagnosticar esto requiere: abrir ambos datasets, comparar tipos con `describe`, probar distintas hipotesis manualmente. Con Claude Code, llegas a la causa raiz en una pregunta.
+
+---
+
+## Escenario 2: Generar una tabla de balance
+
+Necesitas una tabla comparando grupo de tratamiento vs control para tu reporte.
+
+```
+> Usa plan mode. Necesito un do-file que produzca una tabla de balance
+> para el RCT de SpC. Variables: edad del cuidador, anos de educacion,
+> numero de hijos, ingreso mensual del hogar. Compara tratamiento
+> (treatment==1) vs control (treatment==0). Incluye media, DE, diferencia,
+> y p-valor. Exporta a LaTeX con esttab.
+```
+
+Claude Code primero presenta un plan:
+
+```
+Plan:
+1. Cargar datos limpios
+2. Definir lista de variables de balance
+3. Loop sobre variables: calcular media/DE por grupo con summarize
+4. Test de diferencia con ttest
+5. Almacenar resultados en matrices
+6. Exportar con esttab a LaTeX
+
+¿Apruebas este enfoque?
+```
+
+Apruebas, y Claude Code genera un do-file completo, comentado, y ejecutable. Si algo no se ve bien, iteras: *"Agrega una columna con el N por grupo"* o *"Usa el formato de tabla de CLAUDE_DELIVERABLES_GUIDE.md."*
+
+**Sin Claude Code**, escribes la tabla linea por linea, consultando la documentacion de `esttab`, ajustando formato por prueba y error. Con Claude Code, describes el resultado y el te da el codigo.
+
+---
+
+## Listo para empezar?
+
+Estos son ejemplos simples. Claude Code puede ayudar con pipelines completos de analisis, graficos con formato IPA, documentos Quarto, y mucho mas. Pero primero necesitas instalarlo.
+
+[Ir a la instalacion →](setup.qmd){.btn .btn-primary}

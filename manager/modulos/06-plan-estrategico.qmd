@@ -1,0 +1,69 @@
+---
+title: "Módulo 6: Ejemplo — Seguimiento al plan estratégico"
+subtitle: "Cómo Claude Code monitorea 14 metas con avance dispersado en Box"
+---
+
+::: {.callout-note}
+## Prerequisitos para replicar algo parecido
+- **Software**: Claude Code + acceso a Box Drive (si tus archivos están en Box)
+- **Opcional**: Python + openpyxl (`pip install openpyxl`) si necesitas generar Excels con formato
+- **Dificultad**: ▣ ▣ ▣ ▢ ▢ (depende de la complejidad de tu proyecto)
+:::
+
+## Qué muestra este ejemplo
+
+Cómo Claude Code sirve de puente entre un Excel complejo y outputs accionables: reportes de monitoreo, mensajes al equipo, dashboards de estado. Todo a partir de una fuente de verdad que vive en Box.
+
+## El problema
+
+IPA Colombia tiene un plan estratégico 2026 con 3 pilares, 14 metas, múltiples responsables y carpetas de seguimiento en Box. El reto es doble:
+
+1. **Monitorear avance**: no basta con tener carpetas. Alguien tiene que revisar qué hay adentro, detectar señales de avance o estancamiento, y generar un reporte.
+2. **Comunicar al equipo**: los responsables de cada meta necesitan saber cómo van, qué se espera, y qué está bloqueado. Sin comunicación activa, el plan se vuelve un documento que nadie mira.
+
+## Cómo se construyó
+
+### Fase 1: Infraestructura (completada)
+
+- El Excel fuente en Box tiene la versión limpia del plan (14 metas, indicadores, responsables)
+- Claude Code leyó el Excel, generó una configuración de metas, y creó 74 carpetas en Box con estructura estandarizada para seguimiento
+- Se generó una guía de uso en Word para el equipo
+
+### Fase 2: Monitoreo mensual (operativa)
+
+- Un comando en Claude Code escanea las carpetas de Box, lee los documentos que el equipo sube, y detecta señales de avance o estancamiento
+- Genera tres productos: un archivo de datos internos, un Excel de monitoreo, y un dashboard HTML navegable
+- El responsable revisa el HTML, agrega observaciones cualitativas, y comparte con el equipo
+
+### Lo que Claude Code hace concretamente
+
+- Lee el Excel fuente → extrae metas, indicadores, responsables
+- Escanea Box → detecta documentos nuevos, fechas de actualización, señales de actividad
+- Cruza lo que encuentra vs. lo que se esperaba → genera diagnóstico por meta
+- Produce reportes en múltiples formatos → cada audiencia recibe lo que necesita
+
+## Ver ejemplo
+
+El sistema genera un HTML ejecutivo navegable con filtros por pilar, semáforo y búsqueda libre. Una versión demo (con datos anonimizados) está disponible en el [repositorio original de Juan Felipe](https://juanfegaripa.github.io/claude-code-ipa-colombia/ejemplos/monitoreo-demo.html){target="_blank"}.
+
+## La lección
+
+El plan estratégico existía antes de Claude Code. Las carpetas en Box existían. Lo que faltaba era un puente entre los datos dispersos y la acción coordinada. Claude Code no reemplaza el plan ni la gestión humana — automatiza la parte mecánica (escanear, cruzar, formatear) para que el manager se enfoque en lo que importa: interpretar, decidir y comunicar.
+
+## Relevancia para ti
+
+Si gestionas un proyecto con múltiples componentes, responsables y fuentes de información, Claude Code puede:
+
+- Leer tus archivos de seguimiento (Excel, Box, carpetas locales)
+- Generar reportes de estado sin que tengas que compilar a mano
+- Ayudarte a comunicar avance y detectar bloqueos temprano
+- Mantener la conexión entre el plan y la ejecución
+
+No necesitas 14 metas para que esto tenga valor. Un proyecto con 3 componentes y un Excel de seguimiento ya es suficiente.
+
+## Cómo empezar con algo parecido
+
+1. Piensa en un proyecto que gestiones donde haya un Excel o carpeta de seguimiento
+2. Abre Claude Code y dile: "Lee este archivo [ruta al Excel o carpeta] y dime: qué ha avanzado, qué está pendiente, y qué necesita atención"
+3. Claude te dará un diagnóstico. A partir de ahí puedes pedirle un reporte formateado, un mensaje para el equipo, o un resumen ejecutivo
+4. No necesitas construir un sistema completo. Empieza con una consulta y ve creciendo según te sirva

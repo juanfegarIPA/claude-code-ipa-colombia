@@ -1,0 +1,52 @@
+---
+title: "Plantillas descargables"
+subtitle: "Archivos listos para copiar a tu workspace"
+---
+
+Estas plantillas son archivos `.md` que Claude Code lee como contexto operativo. Descárgalas y guárdalas en tu carpeta de workspace al lado de tu `CLAUDE.md`. Cuando le pidas a Claude que use una capacidad (redacción, gestión de tareas, etc.), va a leer la plantilla correspondiente y aplicar las reglas que ahí están escritas.
+
+::: {.callout-tip}
+## ¿Cómo se usan?
+Cada plantilla está documentada en su [módulo](modulos/index.qmd) correspondiente. La forma más rápida de empezar es cargar un [starter pack](starters/index.qmd), que ya viene con las plantillas relevantes y un `CLAUDE.md` específico para ese rol.
+:::
+
+## Núcleo
+
+Las dos plantillas que todo manager necesita:
+
+| Plantilla | Para qué sirve | Descargar |
+|-----------|----------------|-----------|
+| **CLAUDE.md** | Memoria operativa personal. Le dice a Claude quién eres y cómo trabajas. Tiene marcadores `<!-- INIT-* -->` que Claude llena por entrevista. | <a href="../downloads/CLAUDE.md" download="CLAUDE.md" class="btn-download">Descargar</a> |
+| **feedback.md** | Log de correcciones acumuladas. Empieza vacío, crece con uso. | <a href="../downloads/feedback.md" download="feedback.md" class="btn-download">Descargar</a> |
+
+## Plantillas operativas
+
+Cada una activa una capacidad del workspace. Cárgalas según lo que vayas a hacer:
+
+| Plantilla | Capacidad | Módulo | Descargar |
+|-----------|-----------|--------|-----------|
+| **comunicaciones.md** | Redacción consistente con tu voz | [Comunicaciones](modulos/01-comunicaciones.qmd) | <a href="../downloads/comunicaciones.md" download="comunicaciones.md" class="btn-download">Descargar</a> |
+| **tareas.md** | Task manager basado en archivos | [Gestión de tareas](modulos/02-gestion-de-tareas.qmd) | <a href="../downloads/tareas.md" download="tareas.md" class="btn-download">Descargar</a> |
+| **kb-consulta.md** | Consultar carpetas como base de conocimiento | [Knowledge Base](modulos/03-knowledge-base.qmd) | <a href="../downloads/kb-consulta.md" download="kb-consulta.md" class="btn-download">Descargar</a> |
+| **presentaciones-ipa.md** | Generar PowerPoint con marca IPA | [Presentaciones IPA](modulos/04-presentaciones-ipa.qmd) | <a href="../downloads/presentaciones-ipa.md" download="presentaciones-ipa.md" class="btn-download">Descargar</a> |
+| **revision-semanal.md** | Revisión semanal en 5 bloques | [Revisión semanal](modulos/05-revision-semanal.qmd) | <a href="../downloads/revision-semanal.md" download="revision-semanal.md" class="btn-download">Descargar</a> |
+
+## Starter packs (CLAUDE.md por rol)
+
+Cada starter pack viene con su propio `CLAUDE.md` que reemplaza al genérico. Cárgalo si tu rol encaja:
+
+| Starter | Para quién | Descargar |
+|---------|------------|-----------|
+| **Growth** | BD, fundraising, alianzas | <a href="../downloads/starters/growth-CLAUDE.md" download="CLAUDE.md" class="btn-download">Descargar CLAUDE.md</a> |
+| **Weekly review** | Cierre estructurado de semana | <a href="../downloads/starters/weekly-review-CLAUDE.md" download="CLAUDE.md" class="btn-download">Descargar CLAUDE.md</a> |
+| **People layer** | Red activa de contrapartes | <a href="../downloads/starters/people-CLAUDE.md" download="CLAUDE.md" class="btn-download">Descargar CLAUDE.md</a> |
+| **Procurement** | Decisiones de compra | <a href="../downloads/starters/procurement-CLAUDE.md" download="CLAUDE.md" class="btn-download">Descargar CLAUDE.md</a> |
+
+::: {.callout-warning}
+## Atención al nombre del archivo
+Cuando descargues un `CLAUDE.md` de un starter pack, el navegador puede guardarlo con el nombre del starter (ej: `growth-CLAUDE.md`). Renómbralo a `CLAUDE.md` exactamente antes de moverlo a tu workspace, o úsalo dentro de una subcarpeta del starter (ver instrucciones en cada [starter](starters/index.qmd)).
+:::
+
+---
+
+**Siguiente paso:** elige un [starter pack](starters/index.qmd) o explora los [módulos por capacidad](modulos/index.qmd).

@@ -1,0 +1,104 @@
+project:
+  type: website
+  output-dir: _site
+  render:
+    - "index.qmd"
+    - "analyst/**/*.qmd"
+    - "shared/**/*.qmd"
+    - "manager/**/*.qmd"
+  resources:
+    - "images/**"
+    - "downloads/**"
+
+website:
+  title: "Claude Code para IPA"
+  navbar:
+    background: "#1a1a2e"
+    foreground: "#e0e0e0"
+    left:
+      - href: index.qmd
+        text: Inicio
+      - href: analyst/index.qmd
+        text: Para Analistas
+      - href: manager/index.qmd
+        text: Para Equipos
+      - text: Compartido
+        menu:
+          - href: shared/safety.qmd
+            text: Seguridad
+          - href: shared/prompting.qmd
+            text: Prompting
+          - href: shared/feedback-loops.qmd
+            text: Feedback loops
+          - href: shared/recursos.qmd
+            text: Recursos
+    right:
+      - icon: github
+        href: https://github.com/Quintero-DiegoIPA/ipa-claude-code-intro
+  page-footer:
+    center: |
+      Construido con [Claude Code](https://docs.anthropic.com/en/docs/claude-code/overview) · IPA Colombia · Feedback: [Diego Quintero](mailto:dquintero@poverty-action.org) (analista) o [Juan Felipe Garcia](mailto:jfgarcia@poverty-action.org) (manager)
+
+  sidebar:
+    - id: analyst
+      title: "Para Analistas"
+      style: floating
+      collapse-level: 2
+      contents:
+        - analyst/index.qmd
+        - analyst/quickstart.qmd
+        - analyst/setup.qmd
+        - analyst/concepts.qmd
+        - analyst/stata-workflow.qmd
+        - section: "Compartido"
+          contents:
+            - shared/safety.qmd
+            - shared/prompting.qmd
+            - shared/feedback-loops.qmd
+        - analyst/exercises.qmd
+        - analyst/examples.qmd
+
+    - id: manager
+      title: "Para Equipos"
+      style: floating
+      collapse-level: 2
+      contents:
+        - manager/index.qmd
+        - manager/empezar.qmd
+        - manager/instalar.qmd
+        - section: "Compartido"
+          contents:
+            - shared/safety.qmd
+            - shared/feedback-loops.qmd
+        - section: "Módulos"
+          contents:
+            - manager/modulos/index.qmd
+            - manager/modulos/01-comunicaciones.qmd
+            - manager/modulos/02-gestion-de-tareas.qmd
+            - manager/modulos/03-knowledge-base.qmd
+            - manager/modulos/04-presentaciones-ipa.qmd
+            - manager/modulos/05-revision-semanal.qmd
+            - manager/modulos/06-plan-estrategico.qmd
+            - manager/modulos/07-analisis-cea.qmd
+        - section: "Starter packs"
+          contents:
+            - manager/starters/index.qmd
+            - manager/starters/growth.qmd
+            - manager/starters/weekly-review.qmd
+            - manager/starters/people.qmd
+            - manager/starters/procurement.qmd
+        - manager/plantillas.qmd
+
+format:
+  html:
+    theme: darkly
+    css: styles.css
+    toc: true
+    toc-depth: 2
+    code-copy: true
+    smooth-scroll: true
+    link-external-newwindow: true
+    mainfont: "DM Sans"
+    monofont: "JetBrains Mono"
+
+lang: es
