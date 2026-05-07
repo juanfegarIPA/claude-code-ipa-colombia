@@ -3,23 +3,23 @@ title: "Para Analistas"
 subtitle: "Claude Code para Research Analysts de IPA Colombia"
 ---
 
-Bienvenido a la ruta para Research Analysts. Esta guia asume que escribes codigo Stata regularmente y que ya manejas IPA/DIME standards.
+Bienvenido a la ruta para Research Analysts. Esta guía asume que escribes código Stata regularmente y que ya manejas IPA/DIME standards.
 
-## Que vas a aprender
+## Qué vas a aprender
 
-Esta ruta toma entre **50 y 75 minutos**, incluyendo tres ejercicios practicos.
+Esta ruta toma entre **50 y 75 minutos**, incluyendo tres ejercicios prácticos.
 
-| | Modulo | Tiempo | Que cubre |
+| | Módulo | Tiempo | Qué cubre |
 |---|---|---|---|
-| | [Demo](quickstart.qmd) | ~2 min | Claude Code en accion — dos escenarios reales sin instalar nada |
-| 1 | [Instalacion](setup.qmd) | ~15 min | GitHub, estructura de proyecto, VS Code, instalar Claude Code |
-| 2 | [Conceptos](concepts.qmd) | ~10 min | Que es Claude Code, que puede hacer, CLAUDE.md y skills |
-| 3 | [Flujo Stata](stata-workflow.qmd) | ~10 min | Como Claude ejecuta Stata, lee logs y reporta resultados |
-| 4 | [Seguridad](../shared/safety.qmd) | ~10 min | Clasificacion de datos, reglas de PII, escenarios seguros/no seguros |
+| | [Demo](quickstart.qmd) | ~2 min | Claude Code en acción — dos escenarios reales sin instalar nada |
+| 1 | [Instalación](setup.qmd) | ~15 min | GitHub, estructura de proyecto, VS Code, instalar Claude Code |
+| 2 | [Conceptos](concepts.qmd) | ~10 min | Qué es Claude Code, qué puede hacer, CLAUDE.md y skills |
+| 3 | [Flujo Stata](stata-workflow.qmd) | ~10 min | Cómo Claude ejecuta Stata, lee logs y reporta resultados |
+| 4 | [Seguridad](../shared/safety.qmd) | ~10 min | Clasificación de datos, reglas de PII, escenarios seguros/no seguros |
 | 5 | [Prompting](../shared/prompting.qmd) | ~10 min | Modo plan, cinco patrones para prompts efectivos |
-| 6 | [Practica](exercises.qmd) | ~30 min | Tres ejercicios: diagnostico, do-file, y configuracion de proyecto |
+| 6 | [Práctica](exercises.qmd) | ~30 min | Tres ejercicios: diagnóstico, do-file, y configuración de proyecto |
 | | [Ejemplos](examples.qmd) | — | Productos reales construidos con Claude Code |
 
 ## Esto es solo la punta del iceberg
 
-Esta guia es una introduccion muy inicial. Para profundizar mucho mas en flujos de trabajo asistidos por IA, estrategias de prompting y casos de uso avanzados, recomiendo la [guia de Chris Blattman sobre IA](https://claudeblattman.com/) como siguiente paso.
+Esta guía es una introducción muy inicial. Para profundizar mucho más en flujos de trabajo asistidos por IA, estrategias de prompting y casos de uso avanzados, recomiendo la [guía de Chris Blattman sobre IA](https://claudeblattman.com/) como siguiente paso.

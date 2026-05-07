@@ -1,6 +1,6 @@
 ---
 title: "Claude Code para IPA Colombia"
-subtitle: "Guia practica · dos rutas segun tu trabajo"
+subtitle: "Guía práctica · dos rutas según tu trabajo"
 ---
 
 ```{=html}
@@ -8,18 +8,18 @@ subtitle: "Guia practica · dos rutas segun tu trabajo"
 
 <div class="site-banner">
   <span class="banner-badge">BETA v0.2</span>
-  Esta guia esta en beta. Combinamos dos guias hermanas en un solo sitio.
-  Comentarios bienvenidos a <a href="mailto:dquintero@poverty-action.org">Diego Quintero</a> (ruta analista) o a <a href="mailto:jfgarcia@poverty-action.org">Juan Felipe Garcia</a> (ruta manager) — tambien por <a href="https://github.com/juanfegarIPA/claude-code-ipa-colombia/issues">GitHub Issues</a>.
+  Esta guía está en beta. Combinamos dos guías hermanas en un solo sitio.
+  Comentarios bienvenidos a <a href="mailto:dquintero@poverty-action.org">Diego Quintero</a> (ruta analista) o a <a href="mailto:jfgarcia@poverty-action.org">Juan Felipe García</a> (ruta manager) — también por <a href="https://github.com/juanfegarIPA/claude-code-ipa-colombia/issues">GitHub Issues</a>.
 </div>
 ```
 
-## De que se trata esta guia
+## De qué se trata esta guía
 
-Claude Code es un asistente de IA de Anthropic. A diferencia de un chatbot en el navegador, lee los archivos de tu proyecto, entiende la estructura, y puede escribir o editar archivos directamente en tu maquina. Esta guia te ensena a usarlo de forma segura en proyectos de IPA Colombia.
+Claude Code es un asistente de IA de Anthropic. A diferencia de un chatbot en el navegador, lee los archivos de tu proyecto, entiende la estructura, y puede escribir o editar archivos directamente en tu máquina. Esta guía te enseña a usarlo de forma segura en proyectos de IPA Colombia.
 
 ::: {.callout-important}
 ## Lectura obligatoria previa
-Esta guia complementa las [IPA AI Usage Guidelines](https://ipastorage.box.com/s/mvr67ygvz1y3v8qmgjey67lk7msmyeks). Revisalas primero para conocer el marco completo de clasificacion de datos y aprobaciones.
+Esta guía complementa las [IPA AI Usage Guidelines](https://ipastorage.box.com/s/mvr67ygvz1y3v8qmgjey67lk7msmyeks). Revísalas primero para conocer el marco completo de clasificación de datos y aprobaciones.
 :::
 
 ## Elige tu ruta
@@ -28,11 +28,11 @@ Esta guia complementa las [IPA AI Usage Guidelines](https://ipastorage.box.com/s
 ::: {.g-col-md-6 .audience-card}
 ### Para Analistas
 
-Para Research Analysts que escriben **codigo**: do-files de Stata, debugging, pipelines MEL, tablas LaTeX.
+Para Research Analysts que escriben **código**: do-files de Stata, debugging, pipelines MEL, tablas LaTeX.
 
-- Instalacion en VS Code + terminal
+- Instalación en VS Code + terminal
 - CLAUDE.md como briefing del proyecto
-- Tres ejercicios practicos con datos sinteticos
+- Tres ejercicios prácticos con datos sintéticos
 - Productos reales construidos con Claude Code
 
 [Empezar →](analyst/index.qmd){.btn-cta}
@@ -41,11 +41,11 @@ Para Research Analysts que escriben **codigo**: do-files de Stata, debugging, pi
 ::: {.g-col-md-6 .audience-card}
 ### Para Equipos y PMs
 
-Para staff que delega trabajo administrativo: comunicaciones, weekly reviews, procurement, gestion de personas, presentaciones.
+Para staff que delega trabajo administrativo: comunicaciones, weekly reviews, procurement, gestión de personas, presentaciones.
 
 - App de escritorio (sin terminal)
 - CLAUDE.md como memoria operativa personal
-- 7 modulos por capacidad + 4 starter packs por rol
+- 7 módulos por capacidad + 4 starter packs por rol
 - Plantillas descargables listas para usar
 
 [Empezar →](manager/index.qmd){.btn-cta}
@@ -54,8 +54,8 @@ Para staff que delega trabajo administrativo: comunicaciones, weekly reviews, pr
 
 ## Lo que comparten ambas rutas
 
-Tres modulos son obligatorios independientemente de la ruta que elijas:
+Tres módulos son obligatorios independientemente de la ruta que elijas:
 
-- [**Seguridad de datos**](shared/safety.qmd) — clasificacion IPA, PII, escenarios seguros y no seguros
-- [**Bucles de feedback**](shared/feedback-loops.qmd) — la practica que hace que Claude se vuelva mas util con el tiempo
+- [**Seguridad de datos**](shared/safety.qmd) — clasificación IPA, PII, escenarios seguros y no seguros
+- [**Bucles de feedback**](shared/feedback-loops.qmd) — la práctica que hace que Claude se vuelva más útil con el tiempo
 - [**Prompting**](shared/prompting.qmd) — modo plan y patrones para prompts efectivos

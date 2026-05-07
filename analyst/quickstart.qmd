@@ -1,15 +1,15 @@
 ---
-title: "Demo: Claude Code en accion"
-subtitle: "2 minutos · No requiere instalacion"
+title: "Demo: Claude Code en acción"
+subtitle: "2 minutos · No requiere instalación"
 ---
 
-Antes de instalar nada, mira como se ve una sesion real de Claude Code. Estos son dos escenarios tipicos del trabajo diario de un analista.
+Antes de instalar nada, mira cómo se ve una sesión real de Claude Code. Estos son dos escenarios típicos del trabajo diario de un analista.
 
 ---
 
 ## Escenario 1: Diagnosticar un merge que no cuadra
 
-Tu merge de linea base con seguimiento produce observaciones inesperadas. El log muestra:
+Tu merge de línea base con seguimiento produce observaciones inesperadas. El log muestra:
 
 ```stata
 . use "$data/clean/baseline_clean.dta", clear
@@ -29,8 +29,8 @@ Tu merge de linea base con seguimiento produce observaciones inesperadas. El log
 135 UDS del archivo `using` no emparejaron. Algo no cuadra. Le pegas el log a Claude Code:
 
 ```
-> Me salio este resultado de merge. Esperaba que todas las UDS del using
-> emparejaran. Por que hay 135 observaciones con _merge==2?
+> Me salió este resultado de merge. Esperaba que todas las UDS del using
+> emparejaran. ¿Por qué hay 135 observaciones con _merge==2?
 ```
 
 Claude Code responde:
@@ -39,7 +39,7 @@ Claude Code responde:
 El problema es que 135 registros en uds_characteristics.dta tienen un
 uds_id que no aparece en baseline_clean.dta. Causas comunes:
 
-1. **Formatos diferentes**: uds_id es string en un archivo y numerico
+1. **Formatos diferentes**: uds_id es string en un archivo y numérico
    en otro. Verifica con `describe uds_id` en ambos datasets.
 
 2. **Espacios extra**: Si uds_id es string, puede tener espacios al
@@ -58,22 +58,22 @@ Para diagnosticar, ejecuta esto antes del merge:
     merge m:1 uds_id using `uds', keep(using) nogenerate
     list uds_id in 1/10
 
-Eso te mostrara cuales UDS no emparejaron.
+Eso te mostrará cuáles UDS no emparejaron.
 ```
 
 Haces seguimiento:
 
 ```
-> uds_id es string en un archivo y numerico en el otro. Como lo arreglo?
+> uds_id es string en un archivo y numérico en el otro. ¿Cómo lo arreglo?
 ```
 
 ```
-Convierte a un formato comun antes del merge. Si uds_id deberia ser
-numerico:
+Convierte a un formato común antes del merge. Si uds_id debería ser
+numérico:
 
     destring uds_id, replace
 
-Si deberia ser string:
+Si debería ser string:
 
     tostring uds_id, replace
 
@@ -81,7 +81,7 @@ Agrega esto al do-file de limpieza, antes del merge, para que sea
 reproducible.
 ```
 
-**Sin Claude Code**, diagnosticar esto requiere: abrir ambos datasets, comparar tipos con `describe`, probar distintas hipotesis manualmente. Con Claude Code, llegas a la causa raiz en una pregunta.
+**Sin Claude Code**, diagnosticar esto requiere: abrir ambos datasets, comparar tipos con `describe`, probar distintas hipótesis manualmente. Con Claude Code, llegas a la causa raíz en una pregunta.
 
 ---
 
@@ -91,8 +91,8 @@ Necesitas una tabla comparando grupo de tratamiento vs control para tu reporte.
 
 ```
 > Usa plan mode. Necesito un do-file que produzca una tabla de balance
-> para el RCT de SpC. Variables: edad del cuidador, anos de educacion,
-> numero de hijos, ingreso mensual del hogar. Compara tratamiento
+> para el RCT de SpC. Variables: edad del cuidador, años de educación,
+> número de hijos, ingreso mensual del hogar. Compara tratamiento
 > (treatment==1) vs control (treatment==0). Incluye media, DE, diferencia,
 > y p-valor. Exporta a LaTeX con esttab.
 ```
@@ -113,12 +113,12 @@ Plan:
 
 Apruebas, y Claude Code genera un do-file completo, comentado, y ejecutable. Si algo no se ve bien, iteras: *"Agrega una columna con el N por grupo"* o *"Usa el formato de tabla de CLAUDE_DELIVERABLES_GUIDE.md."*
 
-**Sin Claude Code**, escribes la tabla linea por linea, consultando la documentacion de `esttab`, ajustando formato por prueba y error. Con Claude Code, describes el resultado y el te da el codigo.
+**Sin Claude Code**, escribes la tabla línea por línea, consultando la documentación de `esttab`, ajustando formato por prueba y error. Con Claude Code, describes el resultado y él te da el código.
 
 ---
 
-## Listo para empezar?
+## ¿Listo para empezar?
 
-Estos son ejemplos simples. Claude Code puede ayudar con pipelines completos de analisis, graficos con formato IPA, documentos Quarto, y mucho mas. Pero primero necesitas instalarlo.
+Estos son ejemplos simples. Claude Code puede ayudar con pipelines completos de análisis, gráficos con formato IPA, documentos Quarto, y mucho más. Pero primero necesitas instalarlo.
 
-[Ir a la instalacion →](setup.qmd){.btn .btn-primary}
+[Ir a la instalación →](setup.qmd){.btn .btn-primary}
